@@ -8,10 +8,12 @@ export default function Layout({
 	children: ReactNode
 }>) {
 	return (
-		<main className='container p-8'>
-			<Header />
-			{children}
-			<Footer />
-		</main>
+		<>
+			<main className='container flex min-h-dvh flex-col'>
+				<Header />
+				<section className='flex-1'>{children}</section>
+				<Footer />
+			</main>
+		</>
 	)
 }

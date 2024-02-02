@@ -18,24 +18,18 @@ const NavContent = () => {
 
 	return (
 		<section className='flex h-full flex-col gap-6 '>
-			{navLinks.map(item => {
-				const isActive =
-					(pathname.includes(item.link) && item.link.length > 1) ||
-					pathname === item.link
-
-				return (
-					<SheetClose asChild key={item.link}>
-						<Link
-							href={item.link}
-							className={cn(
-								pathname === item.link && 'border-b-2 border-primary'
-							)}
-						>
-							<p className={`py-2`}>{item.title}</p>
-						</Link>
-					</SheetClose>
-				)
-			})}
+			{navLinks.map(item => (
+				<SheetClose asChild key={item.link}>
+					<Link
+						href={item.link}
+						className={cn(
+							pathname === item.link && 'border-b-2 border-primary'
+						)}
+					>
+						<p className={`py-2`}>{item.title}</p>
+					</Link>
+				</SheetClose>
+			))}
 		</section>
 	)
 }

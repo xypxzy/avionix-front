@@ -6,7 +6,7 @@ import Search from '../Search/Search'
 
 export default function Header() {
 	return (
-		<header className='flex items-center justify-between'>
+		<header className='flex items-center justify-between py-8'>
 			<Link
 				href={'/'}
 				className='text-xl font-bold'
