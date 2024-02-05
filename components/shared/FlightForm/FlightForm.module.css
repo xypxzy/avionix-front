@@ -1,0 +1,143 @@
+.form__container {
+	display: grid;
+
+	grid-template-columns: 1fr 0.2fr 1fr 0.8fr repeat(2, 1fr) 0.8fr 1fr;
+	grid-template-rows: 0.2fr;
+	grid-gap: 20px;
+}
+
+.form__from {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.form__change_btn {
+	grid-area: 1 / 2 / 2 / 3;
+}
+
+.form__to {
+	grid-area: 1 / 3 / 2 / 4;
+}
+
+.form__trip {
+	grid-area: 1 / 4 / 2 / 5;
+}
+
+.form__departure {
+	grid-area: 1 / 5 / 2 / 6;
+}
+
+.form__return {
+	grid-area: 1 / 6 / 2 / 7;
+}
+
+.form__passengers {
+	grid-area: 1 / 7 / 2 / 8;
+}
+
+.form__button {
+	grid-area: 1 / 8 / 2 / 9;
+}
+
+/* for Laptops */
+@media screen and (max-width: 1440px) {
+	.form__container {
+		grid-template-columns: 1fr 0.4fr 1fr 0.8fr 0.2fr 1fr;
+		grid-template-rows: repeat(2, 0.2fr);
+	}
+
+	.form__trip {
+		grid-area: 1 / 4 / 2 / 6;
+	}
+
+	.form__departure {
+		grid-area: 2 / 1 / 3 / 3;
+	}
+
+	.form__return {
+		grid-area: 2 / 3 / 3 / 5;
+	}
+
+	.form__passengers {
+		grid-area: 1 / 6 / 2 / 7;
+	}
+
+	.form__button {
+		grid-area: 2 / 5 / 3 / 7;
+	}
+}
+
+/* for Tablets */
+@media screen and (max-width: 990px) {
+	.form__container {
+		grid-template-columns: 1fr repeat(2, 0.2fr) repeat(2, 0.5fr);
+		grid-template-rows: repeat(3, 0.2fr);
+	}
+
+	.form__change_btn {
+		grid-area: 1 / 2 / 2 / 4;
+	}
+
+	.form__to {
+		grid-area: 1 / 4 / 2 / 6;
+	}
+
+	.form__trip {
+		grid-area: 3 / 1 / 4 / 2;
+	}
+
+	.form__departure {
+		grid-area: 2 / 1 / 3 / 3;
+	}
+
+	.form__return {
+		grid-area: 2 / 3 / 3 / 6;
+	}
+
+	.form__passengers {
+		grid-area: 3 / 2 / 4 / 5;
+	}
+
+	.form__button {
+		grid-area: 3 / 5 / 4 / 6;
+	}
+}
+
+/* for Mobile */
+@media screen and (max-width: 676px) {
+	.form__container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 0.5fr 0.2fr repeat(6, 0.5fr);
+	}
+
+	.form__from {
+		grid-area: 1 / 1 / 2 / 3;
+	}
+
+	.form__change_btn {
+		grid-area: 2 / 1 / 3 / 3;
+	}
+
+	.form__to {
+		grid-area: 3 / 1 / 4 / 3;
+	}
+
+	.form__trip {
+		grid-area: 4 / 1 / 5 / 3;
+	}
+
+	.form__departure {
+		grid-area: 5 / 1 / 6 / 3;
+	}
+
+	.form__return {
+		grid-area: 6 / 1 / 7 / 3;
+	}
+
+	.form__passengers {
+		grid-area: 7 / 1 / 8 / 3;
+	}
+
+	.form__button {
+		grid-area: 8 / 1 / 9 / 3;
+	}
+}

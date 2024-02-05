@@ -25,7 +25,7 @@ function Hero(props: HeroProps) {
 							<Plane className='size-5 sm:size-7' />
 							<p className='text-xs sm:text-sm'>Flights</p>
 						</TabsTrigger>
-						<TabsTrigger value='hotels'>
+						<TabsTrigger value='hotels' disabled>
 							<Castle className='size-5 sm:size-7' />
 							<p className='text-xs sm:text-sm'>Hotels</p>
 						</TabsTrigger>

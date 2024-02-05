@@ -30,7 +30,12 @@ const Search = () => {
 					placeholder='Search globally'
 					className='border-none shadow-none outline-none'
 				/>
-				<Button type='submit' variant={'default'} className='mr-2 h-8 p-2'>
+				<Button
+					type='submit'
+					variant={'default'}
+					aria-label='search globally'
+					className='mr-2 h-8 p-2'
+				>
 					<SearchIcon
 						width={16}
 						height={16}

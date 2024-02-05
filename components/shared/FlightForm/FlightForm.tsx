@@ -29,6 +29,7 @@ import { format } from 'date-fns'
 import { ArrowRightLeft, CalendarIcon, MoveRight } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import styles from './FlightForm.module.css'
 
 const flightFormSchema = z.object({
 	departure: z.string().min(2).max(50),
@@ -74,39 +75,46 @@ export default function FlightForm() {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className='flex flex-wrap items-center justify-between gap-5 lg:items-start lg:justify-center'
+				className={styles.form__container}
 			>
-				<div className='flex flex-col items-center gap-4 sm:flex-row'>
-					<FormField
-						control={form.control}
-						name='departure'
-						render={({ field }) => (
-							<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
-								<FormLabel className='block rounded-md bg-primary py-2'>
-									From
-								</FormLabel>
-								<Select
-									onValueChange={field.onChange}
-									defaultValue={field.value}
-								>
-									<FormControl>
-										<SelectTrigger className='h-8 w-full truncate border-none  bg-inherit text-background md:max-w-[140px]'>
-											<SelectValue placeholder='Select a city' />
-										</SelectTrigger>
-									</FormControl>
-									<SelectContent>
-										<SelectGroup>
-											<SelectItem value='almaty'>Almaty</SelectItem>
-											<SelectItem value='bishkek'>Bishkek</SelectItem>
-											<SelectItem value='moscow'>Moscow</SelectItem>
-											<SelectItem value='pekin'>Pekin</SelectItem>
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</FormItem>
-						)}
-					/>
+				<FormField
+					control={form.control}
+					name='departure'
+					render={({ field }) => (
+						<FormItem
+							className={cn(
+								styles.form__from,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
+							<FormLabel className='block rounded-md bg-primary py-2'>
+								From
+							</FormLabel>
+							<Select onValueChange={field.onChange} defaultValue={field.value}>
+								<FormControl>
+									<SelectTrigger className='h-8 w-full truncate border-none  bg-inherit text-background md:w-[140px]'>
+										<SelectValue placeholder='Select a city' />
+									</SelectTrigger>
+								</FormControl>
+								<SelectContent>
+									<SelectGroup>
+										<SelectItem value='almaty'>Almaty</SelectItem>
+										<SelectItem value='bishkek'>Bishkek</SelectItem>
+										<SelectItem value='moscow'>Moscow</SelectItem>
+										<SelectItem value='pekin'>Pekin</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						</FormItem>
+					)}
+				/>
 
+				<div
+					className={cn(
+						styles.form__change_btn,
+						'flex justify-center items-center'
+					)}
+				>
 					<Button
 						type='button'
 						variant='ghost'
@@ -115,43 +123,50 @@ export default function FlightForm() {
 					>
 						<ArrowRightLeft />
 					</Button>
-
-					<FormField
-						control={form.control}
-						name='destination'
-						render={({ field }) => (
-							<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
-								<FormLabel className='block  rounded-md bg-primary py-2'>
-									To
-								</FormLabel>
-								<Select
-									onValueChange={field.onChange}
-									defaultValue={field.value}
-								>
-									<FormControl>
-										<SelectTrigger className='h-8 w-full border-none bg-inherit  text-background md:w-[140px]'>
-											<SelectValue placeholder='Select a city' />
-										</SelectTrigger>
-									</FormControl>
-									<SelectContent>
-										<SelectGroup>
-											<SelectItem value='almaty'>Almaty</SelectItem>
-											<SelectItem value='bishkek'>Bishkek</SelectItem>
-											<SelectItem value='moscow'>Moscow</SelectItem>
-											<SelectItem value='pekin'>Pekin</SelectItem>
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</FormItem>
-						)}
-					/>
 				</div>
+
+				<FormField
+					control={form.control}
+					name='destination'
+					render={({ field }) => (
+						<FormItem
+							className={cn(
+								styles.form__to,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
+							<FormLabel className='block rounded-md bg-primary py-2'>
+								To
+							</FormLabel>
+							<Select onValueChange={field.onChange} defaultValue={field.value}>
+								<FormControl>
+									<SelectTrigger className='h-8 w-full border-none bg-inherit  text-background md:w-[140px]'>
+										<SelectValue placeholder='Select a city' />
+									</SelectTrigger>
+								</FormControl>
+								<SelectContent>
+									<SelectGroup>
+										<SelectItem value='almaty'>Almaty</SelectItem>
+										<SelectItem value='bishkek'>Bishkek</SelectItem>
+										<SelectItem value='moscow'>Moscow</SelectItem>
+										<SelectItem value='pekin'>Pekin</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						</FormItem>
+					)}
+				/>
 
 				<FormField
 					control={form.control}
 					name='tripType'
 					render={({ field }) => (
-						<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
+						<FormItem
+							className={cn(
+								styles.form__trip,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
 								Trip
 							</FormLabel>
@@ -177,7 +192,12 @@ export default function FlightForm() {
 					control={form.control}
 					name='date.from'
 					render={({ field }) => (
-						<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
+						<FormItem
+							className={cn(
+								styles.form__departure,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
 								Departure
 							</FormLabel>
@@ -220,7 +240,12 @@ export default function FlightForm() {
 					control={form.control}
 					name='date.to'
 					render={({ field }) => (
-						<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
+						<FormItem
+							className={cn(
+								styles.form__return,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
 								Return
 							</FormLabel>
@@ -249,7 +274,7 @@ export default function FlightForm() {
 										initialFocus
 										mode='single'
 										selected={field.value}
-										disabled={date => date < new Date()}
+										disabled={date => date < new Date(1 / 6 / 2 / 7)}
 										onSelect={field.onChange}
 									/>
 								</PopoverContent>
@@ -263,7 +288,12 @@ export default function FlightForm() {
 					control={form.control}
 					name='passengers'
 					render={({ field }) => (
-						<FormItem className='rounded-sm bg-secondary px-5 py-4 text-center'>
+						<FormItem
+							className={cn(
+								styles.form__passengers,
+								'rounded-sm bg-secondary px-5 py-4 text-center'
+							)}
+						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
 								Passengers
 							</FormLabel>
@@ -290,7 +320,7 @@ export default function FlightForm() {
 				<Button
 					type='submit'
 					variant='secondary'
-					className='h-[6.5rem] px-8 py-2'
+					className={cn(styles.form__button, 'h-[6.5rem] px-8 py-2')}
 				>
 					Discover
 					<MoveRight className='ml-4' />

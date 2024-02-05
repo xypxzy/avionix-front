@@ -20,7 +20,7 @@ export default function ControlPanel() {
 	return (
 		<div className='hidden h-5 items-center space-x-4 md:flex'>
 			<DropdownMenu>
-				<DropdownMenuTrigger>
+				<DropdownMenuTrigger aria-label='account info'>
 					<User />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
@@ -36,7 +36,10 @@ export default function ControlPanel() {
 			<Separator orientation='vertical' />
 
 			<Select>
-				<SelectTrigger className='h-8 w-14 space-x-2 border-none p-0 text-sm'>
+				<SelectTrigger
+					className='h-8 w-14 space-x-2 border-none p-0 text-sm'
+					aria-label='change language'
+				>
 					<SelectValue placeholder={'EN'} defaultValue={'En'} />
 				</SelectTrigger>
 				<SelectContent>
@@ -45,7 +48,10 @@ export default function ControlPanel() {
 				</SelectContent>
 			</Select>
 			<Select>
-				<SelectTrigger className='h-8 w-14 space-x-2 border-none p-0 text-sm'>
+				<SelectTrigger
+					className='h-8 w-14 space-x-2 border-none p-0 text-sm'
+					aria-label='change currency'
+				>
 					<SelectValue placeholder={'USD'} defaultValue={'usd'} />
 				</SelectTrigger>
 				<SelectContent>
