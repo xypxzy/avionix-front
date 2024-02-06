@@ -1,5 +1,16 @@
-export const navLinks = [
-	{ title: 'Home', link: '/' },
-	{ title: 'Flights', link: '/flights' },
-	{ title: 'Services', link: '/services' },
+export enum LinkEnum {
+	Home = '/',
+	Flights = '/flights',
+	Services = '/services',
+}
+
+interface LinkProps {
+	title: string
+	link: LinkEnum
+}
+
+export const navLinks: LinkProps[] = [
+	{ title: 'Home', link: LinkEnum.Home },
+	{ title: 'Flights', link: LinkEnum.Flights },
+	{ title: 'Services', link: LinkEnum.Services },
 ]

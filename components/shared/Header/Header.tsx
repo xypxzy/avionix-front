@@ -1,3 +1,4 @@
+import { LinkEnum } from '@/routes/route'
 import Link from 'next/link'
 import ControlPanel from '../ControlPanel/ControlPanel'
 import MobileNav from '../MobileNav/MobileNav'
@@ -8,7 +9,7 @@ export default function Header() {
 	return (
 		<header className='flex items-center justify-between py-8'>
 			<Link
-				href={'/'}
+				href={LinkEnum.Home}
 				className='text-xl font-bold'
 				style={{ fontFamily: 'var(--font-kalam)' }}
 			>

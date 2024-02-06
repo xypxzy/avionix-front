@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import { LinkEnum } from '@/routes/route'
 import {
 	ArrowRight,
 	CreditCard,
@@ -19,7 +20,7 @@ export default function Footer() {
 			<div className='flex flex-col justify-between gap-10 lg:flex-row lg:gap-4'>
 				<div className='flex min-w-[280px] flex-col items-center justify-center gap-4 sm:min-w-[360px] lg:items-start'>
 					<Link
-						href={'/'}
+						href={LinkEnum.Home}
 						className='text-xl font-bold'
 						style={{ fontFamily: 'var(--font-kalam)' }}
 					>
