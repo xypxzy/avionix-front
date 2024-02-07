@@ -1,0 +1,11 @@
+{
+	"nav": {
+		"locale-selector": {
+			"message": "Choose a language."
+		}
+	},
+	"hero": {
+		"home-title": "Discover The World",
+		"home-desc": "Travel with us"
+	}
+}

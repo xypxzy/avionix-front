@@ -1,9 +1,9 @@
+import MobileNav from '@/components/shared/MobileNav/MobileNav'
+import Navbar from '@/components/shared/Navbar/Navbar'
+import Search from '@/components/shared/Search/Search'
 import { LinkEnum } from '@/routes/route'
 import Link from 'next/link'
 import ControlPanel from '../ControlPanel/ControlPanel'
-import MobileNav from '../MobileNav/MobileNav'
-import Navbar from '../Navbar/Navbar'
-import Search from '../Search/Search'
 
 export default function Header() {
 	return (
@@ -11,7 +11,7 @@ export default function Header() {
 			<Link
 				href={LinkEnum.Home}
 				className='text-xl font-bold'
-				style={{ fontFamily: 'var(--font-kalam)' }}
+				style={{ fontFamily: 'var(--font-galada)' }}
 			>
 				<h2>Tripper</h2>
 			</Link>

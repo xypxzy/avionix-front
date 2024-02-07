@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 import { Color, Mesh, MeshBasicMaterial } from 'three'
 
 function Earth() {
-	const earth = useGLTF('./earth_hologram/scene.gltf')
+	const earth = useGLTF(`/earth_hologram/scene.gltf`)
 
 	// Set scale for model
 	const scale = 3.8

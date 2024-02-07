@@ -10,6 +10,7 @@
 		"lint:fix": "next lint --fix"
 	},
 	"dependencies": {
+		"@formatjs/intl-localematcher": "^0.5.4",
 		"@hookform/resolvers": "^3.3.4",
 		"@radix-ui/react-accordion": "^1.1.2",
 		"@radix-ui/react-dialog": "^1.0.5",
@@ -24,6 +25,7 @@
 		"@react-three/fiber": "^8.15.16",
 		"date-fns": "^3.3.1",
 		"lucide-react": "^0.319.0",
+		"negotiator": "^0.6.3",
 		"next": "14.1.0",
 		"react": "^18",
 		"react-day-picker": "^8.10.0",
@@ -34,6 +36,7 @@
 		"zustand": "^4.5.0"
 	},
 	"devDependencies": {
+		"@types/negotiator": "^0.6.3",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",

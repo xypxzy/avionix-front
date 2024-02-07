@@ -1,8 +1,8 @@
 import EarthCanvas from '@/components/canvas/Earth/Earth'
+import FlightForm from '@/components/shared/FlightForm/FlightForm'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Castle, Plane } from 'lucide-react'
 import React, { memo, useCallback } from 'react'
-import FlightForm from '../FlightForm/FlightForm'
 
 type RenderType = 'default' | 'flights' | 'hotels'
 

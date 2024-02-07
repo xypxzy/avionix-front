@@ -22,7 +22,7 @@ export default function Footer() {
 					<Link
 						href={LinkEnum.Home}
 						className='text-xl font-bold'
-						style={{ fontFamily: 'var(--font-kalam)' }}
+						style={{ fontFamily: 'var(--font-galada)' }}
 					>
 						<h2>Tripper</h2>
 					</Link>

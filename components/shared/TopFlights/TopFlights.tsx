@@ -21,7 +21,7 @@ export default function TopFlights() {
 	return (
 		<section>
 			{/* TODO: посмотреть можно ли заменить на header tag */}
-			<div className='flex w-full justify-between items-center my-8'>
+			<div className='my-8 flex w-full items-center justify-between'>
 				<h3 className='text-xl'>Top flights</h3>
 				<Link href={LinkEnum.Flights}>
 					<Button variant='link' className='text-secondary underline'>
@@ -29,9 +29,9 @@ export default function TopFlights() {
 					</Button>
 				</Link>
 			</div>
-			<div className='flex gap-8 flex-col lg:flex-row'>
-				<Card className='w-full lg:w-1/4 border-2'>
-					<CardHeader className='bg-primary p-4 rounded-t-md border-b-2'>
+			<div className='flex flex-col gap-8 lg:flex-row'>
+				<Card className='w-full border-2 lg:w-1/4'>
+					<CardHeader className='rounded-t-md border-b-2 bg-primary p-4'>
 						<CardTitle className='text-lg font-normal'>Card Title</CardTitle>
 					</CardHeader>
 					<CardContent className='p-4'>
@@ -51,7 +51,7 @@ export default function TopFlights() {
 						<Link href={LinkEnum.Flights}>
 							<Button
 								variant='link'
-								className='text-secondary text-base underline items-start px-0'
+								className='items-start px-0 text-base text-secondary underline'
 							>
 								More information
 							</Button>
@@ -62,7 +62,7 @@ export default function TopFlights() {
 				<Accordion
 					type='single'
 					collapsible
-					className='flex-1 flex flex-col gap-6'
+					className='flex flex-1 flex-col gap-6'
 				>
 					<AccordionItem value='item-1'>
 						<AccordionTrigger>Is it accessible?</AccordionTrigger>

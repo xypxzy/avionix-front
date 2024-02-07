@@ -1,4 +1,4 @@
-import Hero from '@/components/shared/Hero/Hero'
+import Hero from '@/components/common/Hero/Hero'
 
 export default function Flights() {
 	return (
