@@ -10,7 +10,7 @@ import { NextRequest } from 'next/server'
  */
 export function getMatchingLocale(request: NextRequest): Locale {
 	// Initialize user headers object.
-	let userHeaders: Record<string, string> = {}
+	const userHeaders: Record<string, string> = {}
 
 	// Fill user headers object with headers from the request.
 	request.headers.forEach(
@@ -21,7 +21,7 @@ export function getMatchingLocale(request: NextRequest): Locale {
 	const clientLocales = new Negotiator({ headers: userHeaders }).languages()
 
 	// Initialize app/server locales object.
-	let appLocales: Locale[] = []
+	const appLocales: Locale[] = []
 
 	// Fill app/server locales with locales from the i18n config.
 	i18nConfig.locales.forEach((locale: Locale) => {

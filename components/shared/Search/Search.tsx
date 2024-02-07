@@ -6,8 +6,6 @@ import { SearchIcon } from 'lucide-react'
 import React from 'react'
 
 const Search = () => {
-	console.log('rendering')
-
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 
