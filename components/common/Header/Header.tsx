@@ -10,10 +10,10 @@ export default function Header() {
 		<header className='flex items-center justify-between py-8'>
 			<Link
 				href={LinkEnum.Home}
-				className='text-xl font-bold'
+				className='text-2xl font-bold'
 				style={{ fontFamily: 'var(--font-galada)' }}
 			>
-				<h2>Tripper</h2>
+				<h2>Avionix</h2>
 			</Link>
 			<Search />
 			<Navbar />

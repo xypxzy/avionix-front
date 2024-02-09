@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
 				className='h-8 w-14 space-x-2 border-none p-0 text-sm'
 				aria-label='change language'
 			>
-				{pathname.slice(1).toUpperCase()}
+				{pathname.split('/')[1].toUpperCase()}
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
 				{locales.map((locale, index) => (

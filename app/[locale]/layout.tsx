@@ -1,9 +1,10 @@
 import { Locale, i18nConfig } from '@/i18n'
 import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/providers/ThemeProvider/ThemeProvider'
 import type { Metadata } from 'next'
 import { Galada, Josefin_Sans } from 'next/font/google'
 import { ReactNode } from 'react'
-import '../globals.css'
+import './globals.css'
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'], weight: ['300', '400'] })
 const galadaSans = Galada({
@@ -18,10 +19,10 @@ export const metadata: Metadata = {
 }
 
 export async function generateStaticParams() {
-	return i18nConfig.locales.map((locale: Locale) => ({ locale: locale }))
+	return i18nConfig.locales.map((locale: Locale) => ({ locale }))
 }
 
-export default async function RootLayout({
+export default function RootLayout({
 	children,
 	params,
 }: Readonly<{
@@ -31,9 +32,16 @@ export default async function RootLayout({
 	}
 }>) {
 	return (
-		<html lang={params.locale}>
+		<html lang={params.locale} suppressHydrationWarning>
 			<body className={cn(josefinSans.className, galadaSans.variable)}>
-				{children}
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	)

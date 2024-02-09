@@ -15,16 +15,16 @@ import styles from './Footer.module.css'
 export default function Footer() {
 	return (
 		<footer
-			className={`${styles.full_bleed} bg-secondary py-8 text-background`}
+			className={`${styles.full_bleed} bg-foreground py-8 text-background dark:bg-background dark:text-foreground`}
 		>
 			<div className='flex flex-col justify-between gap-10 lg:flex-row lg:gap-4'>
 				<div className='flex min-w-[280px] flex-col items-center justify-center gap-4 sm:min-w-[360px] lg:items-start'>
 					<Link
 						href={LinkEnum.Home}
-						className='text-xl font-bold'
+						className='text-2xl font-bold'
 						style={{ fontFamily: 'var(--font-galada)' }}
 					>
-						<h2>Tripper</h2>
+						<h2>Avionix</h2>
 					</Link>
 					<p>117 Abbey Rd, London NW8 9AY, UK</p>
 					<a href='tel:+99677777777'>+996 777 77 77 77</a>
@@ -60,13 +60,13 @@ export default function Footer() {
 				<div className='flex flex-col items-center justify-center lg:items-start'>
 					<h3 className='mb-6 text-lg'>Newsletter</h3>
 					<div className='relative w-fit min-w-[280px] space-y-2 sm:min-w-[360px]'>
-						<form className='relative flex min-h-[46px] grow items-center gap-1 rounded-xl border border-background'>
+						<form className='relative flex min-h-[46px] grow items-center gap-1 rounded-xl border border-primary dark:border-border'>
 							<Input
 								type='email'
 								id='email'
 								name='email'
 								placeholder='Email'
-								className='border-none bg-secondary shadow-none outline-none'
+								className='border-none bg-inherit shadow-none outline-none'
 							/>
 							<Separator
 								orientation='vertical'

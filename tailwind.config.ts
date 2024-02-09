@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config = {
-	darkMode: ['class'],
+	darkMode: 'class',
 	content: [
 		'./pages/**/*.{ts,tsx}',
 		'./components/**/*.{ts,tsx}',
@@ -19,7 +19,7 @@ const config = {
 		},
 		extend: {
 			colors: {
-				background_hero: '#f0ebe4',
+				background_hero: 'var(--background-hero)',
 
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

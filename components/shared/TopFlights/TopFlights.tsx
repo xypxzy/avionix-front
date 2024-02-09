@@ -24,14 +24,17 @@ export default function TopFlights() {
 			<div className='my-8 flex w-full items-center justify-between'>
 				<h3 className='text-xl'>Top flights</h3>
 				<Link href={LinkEnum.Flights}>
-					<Button variant='link' className='text-secondary underline'>
+					<Button
+						variant='link'
+						className='text-foreground underline hover:text-muted-foreground'
+					>
 						Browse all flights
 					</Button>
 				</Link>
 			</div>
 			<div className='flex flex-col gap-8 lg:flex-row'>
 				<Card className='w-full border-2 lg:w-1/4'>
-					<CardHeader className='rounded-t-md border-b-2 bg-primary p-4'>
+					<CardHeader className='rounded-t-md border-b-2 bg-primary p-4 text-primary-foreground'>
 						<CardTitle className='text-lg font-normal'>Card Title</CardTitle>
 					</CardHeader>
 					<CardContent className='p-4'>
@@ -51,7 +54,7 @@ export default function TopFlights() {
 						<Link href={LinkEnum.Flights}>
 							<Button
 								variant='link'
-								className='items-start px-0 text-base text-secondary underline'
+								className='items-start px-0 text-base text-foreground underline hover:text-muted-foreground'
 							>
 								More information
 							</Button>

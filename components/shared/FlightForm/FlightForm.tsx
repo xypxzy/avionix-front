@@ -84,15 +84,15 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__from,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background px-5 py-4 text-center'
 							)}
 						>
-							<FormLabel className='block rounded-md bg-primary py-2'>
+							<FormLabel className='block rounded-md bg-primary py-2 text-primary-foreground'>
 								From
 							</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
-									<SelectTrigger className='h-8 w-full truncate border-none  bg-inherit text-background md:w-[140px]'>
+									<SelectTrigger className='h-8 w-full truncate border-none bg-inherit md:w-[140px]'>
 										<SelectValue placeholder='Select a city' />
 									</SelectTrigger>
 								</FormControl>
@@ -119,7 +119,7 @@ export default function FlightForm() {
 						type='button'
 						variant='ghost'
 						onClick={onSwitchCities}
-						className='hover:bg-primary'
+						className='hover:bg-primary hover:text-primary-foreground'
 					>
 						<ArrowRightLeft />
 					</Button>
@@ -132,15 +132,15 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__to,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background px-5 py-4 text-center'
 							)}
 						>
-							<FormLabel className='block rounded-md bg-primary py-2'>
+							<FormLabel className='block rounded-md bg-primary py-2 text-primary-foreground'>
 								To
 							</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
-									<SelectTrigger className='h-8 w-full border-none bg-inherit  text-background md:w-[140px]'>
+									<SelectTrigger className='h-8 w-full border-none bg-inherit md:w-[140px]'>
 										<SelectValue placeholder='Select a city' />
 									</SelectTrigger>
 								</FormControl>
@@ -164,15 +164,15 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__trip,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background px-5 py-4 text-center'
 							)}
 						>
-							<FormLabel className='block rounded-md bg-primary py-2'>
+							<FormLabel className='block rounded-md bg-primary py-2 text-primary-foreground'>
 								Trip
 							</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
-									<SelectTrigger className='h-8 w-full border-none bg-inherit text-background md:w-[110px]'>
+									<SelectTrigger className='h-8 w-full border-none bg-inherit md:w-[110px]'>
 										<SelectValue placeholder='Select a type' />
 									</SelectTrigger>
 								</FormControl>
@@ -195,7 +195,7 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__departure,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background px-5 py-4 text-center text-primary-foreground'
 							)}
 						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
@@ -208,7 +208,7 @@ export default function FlightForm() {
 											id='date'
 											variant={'outline'}
 											className={cn(
-												'w-full md:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit text-background hover:bg-inherit hover:text-background',
+												'w-full md:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit hover:bg-inherit hover:text-muted-foreground',
 												!field.value && 'text-muted-foreground'
 											)}
 										>
@@ -243,7 +243,7 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__return,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background text-primary-foreground px-5 py-4 text-center'
 							)}
 						>
 							<FormLabel className='block rounded-md bg-primary py-2'>
@@ -256,7 +256,7 @@ export default function FlightForm() {
 											id='date'
 											variant={'outline'}
 											className={cn(
-												'w-full md:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit text-background hover:bg-inherit hover:text-background',
+												'w-full md:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit hover:bg-inherit hover:text-muted-foreground',
 												!field.value && 'text-muted-foreground'
 											)}
 										>
@@ -291,10 +291,10 @@ export default function FlightForm() {
 						<FormItem
 							className={cn(
 								styles.form__passengers,
-								'rounded-sm bg-secondary px-5 py-4 text-center'
+								'rounded-sm bg-secondary dark:bg-background px-5 py-4 text-center'
 							)}
 						>
-							<FormLabel className='block rounded-md bg-primary py-2'>
+							<FormLabel className='block rounded-md bg-primary py-2 text-primary-foreground'>
 								Passengers
 							</FormLabel>
 							<Select
@@ -302,7 +302,7 @@ export default function FlightForm() {
 								defaultValue={field.value.toString()}
 							>
 								<FormControl>
-									<SelectTrigger className='h-8 w-full border-none bg-inherit text-background md:w-[120px]'>
+									<SelectTrigger className='h-8 w-full border-none bg-inherit md:w-[120px]'>
 										<SelectValue placeholder='Select a type' />
 									</SelectTrigger>
 								</FormControl>
@@ -320,7 +320,10 @@ export default function FlightForm() {
 				<Button
 					type='submit'
 					variant='secondary'
-					className={cn(styles.form__button, 'h-[6.5rem] px-8 py-2')}
+					className={cn(
+						styles.form__button,
+						'h-[6.5rem] px-8 py-2 dark:bg-background'
+					)}
 				>
 					Discover
 					<MoveRight className='ml-4' />

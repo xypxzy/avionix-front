@@ -1,5 +1,5 @@
-import CurrencySwitcher from '@/components/shared/CurrencySwitcher/CurrencySwitcher'
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher/LanguageSwitcher'
+import ThemeSwitcher from '@/components/shared/ThemeSwitcher/ThemeSwitcher'
 import UserMenu from '@/components/shared/UserMenu/UserMenu'
 import { Separator } from '@/components/ui/separator'
 
@@ -9,7 +9,7 @@ export default function ControlPanel() {
 			<UserMenu />
 			<Separator orientation='vertical' />
 			<LanguageSwitcher />
-			<CurrencySwitcher />
+			<ThemeSwitcher />
 		</div>
 	)
 }
