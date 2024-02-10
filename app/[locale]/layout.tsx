@@ -1,6 +1,6 @@
 import { Locale, i18nConfig } from '@/i18n'
 import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/providers/ThemeProvider/ThemeProvider'
+import { AuthProvider, ThemeProvider } from '@/providers'
 import type { Metadata } from 'next'
 import { Galada, Josefin_Sans } from 'next/font/google'
 import { ReactNode } from 'react'
@@ -40,7 +40,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					{children}
+					<AuthProvider>{children}</AuthProvider>
 				</ThemeProvider>
 			</body>
 		</html>
