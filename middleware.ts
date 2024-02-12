@@ -27,5 +27,7 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
 	// Matcher ignoring /_next/, /api/ and earth_hologram for gltf object
-	matcher: ['/((?!api|_next/static|_next/image|favicon.ico|earth_hologram).*)'],
+	matcher: [
+		'/((?!api|_next/static|_next/image|favicon.ico|earth_hologram|assets).*)',
+	],
 }
