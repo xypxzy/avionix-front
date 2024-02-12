@@ -33,11 +33,11 @@ export default function TopFlights() {
 				</Link>
 			</div>
 			<div className='flex flex-col gap-8 lg:flex-row'>
-				<Card className='w-full border-2 lg:w-1/5 flex flex-col justify-between'>
+				<Card className='flex w-full flex-col justify-between border-2 lg:w-1/5'>
 					<CardHeader className='rounded-t-md border-b-2 bg-primary p-4 text-primary-foreground'>
 						<CardTitle className='text-lg font-normal'>Card Title</CardTitle>
 					</CardHeader>
-					<CardContent className='pt-4 pb-0'>
+					<CardContent className='pb-0 pt-4'>
 						<p className='mb-4 text-xs'>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						</p>
@@ -45,11 +45,11 @@ export default function TopFlights() {
 							<img
 								src='https://images.unsplash.com/photo-1682687981974-c5ef2111640c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 								alt='card-image'
-								className='rounded-sm max-h-[180px]'
+								className='max-h-[180px] rounded-sm'
 							/>
 						</picture>
 					</CardContent>
-					<CardFooter className='px-6 py-1 flex-1 items-end'>
+					<CardFooter className='flex-1 items-end px-6 py-1'>
 						<Link href={LinkEnum.Flights}>
 							<Button
 								variant='link'

@@ -7,7 +7,7 @@ import ControlPanel from '../ControlPanel/ControlPanel'
 export default function Header() {
 	return (
 		<header className='flex items-center justify-between py-8'>
-			<div className='flex items-center w-3/5'>
+			<div className='flex w-3/5 items-center'>
 				<Logo />
 				<Search />
 			</div>

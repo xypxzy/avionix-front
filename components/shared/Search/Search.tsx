@@ -15,7 +15,7 @@ const Search = () => {
 	}
 
 	return (
-		<div className='relative w-full flex-1 max-lg:hidden mx-10'>
+		<div className='relative mx-10 w-full flex-1 max-lg:hidden'>
 			<form
 				onSubmit={handleSubmit}
 				className=' relative flex min-h-[25px]

@@ -10,7 +10,7 @@ export default function Layout({
 	return (
 		<div className='container flex min-h-dvh flex-col'>
 			<Header />
-			<main className='my-5 flex-1 flex flex-col space-y-5'>{children}</main>
+			<main className='my-5 flex flex-1 flex-col space-y-5'>{children}</main>
 			<Footer />
 		</div>
 	)

@@ -2,7 +2,7 @@ import EarthCanvas from '@/components/canvas/Earth/Earth'
 import FlightForm from '@/components/shared/FlightForm/FlightForm'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Castle, Plane } from 'lucide-react'
-import React, { useCallback } from 'react'
+import React, { Suspense, useCallback } from 'react'
 
 type RenderType = 'default' | 'flights' | 'hotels'
 
@@ -31,12 +31,18 @@ function Hero(props: HeroProps) {
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value='flights'>
-						<FlightForm />
+						<Suspense fallback={<div>Is Loading...</div>}>
+							<FlightForm />
+						</Suspense>
 					</TabsContent>
 					<TabsContent value='hotels'>Change your password here.</TabsContent>
 				</Tabs>
 			),
-			flights: <FlightForm />,
+			flights: (
+				<Suspense fallback={<div>Is Loading...</div>}>
+					<FlightForm />
+				</Suspense>
+			),
 			hotels: <div>hotels</div>,
 		}
 
