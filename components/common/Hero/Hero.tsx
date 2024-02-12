@@ -2,7 +2,7 @@ import EarthCanvas from '@/components/canvas/Earth/Earth'
 import FlightForm from '@/components/shared/FlightForm/FlightForm'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Castle, Plane } from 'lucide-react'
-import React, { memo, useCallback } from 'react'
+import React, { useCallback } from 'react'
 
 type RenderType = 'default' | 'flights' | 'hotels'
 
@@ -50,7 +50,7 @@ function Hero(props: HeroProps) {
 			after:-left-3 after:top-[5%] after:z-[-1] after:h-[90%] after:w-[calc(100%+1.5rem)] after:rounded-sm after:border-2 after:border-secondary-foreground after:bg-secondary dark:before:border-foreground lg:space-y-8'
 		>
 			<div className='flex items-center justify-between'>
-				<div className='space-y-2 font-light uppercase lg:space-y-8'>
+				<div className='space-y-2 font-light uppercase lg:space-y-4'>
 					{preTitle && (
 						<h2 className='text-lg sm:text-xl xl:text-2xl'>{preTitle}</h2>
 					)}
@@ -66,4 +66,4 @@ function Hero(props: HeroProps) {
 	)
 }
 
-export default memo(Hero)
+export default Hero

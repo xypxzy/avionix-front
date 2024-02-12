@@ -9,17 +9,17 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { User } from 'lucide-react'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
+// import { signIn, signOut, useSession } from 'next-auth/react'
+// import { redirect } from 'next/navigation'
 
 export default function UserMenu() {
-	const session = useSession()
+	// const session = useSession()
 
-	console.log(session)
+	// console.log(session)
 
-	if (session.status !== 'authenticated') {
-		redirect('/sign-in')
-	}
+	// if (session.status !== 'authenticated') {
+	// 	redirect('/sign-in')
+	// }
 
 	return (
 		<DropdownMenu>
@@ -32,7 +32,7 @@ export default function UserMenu() {
 				<DropdownMenuItem>Profile</DropdownMenuItem>
 				<DropdownMenuItem>Billing</DropdownMenuItem>
 				<DropdownMenuItem>Team</DropdownMenuItem>
-				{session.status === 'authenticated' ? (
+				{/* {session.status === 'authenticated' ? (
 					<DropdownMenuItem onClick={() => signOut()}>
 						Sign Out
 					</DropdownMenuItem>
@@ -40,7 +40,7 @@ export default function UserMenu() {
 					<DropdownMenuItem onClick={() => signIn('google')}>
 						Sign In
 					</DropdownMenuItem>
-				)}
+				)} */}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

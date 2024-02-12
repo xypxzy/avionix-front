@@ -15,10 +15,10 @@ const Search = () => {
 	}
 
 	return (
-		<div className='relative w-fit min-w-[360px] max-lg:hidden'>
+		<div className='relative w-full flex-1 max-lg:hidden mx-10'>
 			<form
 				onSubmit={handleSubmit}
-				className=' relative flex min-h-[46px]
+				className=' relative flex min-h-[25px]
 			grow items-center gap-1 rounded-xl border border-border'
 			>
 				<Input

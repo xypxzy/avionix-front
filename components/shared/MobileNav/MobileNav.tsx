@@ -12,6 +12,7 @@ import { navLinks } from '@/routes/route'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Logo from '../Logo/Logo'
 
 const NavContent = () => {
 	const pathname = usePathname()
@@ -45,13 +46,7 @@ export default function MobileNav() {
 				/>
 			</SheetTrigger>
 			<SheetContent side={'left'} className='border-none'>
-				<Link
-					href={'/'}
-					className='text-2xl font-bold'
-					style={{ fontFamily: 'var(--font-kalam)' }}
-				>
-					<h2>Tripper</h2>
-				</Link>
+				<Logo />
 				<div className='flex h-[calc(100%-72px)] flex-col justify-between '>
 					<SheetClose asChild>
 						<NavContent />

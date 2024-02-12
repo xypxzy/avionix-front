@@ -10,7 +10,7 @@ export default function Navbar() {
 
 	return (
 		<nav className='hidden md:block'>
-			<ul className='flex gap-16 text-sm'>
+			<ul className='flex gap-10 text-sm'>
 				{navLinks.map(navLink => (
 					<li
 						key={navLink.title}
