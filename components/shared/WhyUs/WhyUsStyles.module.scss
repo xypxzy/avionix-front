@@ -1,0 +1,34 @@
+.us {
+  padding: 20px 0;
+  h2 {
+    margin: 20px 0;
+    font-size: 27px;
+    font-weight: 500;
+  }
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    &__card {
+      border: 1px solid #303131;
+      border-radius: 8px;
+      max-width: 490px;
+      background-color: #d5cabc;
+      &__title {
+        text-align: center;
+        background-color: #303131;
+        color: #ffffff;
+        border-radius: 5px 5px 0 0;
+      }
+      &__img {
+        margin: 20px auto;
+        max-width: 100px;
+      }
+      &__description {
+        text-align: center;
+        padding: 0 10px;
+      }
+    }
+  }
+}
