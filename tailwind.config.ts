@@ -1,28 +1,30 @@
 import type { Config } from 'tailwindcss'
 
 const config = {
-	darkMode: 'class',
-	content: [
-		'./pages/**/*.{ts,tsx}',
-		'./components/**/*.{ts,tsx}',
-		'./app/**/*.{ts,tsx}',
-		'./src/**/*.{ts,tsx}',
-	],
-	prefix: '',
-	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1600px',
-			},
-		},
-		extend: {
-      backgroundColor: {
-        'custom-gray': '#303131',
+  darkMode: 'class',
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
+  prefix: '',
+  theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1600px',
       },
-			colors: {
-				background_hero: 'var(--background-hero)',
+    },
+    extend: {
+      backgroundColor: {
+        'custom-bg': '#0F1034',
+        'hover-bg': '#80C7D9',
+      },
+      colors: {
+        blue_color: '#0e1036',
+        background_hero: 'var(--background-hero)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

@@ -1,0 +1,113 @@
+[
+  {
+    "createdAt": "2024-02-19T12:00:00",
+    "createdBy": "avionix2024@gmail.com",
+    "updatedAt": "2024-02-19T12:00:00",
+    "updatedBy": "avionix2024@gmail.com",
+    "id": "a3baf58b-8572-4f4f-b9d5-571b64fc99ff",
+    "content": [
+      {
+        "id": "e6ad3ac7-3a45-4d13-ba17-302627d1e8e0",
+        "title": "Trip Planing",
+        "description": "Plan the whole trip with us. Get a flight ticket, choose a hotel and rent a car.",
+        "img": "https://s3-alpha-sig.figma.com/img/386e/0af8/2e12262453fbe5c8ecd82e066529741d?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n-mWxhTgsjPX2zMKAmllrN4YzmIN9IFtzLpvPAbn5Qk9Nleg~eC3JqnGae1StsZe4UapEG8tT9fgCPrLnJ~q3zeJewRAPHs1tWAqdAnmvdHfDEhboqERZ3U8g8PHOc16ZkzoLi4xr2YUoRXAIgYU1N-E5GDdepg39Wo4UD9uIKkblNgxJBn8QpAaT1y28sIhDXvTT237XSh8wuRrJ2b5RISzuFUSO9rhejTyY~9vSjfv9hB3xUE3nLvFkBXYfDT2qM9hsAR38Ii0uLFEjrzmfIX6OlAzuhQIC2-dFQ9XOE-129RWLH~XDbQliibRwq5kLR2wwtd6VKFI6A~XARguZg__",
+        "lan": "EN"
+      },
+      {
+        "id": "e0b2d9f0-c1f3-4876-9f3a-7922e3311cf7",
+        "title": "Планирование полета",
+        "description": "Спланируйте всю поездку вместе с нами. Приобретите авиабилет, выберите отель и арендуйте автомобиль.",
+        "img": "https://s3-alpha-sig.figma.com/img/386e/0af8/2e12262453fbe5c8ecd82e066529741d?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n-mWxhTgsjPX2zMKAmllrN4YzmIN9IFtzLpvPAbn5Qk9Nleg~eC3JqnGae1StsZe4UapEG8tT9fgCPrLnJ~q3zeJewRAPHs1tWAqdAnmvdHfDEhboqERZ3U8g8PHOc16ZkzoLi4xr2YUoRXAIgYU1N-E5GDdepg39Wo4UD9uIKkblNgxJBn8QpAaT1y28sIhDXvTT237XSh8wuRrJ2b5RISzuFUSO9rhejTyY~9vSjfv9hB3xUE3nLvFkBXYfDT2qM9hsAR38Ii0uLFEjrzmfIX6OlAzuhQIC2-dFQ9XOE-129RWLH~XDbQliibRwq5kLR2wwtd6VKFI6A~XARguZg__",
+        "lan": "RU"
+      },
+      {
+        "id": "32f975e2-b8ac-484e-b0a0-0a05b3dbac25",
+        "title": "Сапарды пландаштыруу",
+        "description": "Бүт сапарды биз менен пландаштырыңыз. Авиабилет алыңыз, мейманкананы тандаңыз жана унааны ижарага алыңыз.",
+        "img": "https://s3-alpha-sig.figma.com/img/386e/0af8/2e12262453fbe5c8ecd82e066529741d?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n-mWxhTgsjPX2zMKAmllrN4YzmIN9IFtzLpvPAbn5Qk9Nleg~eC3JqnGae1StsZe4UapEG8tT9fgCPrLnJ~q3zeJewRAPHs1tWAqdAnmvdHfDEhboqERZ3U8g8PHOc16ZkzoLi4xr2YUoRXAIgYU1N-E5GDdepg39Wo4UD9uIKkblNgxJBn8QpAaT1y28sIhDXvTT237XSh8wuRrJ2b5RISzuFUSO9rhejTyY~9vSjfv9hB3xUE3nLvFkBXYfDT2qM9hsAR38Ii0uLFEjrzmfIX6OlAzuhQIC2-dFQ9XOE-129RWLH~XDbQliibRwq5kLR2wwtd6VKFI6A~XARguZg__",
+        "lan": "KG"
+      },
+      {
+        "id": "bf44dcbc-1e82-489a-b86b-2e13ac6b425f",
+        "title": "Gezi Planlama",
+        "description": "Tüm seyahatinizi bizimle planlayın. Uçak bileti alın, otel seçin ve araç kiralayın.",
+        "img": "https://s3-alpha-sig.figma.com/img/386e/0af8/2e12262453fbe5c8ecd82e066529741d?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n-mWxhTgsjPX2zMKAmllrN4YzmIN9IFtzLpvPAbn5Qk9Nleg~eC3JqnGae1StsZe4UapEG8tT9fgCPrLnJ~q3zeJewRAPHs1tWAqdAnmvdHfDEhboqERZ3U8g8PHOc16ZkzoLi4xr2YUoRXAIgYU1N-E5GDdepg39Wo4UD9uIKkblNgxJBn8QpAaT1y28sIhDXvTT237XSh8wuRrJ2b5RISzuFUSO9rhejTyY~9vSjfv9hB3xUE3nLvFkBXYfDT2qM9hsAR38Ii0uLFEjrzmfIX6OlAzuhQIC2-dFQ9XOE-129RWLH~XDbQliibRwq5kLR2wwtd6VKFI6A~XARguZg__",
+        "lan": "TR"
+      }
+    ]
+  },
+  {
+    "createdAt": "2024-02-19T12:00:00",
+    "createdBy": "avionix2024@gmail.com",
+    "updatedAt": "2024-02-19T12:00:00",
+    "updatedBy": "avionix2024@gmail.com",
+    "id": "d3b95c1e-d1b7-4ac1-8641-2752e9824eae",
+    "content": [
+      {
+        "id": "df7b0b0f-8ff7-46aa-af5d-fb6bf7435e8d",
+        "title": "Honest prices",
+        "description": "We offer the best prices out there in the market for flights, hotels & car rental.",
+        "img": "https://s3-alpha-sig.figma.com/img/552b/1ed0/1b82b23b4b21dc35bdf0dc68e7de84e8?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9aMx-wCeq~Xflq-pjSHXs29tgUPG06Mv-TnwMEJg5OSeZZmiZrg1AsW3R9nleGh5RDf6DCNtA3R9XBabbF6b74W--8GM5e0~5qQsTlLZOP9eCCgIaT~Ud6qEHMb4JVOS4kGM2u2NFrr0lziedXhBkDecqfDkMznQ5fr0rd238vul55fRIBywfcl~xnZV6xm5SNQsRlMaQMTwXaS7f~fhpJVV~ro2~-NJvDIWMctr4BnFeGxglHT~8~rRFSY-OJr7s-9cihvzoX42dsDk7BxMiYFtE5pAI~LPV2ySknoU08t84apnxrWGtVdLVwltEiG06XtM92sUCo7dVAaHqk1iw__",
+        "lan": "EN"
+      },
+      {
+        "id": "07a20a05-5be6-4a9d-90d6-9bdf99a00db4",
+        "title": "Честные цены",
+        "description": "Мы предлагаем лучшие цены на рынке на авиабилеты, отели и аренду автомобилей.",
+        "img": "https://s3-alpha-sig.figma.com/img/552b/1ed0/1b82b23b4b21dc35bdf0dc68e7de84e8?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9aMx-wCeq~Xflq-pjSHXs29tgUPG06Mv-TnwMEJg5OSeZZmiZrg1AsW3R9nleGh5RDf6DCNtA3R9XBabbF6b74W--8GM5e0~5qQsTlLZOP9eCCgIaT~Ud6qEHMb4JVOS4kGM2u2NFrr0lziedXhBkDecqfDkMznQ5fr0rd238vul55fRIBywfcl~xnZV6xm5SNQsRlMaQMTwXaS7f~fhpJVV~ro2~-NJvDIWMctr4BnFeGxglHT~8~rRFSY-OJr7s-9cihvzoX42dsDk7BxMiYFtE5pAI~LPV2ySknoU08t84apnxrWGtVdLVwltEiG06XtM92sUCo7dVAaHqk1iw__",
+        "lan": "RU"
+      },
+      {
+        "id": "09d2b1f0-6d53-41c6-aabb-282fcabf2cc5",
+        "title": "Чыныгы баалар",
+        "description": "Биз учактар, мейманканалар жана унааларды ижарага алуу үчүн рынокто эң мыкты бааларды сунуштайбыз.",
+        "img": "https://s3-alpha-sig.figma.com/img/552b/1ed0/1b82b23b4b21dc35bdf0dc68e7de84e8?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9aMx-wCeq~Xflq-pjSHXs29tgUPG06Mv-TnwMEJg5OSeZZmiZrg1AsW3R9nleGh5RDf6DCNtA3R9XBabbF6b74W--8GM5e0~5qQsTlLZOP9eCCgIaT~Ud6qEHMb4JVOS4kGM2u2NFrr0lziedXhBkDecqfDkMznQ5fr0rd238vul55fRIBywfcl~xnZV6xm5SNQsRlMaQMTwXaS7f~fhpJVV~ro2~-NJvDIWMctr4BnFeGxglHT~8~rRFSY-OJr7s-9cihvzoX42dsDk7BxMiYFtE5pAI~LPV2ySknoU08t84apnxrWGtVdLVwltEiG06XtM92sUCo7dVAaHqk1iw__",
+        "lan": "KG"
+      },
+      {
+        "id": "5d2b8a54-0342-43d9-8045-c870029ef145",
+        "title": "Dürüst fiyatlar",
+        "description": "Uçuş, otel ve araç kiralamada piyasadaki en iyi fiyatları sunuyoruz.",
+        "img": "https://s3-alpha-sig.figma.com/img/552b/1ed0/1b82b23b4b21dc35bdf0dc68e7de84e8?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9aMx-wCeq~Xflq-pjSHXs29tgUPG06Mv-TnwMEJg5OSeZZmiZrg1AsW3R9nleGh5RDf6DCNtA3R9XBabbF6b74W--8GM5e0~5qQsTlLZOP9eCCgIaT~Ud6qEHMb4JVOS4kGM2u2NFrr0lziedXhBkDecqfDkMznQ5fr0rd238vul55fRIBywfcl~xnZV6xm5SNQsRlMaQMTwXaS7f~fhpJVV~ro2~-NJvDIWMctr4BnFeGxglHT~8~rRFSY-OJr7s-9cihvzoX42dsDk7BxMiYFtE5pAI~LPV2ySknoU08t84apnxrWGtVdLVwltEiG06XtM92sUCo7dVAaHqk1iw__",
+        "lan": "TR"
+      }
+    ]
+  },
+  {
+    "createdAt": "2024-02-19T12:00:00",
+    "createdBy": "avionix2024@gmail.com",
+    "updatedAt": "2024-02-19T12:00:00",
+    "updatedBy": "avionix2024@gmail.com",
+    "id": "ce26fadc-1202-40b6-b700-43724b0fa0c4",
+    "content": [
+      {
+        "id": "e6ad3ac7-3a45-4d13-ba17-302627d1e8e0",
+        "title": "Support 24/7",
+        "description": "We’re here for you. Our experienced team will provide a reliable support as soon possible.",
+        "img": "https://s3-alpha-sig.figma.com/img/1cec/8ccb/fffdf9e2c65f6537cecbffb2aecea5da?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jlrNADt0oniJs2NBFiCwgGk2ewoGQqyhBJ9WP5qPI4zk8K4b5wqpH4MJX-~x6Uhny0RNtUbW8xTMeUuQXxPYC6ue4Lj3Dmx0dVnVaCNY4p48S1~YhlrOURToFKzx~i1aX5xoi4DvjKLcV-xNKrCxyaEt5vabBPc4h06Wt5irBqUkE3mK6ZL-3VNbAALX8fYiP2liKvpdgo8LOJzXHMhmC8Vow1rDAKjAy8DjgK0G6QIHR7iVgQJEbVtltpix-osHkBVItA4L6SyUPWiJcufCFwdzI6-QEUkPu2CYQzAOEB98vkyaD8b4M-edZ3iIxy5LI-lrFMQeSEbkUDvEcE4Q1A__",
+        "lan": "EN"
+      },
+      {
+        "id": "e0b2d9f0-c1f3-4876-9f3a-7922e3311cf7",
+        "title": "Поддержка 24/7",
+        "description": "Мы здесь для вас. Наша опытная команда окажет надежную поддержку в кратчайшие сроки.",
+        "img": "https://s3-alpha-sig.figma.com/img/1cec/8ccb/fffdf9e2c65f6537cecbffb2aecea5da?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jlrNADt0oniJs2NBFiCwgGk2ewoGQqyhBJ9WP5qPI4zk8K4b5wqpH4MJX-~x6Uhny0RNtUbW8xTMeUuQXxPYC6ue4Lj3Dmx0dVnVaCNY4p48S1~YhlrOURToFKzx~i1aX5xoi4DvjKLcV-xNKrCxyaEt5vabBPc4h06Wt5irBqUkE3mK6ZL-3VNbAALX8fYiP2liKvpdgo8LOJzXHMhmC8Vow1rDAKjAy8DjgK0G6QIHR7iVgQJEbVtltpix-osHkBVItA4L6SyUPWiJcufCFwdzI6-QEUkPu2CYQzAOEB98vkyaD8b4M-edZ3iIxy5LI-lrFMQeSEbkUDvEcE4Q1A__",
+        "lan": "RU"
+      },
+      {
+        "id": "32f975e2-b8ac-484e-b0a0-0a05b3dbac25",
+        "title": "24/7 колдоо",
+        "description": "Биз силер үчүн бул жерде. Биздин тажрыйбалуу команда мүмкүн болушунча тез арада ишенимдүү колдоо көрсөтөт.",
+        "img": "https://s3-alpha-sig.figma.com/img/1cec/8ccb/fffdf9e2c65f6537cecbffb2aecea5da?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jlrNADt0oniJs2NBFiCwgGk2ewoGQqyhBJ9WP5qPI4zk8K4b5wqpH4MJX-~x6Uhny0RNtUbW8xTMeUuQXxPYC6ue4Lj3Dmx0dVnVaCNY4p48S1~YhlrOURToFKzx~i1aX5xoi4DvjKLcV-xNKrCxyaEt5vabBPc4h06Wt5irBqUkE3mK6ZL-3VNbAALX8fYiP2liKvpdgo8LOJzXHMhmC8Vow1rDAKjAy8DjgK0G6QIHR7iVgQJEbVtltpix-osHkBVItA4L6SyUPWiJcufCFwdzI6-QEUkPu2CYQzAOEB98vkyaD8b4M-edZ3iIxy5LI-lrFMQeSEbkUDvEcE4Q1A__",
+        "lan": "KG"
+      },
+      {
+        "id": "bf44dcbc-1e82-489a-b86b-2e13ac6b425f",
+        "title": "7/24 Destek",
+        "description": "Biz senin için buradayız. Deneyimli ekibimiz en kısa sürede güvenilir destek sağlayacaktır.",
+        "img": "https://s3-alpha-sig.figma.com/img/1cec/8ccb/fffdf9e2c65f6537cecbffb2aecea5da?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jlrNADt0oniJs2NBFiCwgGk2ewoGQqyhBJ9WP5qPI4zk8K4b5wqpH4MJX-~x6Uhny0RNtUbW8xTMeUuQXxPYC6ue4Lj3Dmx0dVnVaCNY4p48S1~YhlrOURToFKzx~i1aX5xoi4DvjKLcV-xNKrCxyaEt5vabBPc4h06Wt5irBqUkE3mK6ZL-3VNbAALX8fYiP2liKvpdgo8LOJzXHMhmC8Vow1rDAKjAy8DjgK0G6QIHR7iVgQJEbVtltpix-osHkBVItA4L6SyUPWiJcufCFwdzI6-QEUkPu2CYQzAOEB98vkyaD8b4M-edZ3iIxy5LI-lrFMQeSEbkUDvEcE4Q1A__",
+        "lan": "TR"
+      }
+    ]
+  }
+]
