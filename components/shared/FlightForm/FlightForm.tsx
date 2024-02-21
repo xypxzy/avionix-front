@@ -23,7 +23,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils/classnames'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { format } from 'date-fns'
 import { ArrowRightLeft, CalendarIcon, MoveRight } from 'lucide-react'

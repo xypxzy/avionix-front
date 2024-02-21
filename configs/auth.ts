@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google'
 
 export const authConfig: AuthOptions = {
 	pages: {
-		signIn: '[lang]/sign-in',
+		signIn: 'sign-in',
 	},
 	providers: [
 		GoogleProvider({

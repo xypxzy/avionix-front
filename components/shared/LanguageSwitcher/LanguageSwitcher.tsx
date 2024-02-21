@@ -6,13 +6,11 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { i18nConfig } from '@/i18n'
+import { locales } from '@/i18n'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function LanguageSwitcher() {
-	const { locales } = i18nConfig
-
 	const pathname = usePathname()
 
 	return (

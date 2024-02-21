@@ -7,5 +7,9 @@
 	"hero": {
 		"home-title": "Dünyayı Keşfedin",
 		"home-desc": "Bizimle seyahat edin"
+	},
+	"top-flights": {
+		"title": "Top flights",
+		"link": "Tüm uçuşlara göz atın"
 	}
 }
