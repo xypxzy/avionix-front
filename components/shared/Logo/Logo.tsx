@@ -1,6 +1,6 @@
 'use client'
 
-import { LinkEnum } from '@/routes/route'
+import { LinkEnum } from '@/utils/route'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'

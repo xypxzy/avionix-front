@@ -1,7 +1,7 @@
 import { Locale, locales } from '@/i18n'
-import { cn } from '@/lib/utils/classnames'
 import { ThemeProvider } from '@/providers'
 import { LanguagesProvider } from '@/providers/LanguagesProvider/LanguagesProvider'
+import { cn } from '@/utils/classnames'
 import type { Metadata } from 'next'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { IBM_Plex_Mono } from 'next/font/google'
