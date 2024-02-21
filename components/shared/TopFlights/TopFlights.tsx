@@ -14,21 +14,24 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { LinkEnum } from '@/routes/route'
+import { LinkEnum } from '@/utils/route'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 export default function TopFlights() {
+	const t = useTranslations('top-flights')
+
 	return (
 		<section>
 			{/* TODO: посмотреть можно ли заменить на header tag */}
 			<div className='my-8 flex w-full items-center justify-between'>
-				<h3 className='text-xl'>Top flights</h3>
+				<h3 className='text-xl'>{t('title')}</h3>
 				<Link href={LinkEnum.Flights}>
 					<Button
 						variant='link'
 						className='text-foreground underline hover:text-muted-foreground'
 					>
-						Browse all flights
+						{t('link')}
 					</Button>
 				</Link>
 			</div>

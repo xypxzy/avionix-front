@@ -7,5 +7,9 @@
 	"hero": {
 		"home-title": "Откройте для себя мир",
 		"home-desc": "Путешествуйте с нами"
+	},
+	"top-flights": {
+		"title": "Top flights",
+		"link": "Просмотреть все рейсы"
 	}
 }

@@ -1,7 +1,9 @@
-import { Locale, i18nConfig } from '@/i18n'
-import { cn } from '@/lib/utils'
+import { Locale, locales } from '@/i18n'
 import { ThemeProvider } from '@/providers'
+import { LanguagesProvider } from '@/providers/LanguagesProvider/LanguagesProvider'
+import { cn } from '@/utils/classnames'
 import type { Metadata } from 'next'
+import { unstable_setRequestLocale } from 'next-intl/server'
 import { IBM_Plex_Mono } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -30,9 +32,8 @@ export const metadata: Metadata = {
 		],
 	},
 }
-
-export async function generateStaticParams() {
-	return i18nConfig.locales.map((locale: Locale) => ({ locale }))
+export function generateStaticParams() {
+	return locales.map(locale => ({ locale }))
 }
 
 export default function RootLayout({
@@ -44,19 +45,23 @@ export default function RootLayout({
 		locale: Locale
 	}
 }>) {
+	unstable_setRequestLocale(params.locale)
+
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
 			<body className={cn(ibmPlexMono.className)}>
-				<ThemeProvider
-					attribute='class'
-					defaultTheme='system'
-					enableSystem
-					disableTransitionOnChange
-				>
-					{/* <AuthProvider> */}
-					{children}
-					{/* </AuthProvider> */}
-				</ThemeProvider>
+				<LanguagesProvider locale={params.locale}>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange
+					>
+						{/* <AuthProvider> */}
+						{children}
+						{/* </AuthProvider> */}
+					</ThemeProvider>
+				</LanguagesProvider>
 			</body>
 		</html>
 	)

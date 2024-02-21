@@ -7,5 +7,9 @@
 	"hero": {
 		"home-title": "Дүйнөнү ачыңыз",
 		"home-desc": "Биз менен саякаттаңыз"
+	},
+	"top-flights": {
+		"title": "Top flights",
+		"link": "Browse all flights"
 	}
 }

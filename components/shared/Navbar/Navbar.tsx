@@ -1,7 +1,7 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import { navLinks } from '@/routes/route'
+import { cn } from '@/utils/classnames'
+import { navLinks } from '@/utils/route'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
