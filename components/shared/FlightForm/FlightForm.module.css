@@ -39,7 +39,7 @@
 }
 
 /* for Laptops */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1540px) {
 	.form__container {
 		grid-template-columns: 1fr 0.4fr 1fr 0.8fr 0.2fr 1fr;
 		grid-template-rows: repeat(2, 0.2fr);

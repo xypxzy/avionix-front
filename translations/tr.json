@@ -1,0 +1,11 @@
+{
+	"nav": {
+		"locale-selector": {
+			"message": "Bir dil seçin"
+		}
+	},
+	"hero": {
+		"home-title": "Dünyayı Keşfedin",
+		"home-desc": "Bizimle seyahat edin"
+	}
+}

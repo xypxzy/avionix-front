@@ -6,8 +6,6 @@ import { SearchIcon } from 'lucide-react'
 import React from 'react'
 
 const Search = () => {
-	console.log('rendering')
-
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 
@@ -17,10 +15,10 @@ const Search = () => {
 	}
 
 	return (
-		<div className='relative w-fit min-w-[360px] max-lg:hidden'>
+		<div className='relative mx-10 w-full flex-1 max-lg:hidden'>
 			<form
 				onSubmit={handleSubmit}
-				className=' relative flex min-h-[46px]
+				className=' relative flex min-h-[25px]
 			grow items-center gap-1 rounded-xl border border-border'
 			>
 				<Input
