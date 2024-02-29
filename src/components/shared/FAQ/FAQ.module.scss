@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.faq_section{
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 0;
+  .faq_left{
+    max-width: 598px;
+    width: 100%;
+    .faq__title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .accordion_trigger{
+      background: #80C7D9;
+      color: #0E1036;
+      font-size: 24px;
+      font-weight: 400;
+      font-family: IBM Plex Mono, serif;
+      line-height: 36px;
+    }
+  }
+  .faq__right__card{
+    max-width: 794px;
+    width: 100%;
+    margin-top: 50px;
+    background: #365486;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    p{
+      max-width: 302px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20.8px;
+      font-family: IBM Plex Mono, serif;
+    }
+    .card__form{
+      max-width: 320px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      input, textarea{
+        width: 100%;
+        padding: 5px 15px;
+        border-radius: 4px;
+        border: 1px solid #0E1036;
+      }
+      .form__button{
+        background: #80C7D9;
+        border-radius: 8px;
+        padding: 8px 114px;
+        margin-top: 20px;
+        white-space: nowrap;
+      }
+      .form__button__under{
+        max-width: 215px;
+        font-size: 13px;
+        line-height: 15px;
+        font-weight: 400;
+        margin-left: -70px;
+      }
+    }
+  }
+}

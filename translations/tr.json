@@ -1,15 +1,31 @@
 {
-	"nav": {
-		"locale-selector": {
-			"message": "Bir dil seçin"
-		}
-	},
-	"hero": {
-		"home-title": "Dünyayı Keşfedin",
-		"home-desc": "Bizimle seyahat edin"
-	},
-	"top-flights": {
-		"title": "Top flights",
-		"link": "Tüm uçuşlara göz atın"
-	}
+    "nav": {
+        "locale-selector": {
+            "message": "Bir dil seçin"
+        }
+    },
+    "hero": {
+        "home-title": "Dünyayı Keşfedin",
+        "home-desc": "Bizimle seyahat edin"
+    },
+    "top-flights": {
+        "title": "Top flights",
+        "link": "Tüm uçuşlara göz atın"
+    },
+    "FAQ": {
+        "title": "FAQ",
+        "link": "Tüm sorulara göz atın",
+        "right_card": {
+            "text": "Tatilde tasarruf etmeyi, indirimleri yakalamayı ve vizesiz uçmayı biliyoruz. En sıcak turları sağlayacağız. Ve size söyleyeceğiz!",
+            "input_name": "Adınız",
+            "input_email": "E-posta adresiniz",
+            "input_area": "Bize bir soru sorun",
+            "button": "Takip etmek",
+            "under_button": "Gizlilik Politikası şartlarını kabul ediyorum ve kişisel verilerimin işlenmesine izin veriyorum"
+        }
+    },
+    "SpecialDeals": {
+        "title": "Özel fırsatlar",
+        "link": "Tüm promosyonları görüntüle"
+    }
 }
