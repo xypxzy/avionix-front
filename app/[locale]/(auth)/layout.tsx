@@ -6,9 +6,10 @@ export default function Layout({
 	children: ReactNode
 }>) {
 	return (
-		<main className='container p-8'>
-			All child
-			{children}
-		</main>
+		<>
+			<main className='container flex h-screen flex-col items-center justify-center space-y-14'>
+				{children}
+			</main>
+		</>
 	)
 }

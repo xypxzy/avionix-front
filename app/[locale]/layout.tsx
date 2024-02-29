@@ -1,11 +1,13 @@
-import { Locale, locales } from '@/i18n'
-import { ThemeProvider } from '@/providers'
-import { LanguagesProvider } from '@/providers/LanguagesProvider/LanguagesProvider'
-import { cn } from '@/utils/classnames'
 import type { Metadata } from 'next'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { IBM_Plex_Mono } from 'next/font/google'
 import { ReactNode } from 'react'
+
+import { Locale, locales } from '@/i18n'
+import { Toaster } from '@/src/components/ui/toaster'
+import { AuthProvider, ThemeProvider } from '@/src/providers'
+import { LanguagesProvider } from '@/src/providers/LanguagesProvider/LanguagesProvider'
+import { cn } from '@/src/utils/classnames'
 import './globals.css'
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -57,9 +59,10 @@ export default function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						{/* <AuthProvider> */}
-						{children}
-						{/* </AuthProvider> */}
+						<AuthProvider>
+							{children}
+							<Toaster />
+						</AuthProvider>
 					</ThemeProvider>
 				</LanguagesProvider>
 			</body>
