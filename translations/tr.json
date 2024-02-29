@@ -14,6 +14,14 @@
     },
     "FAQ": {
         "title": "FAQ",
-        "link": "Tüm sorulara göz atın"
+        "link": "Tüm sorulara göz atın",
+        "right_card": {
+            "text": "Tatilde tasarruf etmeyi, indirimleri yakalamayı ve vizesiz uçmayı biliyoruz. En sıcak turları sağlayacağız. Ve size söyleyeceğiz!",
+            "input_name": "Adınız",
+            "input_email": "E-posta adresiniz",
+            "input_area": "Bize bir soru sorun",
+            "button": "Takip etmek",
+            "under_button": "Gizlilik Politikası şartlarını kabul ediyorum ve kişisel verilerimin işlenmesine izin veriyorum"
+        }
     }
 }

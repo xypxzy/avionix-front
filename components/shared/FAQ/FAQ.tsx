@@ -56,15 +56,13 @@ const FAQ = () => {
                     </Accordion>
                 </div>
             <div className={styles.faq__right__card}>
-                    <p className={styles.faq__card__title}>
-                        We know how to save on vacation, catch discounts and fly without a visa. We will provide the hottest tours. And we'll tell you!
-                    </p>
+                    <p className={styles.faq__card__title}>{t('right_card.text')}</p>
                     <div className={styles.card__form}>
-                        <input className="block" placeholder="your name" type="text" />
-                        <input className="block" placeholder="your email" type="text" />
-                        <textarea placeholder="ask us a question" className="block" rows={3}/>
-                        <button className={styles.form__button}>Follow</button>
-                        <p className={styles.form__button__under}>I accept the terms of the Privacy Policy and consent to the processing of personal data</p>
+                        <input className="block" placeholder={t('right_card.input_name')} type="text" />
+                        <input className="block" placeholder={t('right_card.input_email')} type="text" />
+                        <textarea placeholder={t('right_card.input_area')} className="block" rows={3}/>
+                        <button className={styles.form__button}>{t('right_card.button')}</button>
+                        <p className={styles.form__button__under}>{t('right_card.under_button')}</p>
                     </div>
             </div>
         </section>
