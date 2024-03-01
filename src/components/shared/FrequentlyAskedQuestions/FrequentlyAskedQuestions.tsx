@@ -4,16 +4,16 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '../../../../../avionix-front — копия/src/components/ui/accordion'
-import { Button } from '../../../../../avionix-front — копия/src/components/ui/button'
-import { LinkEnum } from '../../../../../avionix-front — копия/src/utils/route'
+} from '@/src/components/ui/accordion'
+import { Button } from '@/src/components/ui/button'
+import { LinkEnum } from '@/src/utils/route'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import styles from './FrequentlyAskedQuestions.module.scss'
 import {useEffect, useState} from "react";
 import {useParams} from "next/navigation";
 import axios from "axios";
-import {FAQItem} from "../../../../../avionix-front — копия/src/types/FAQ";
+import {FAQItem} from "@/src/types/FAQItem";
 const getFAQ = async (lan: string | string[]): Promise<FAQItem[]> => {
     const baseUrl = `http://localhost:8072/avionix/discovery/api/faq?lan=${lan}`;
     try {
