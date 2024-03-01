@@ -32,13 +32,11 @@ export function LoginWithGoogle() {
 	}
 
 	return (
-		<Button
-			variant={'outline'}
-			className='flex w-full gap-4 py-5 text-base'
-			onClick={onSignIn}
-		>
-			<Image src={googleIcon} alt={'google icon'} width={24} height={24} />
-			Google
+		<Button variant={'outline'} className='py-5 text-base' onClick={onSignIn}>
+			<div className='relative -left-4 flex w-full justify-center gap-3'>
+				<Image src={googleIcon} alt={'google icon'} width={24} height={24} />
+				Google
+			</div>
 		</Button>
 	)
 }

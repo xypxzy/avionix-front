@@ -3,13 +3,12 @@ import { DefaultSession } from 'next-auth'
 
 declare module 'next-auth' {
 	interface User {
-		role: string
-		tokenType: string
-		accessToken: string
-		refreshToken: string
-		refreshExpiresIn: string
-		accessExpiresIn: number
-		idToken: string
+		roles?: string
+		accessToken?: string
+		refreshToken?: string
+		refreshExpiresIn?: string
+		accessExpiresIn?: number
+		idToken?: string
 	}
 
 	interface Session extends DefaultSession {
@@ -21,6 +20,12 @@ declare module 'next-auth' {
 
 declare module 'next-auth/jwt' {
 	interface JWT {
-		userId: string
+		userId?: string
+		roles?: string
+		accessToken?: string
+		refreshToken?: string
+		refreshExpiresIn?: string
+		accessExpiresIn?: number
+		idToken?: string
 	}
 }

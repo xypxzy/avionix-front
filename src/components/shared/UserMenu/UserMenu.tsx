@@ -62,7 +62,9 @@ export default function UserMenu() {
 			<DropdownMenuContent>
 				<DropdownMenuLabel>My Account</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>Profile</DropdownMenuItem>
+				<DropdownMenuItem>
+					<Link href={'/profile'}>Profile</Link>
+				</DropdownMenuItem>
 				<DropdownMenuItem>Billing</DropdownMenuItem>
 				<DropdownMenuItem>Team</DropdownMenuItem>
 				{session.status === 'authenticated' ? (

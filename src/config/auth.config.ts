@@ -35,18 +35,30 @@ export const authOptions: NextAuthOptions = {
 		}),
 	],
 	callbacks: {
-		async jwt({ token, account, profile }) {
+		async jwt({ token, account, user }) {
 			if (account && account.type === 'credentials') {
 				token.userId = account.providerAccountId
+				token.accessToken = user?.accessToken
+				token.accessExpiresIn = user?.accessExpiresIn
+				token.refreshToken = user?.refreshToken
+				token.refreshExpiresIn = user?.refreshExpiresIn
+				token.roles = user?.roles
 			}
+
 			if (account && account.type === 'oauth') {
 				token.id_token = account.id_token
 			}
 			return token
 		},
-		async session({ session, token, user }) {
-			session.user.id = token.userId
-			session.user.idToken = token.id_token as string
+		async session({ session, token }) {
+			session.user.id = token?.userId as string
+			session.user.idToken = token?.id_token as string
+			session.user.accessToken = token?.accessToken
+			session.user.accessExpiresIn = token?.accessExpiresIn
+			session.user.refreshToken = token?.refreshToken
+			session.user.refreshExpiresIn = token?.refreshExpiresIn
+			session.user.roles = token?.roles
+
 			return session
 		},
 	},

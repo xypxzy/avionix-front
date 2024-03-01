@@ -55,11 +55,7 @@ function Hero(props: HeroProps) {
 	}, [type])
 
 	return (
-		<section
-			className='relative space-y-2 rounded-md border-2 bg-background_hero p-8 before:absolute 
-			before:inset-0 before:-left-6 before:top-[10%] before:z-[-2] before:h-[80%] before:w-[calc(100%+3rem)] before:rounded-sm before:border-2 before:border-secondary before:bg-primary after:absolute after:inset-0
-			after:-left-3 after:top-[5%] after:z-[-1] after:h-[90%] after:w-[calc(100%+1.5rem)] after:rounded-sm after:border-2 after:border-secondary-foreground after:bg-secondary dark:before:border-foreground lg:space-y-8'
-		>
+		<section className='card__border__layer relative space-y-2 rounded-md border-2 bg-background_hero p-8 lg:space-y-8'>
 			<div className='flex items-center justify-between'>
 				<div className='space-y-2 font-light uppercase lg:space-y-4'>
 					{preTitle && (
