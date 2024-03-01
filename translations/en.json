@@ -11,5 +11,17 @@
 	"top-flights": {
 		"title": "Top flights",
 		"link": "Browse all flights"
+	},
+	"FAQ": {
+		"title": "FAQ",
+		"link": "Browse all questions",
+		"right_card": {
+			"text": "We know how to save on vacation, catch discounts and fly without a visa. We will provide the hottest tours. And we`ll tell you!",
+			"input_name": "Your name",
+			"input_email": "Your email",
+			"input_area": "Ask us a question",
+			"button": "Follow",
+			"under_button": "I accept the terms of the Privacy Policy and consent to the processing of personal data"
+		}
 	}
 }
