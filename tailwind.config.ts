@@ -1,13 +1,12 @@
 import type { Config } from 'tailwindcss'
+// @ts-ignore
+// eslint-disable-next-line import/no-named-default
+import {default as flattenColorPalette} from "tailwindcss/lib/util/flattenColorPalette";
 
 // eslint-disable-next-line no-unused-vars
-const defaultTheme = require("tailwindcss/defaultTheme");
-
+require("tailwindcss/defaultTheme");
 // eslint-disable-next-line no-unused-vars
-const colors = require("tailwindcss/colors");
-const {
-	default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+require("tailwindcss/colors");
 
 
 const config = {

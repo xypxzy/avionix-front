@@ -11,8 +11,8 @@ export function SpecialDeals() {
     const t = useTranslations('SpecialDeals')
     return (
 
-        <section className="h-[650px] w-full rounded flex flex-col antialiased items-center justify-center">
-            <div className="flex justify-between items-center w-full">
+        <section className="flex h-[650px] w-full flex-col items-center justify-center rounded antialiased">
+            <div className="flex w-full items-center justify-between">
                 <h3 className="text-xl">{t('title')}</h3>
                 <Link href={LinkEnum.Flights}>
                     <Button

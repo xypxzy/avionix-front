@@ -35,7 +35,7 @@ export const InfiniteMovingCards = ({
     const params = useParams()
     useEffect(() => {
         addAnimation(speed, direction, containerRef, scrollerRef, setStart);
-    }, []);
+    }, [direction, speed]);
     const [start, setStart] = useState(false);
     return (
         <div
@@ -57,16 +57,17 @@ export const InfiniteMovingCards = ({
                     <div key={elementId}>
                         {element.item
                             .filter((el) => params.locale === el.lan.toLowerCase())
-                            .map((item, itemId) => (
-                                <div key={item.id} className="w-full h-full flex flex-col border rounded p-3 relative">
-                                    <img className="w-[522px] h-[327px] rounded"  src={item.image} alt={item.id}/>
-                                    <h4 className="text-[20px] max-w-[520px] pt-4">{item.title}</h4>
+                            .map((item) => (
+                                <div key={item.id} className="relative flex size-full flex-col rounded border p-3">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img className="h-[327px] w-[522px] rounded"  src={item.image} alt={item.id}/>
+                                    <h4 className="max-w-[520px] pt-4 text-[20px]">{item.title}</h4>
                                     <div className="mt-auto pt-4">
                                         <p className="text-[18px] text-red-700">{item.promotion}</p>
                                         <Link href={LinkEnum.Flights}>
                                             <Button
                                                 variant="link"
-                                                className="text-foreground underline hover:text-muted-foreground pl-0"
+                                                className="pl-0 text-foreground underline hover:text-muted-foreground"
                                             >
                                                 {item.bron}
                                             </Button>
