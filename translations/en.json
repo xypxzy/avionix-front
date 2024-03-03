@@ -23,5 +23,9 @@
 			"button": "Follow",
 			"under_button": "I accept the terms of the Privacy Policy and consent to the processing of personal data"
 		}
+	},
+	"AirlineRating": {
+		"title": "Airline rating",
+		"link": "See full rating"
 	}
 }

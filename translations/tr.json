@@ -23,5 +23,9 @@
 			"button": "Takip etmek",
 			"under_button": "Gizlilik Politikası şartlarını kabul ediyorum ve kişisel verilerimin işlenmesine izin veriyorum"
 		}
+	},
+	"AirlineRating": {
+		"title": "Havayolu derecelendirmesi",
+		"link": "Değerlendirmenin tamamını görün"
 	}
 }
