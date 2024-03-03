@@ -1,7 +1,9 @@
 import type { Config } from 'tailwindcss'
 
+// eslint-disable-next-line no-unused-vars
 const defaultTheme = require("tailwindcss/defaultTheme");
 
+// eslint-disable-next-line no-unused-vars
 const colors = require("tailwindcss/colors");
 const {
 	default: flattenColorPalette,
@@ -102,9 +104,10 @@ const config = {
 	},
 	plugins: [require('tailwindcss-animate'), addVariablesForColors],
 } satisfies Config
+
 function addVariablesForColors({ addBase, theme }: any) {
-	let allColors = flattenColorPalette(theme("colors"));
-	let newVars = Object.fromEntries(
+	const allColors = flattenColorPalette(theme("colors"));
+	const newVars = Object.fromEntries(
 		Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
 	);
 
