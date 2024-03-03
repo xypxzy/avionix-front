@@ -1,9 +1,8 @@
 "use client";
 import data from './SpecialDeals.json'
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InfiniteMovingCards } from "@/src/components/ui/infinite-moving-cards";
 import {useTranslations} from "next-intl";
-import styles from "@/src/components/shared/FrequentlyAskedQuestions/FrequentlyAskedQuestions.module.scss";
 import Link from "next/link";
 import {LinkEnum} from "@/src/utils/route";
 import {Button} from "@/src/components/ui/button";

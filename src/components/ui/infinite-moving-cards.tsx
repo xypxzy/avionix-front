@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import {LinkEnum} from "@/src/utils/route";
 import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
-import {useTranslations} from "next-intl";
 import {useParams} from "next/navigation";
 
 export const InfiniteMovingCards = ({
