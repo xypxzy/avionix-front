@@ -27,5 +27,9 @@
 	"SpecialDeals": {
 		"title": "Special deals",
 		"link": "View all promotions"
+	},
+	"AirlineRating": {
+		"title": "Airline rating",
+		"link": "See full rating"
 	}
 }

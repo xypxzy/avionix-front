@@ -27,5 +27,9 @@
 	"SpecialDeals": {
 		"title": "Özel fırsatlar",
 		"link": "Tüm promosyonları görüntüle"
+	},
+	"AirlineRating": {
+		"title": "Havayolu derecelendirmesi",
+		"link": "Değerlendirmenin tamamını görün"
 	}
 }
