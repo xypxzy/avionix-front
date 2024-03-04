@@ -4,6 +4,7 @@ import TopFlights from '@/src/components/shared/TopFlights/TopFlights'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import FrequentlyAskedQuestions from "@/src/components/shared/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
+import {SpecialDeals} from "@/src/components/shared/SpecialDeals/SpecialDeals";
 import AirlinesRating from "@/src/components/shared/AirlinesRating/AirlinesRating";
 
 export default function Home({ params }: { params: { locale: Locale } }) {
@@ -14,6 +15,7 @@ export default function Home({ params }: { params: { locale: Locale } }) {
 		<>
 			<Hero title={t('home-title')} preTitle={t('home-desc')} />
 			<TopFlights />
+			<SpecialDeals/>
 			<AirlinesRating/>
 			<FrequentlyAskedQuestions/>
 		</>

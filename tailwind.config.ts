@@ -1,4 +1,13 @@
 import type { Config } from 'tailwindcss'
+// @ts-ignore
+// eslint-disable-next-line import/no-named-default
+import {default as flattenColorPalette} from "tailwindcss/lib/util/flattenColorPalette";
+
+// eslint-disable-next-line no-unused-vars
+require("tailwindcss/defaultTheme");
+// eslint-disable-next-line no-unused-vars
+require("tailwindcss/colors");
+
 
 const config = {
 	darkMode: 'class',
@@ -69,10 +78,16 @@ const config = {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
+				scroll: {
+					to: {
+						transform: "translate(calc(-50% - 0.5rem))",
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 			},
 			fontSize: {
 				caption: ['12px', '18px'], // captions
@@ -86,7 +101,18 @@ const config = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [require('tailwindcss-animate'), addVariablesForColors],
 } satisfies Config
+
+function addVariablesForColors({ addBase, theme }: any) {
+	const allColors = flattenColorPalette(theme("colors"));
+	const newVars = Object.fromEntries(
+		Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+	);
+
+	addBase({
+		":root": newVars,
+	});
+}
 
 export default config

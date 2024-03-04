@@ -24,6 +24,10 @@
 			"under_button": "Gizlilik Politikası şartlarını kabul ediyorum ve kişisel verilerimin işlenmesine izin veriyorum"
 		}
 	},
+	"SpecialDeals": {
+		"title": "Özel fırsatlar",
+		"link": "Tüm promosyonları görüntüle"
+	},
 	"AirlineRating": {
 		"title": "Havayolu derecelendirmesi",
 		"link": "Değerlendirmenin tamamını görün"
