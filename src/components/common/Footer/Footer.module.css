@@ -1,4 +1,4 @@
 .full_bleed {
-	box-shadow: 0 0 0 100vmax hsl(222.2 84% 4.9%);
+	box-shadow: 0 0 0 100vmax #0E1036;
 	clip-path: inset(0 -100vmax);
 }

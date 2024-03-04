@@ -27,20 +27,20 @@ export default function Logo({ isFooter }: LogoProps) {
 			case 'light':
 				src = isMobile
 					? isFooter
-						? '/assets/images/logo-mobile-dark.svg'
-						: '/assets/images/logo-mobile.svg'
+						? '/assets/icons/avionix-footer-icon.svg'
+						: '/assets/icons/avionix-footer-icon.svg'
 					: isFooter
-						? '/assets/images/logo-desktop-dark.svg'
-						: '/assets/images/logo-desktop.svg'
+						? '/assets/icons/avionix-footer-icon.svg'
+						: '/assets/icons/avionix-footer-icon.svg'
 				break
 			case 'dark':
 				src = isMobile
 					? isFooter
-						? '/assets/images/logo-mobile-dark.svg'
-						: '/assets/images/logo-mobile-dark.svg'
+						? '/assets/icons/avionix-footer-icon.svg'
+						: '/assets/icons/avionix-footer-icon.svg'
 					: isFooter
-						? '/assets/images/logo-desktop-dark.svg'
-						: '/assets/images/logo-desktop-dark.svg'
+						? '/assets/icons/avionix-footer-icon.svg'
+						: '/assets/icons/avionix-footer-icon.svg'
 				break
 			default:
 				break
@@ -52,10 +52,10 @@ export default function Logo({ isFooter }: LogoProps) {
 			<Image
 				src={src}
 				alt='Logo'
-				width={isMobile ? 60 : 200}
-				height={40}
+				width={isMobile ? 50 : 85}
+				height={50}
 				loading='lazy'
-				className='mx-auto h-[40px]'
+				className='mx-0 h-[40px]'
 			/>
 		</Link>
 	)

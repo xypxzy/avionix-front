@@ -29,12 +29,12 @@ const config = {
 		extend: {
 			colors: {
 				background_hero: 'var(--background-hero)',
-
+				blue_light: "#80C7D9",
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				foreground: '#0E1036',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
