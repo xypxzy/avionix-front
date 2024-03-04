@@ -109,10 +109,8 @@ function addVariablesForColors({ addBase, theme }: any) {
 	const newVars = Object.fromEntries(
 		Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
 	);
-
 	addBase({
 		":root": newVars,
 	});
 }
-
 export default config

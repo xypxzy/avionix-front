@@ -12,7 +12,7 @@ import styles from './Footer.module.css'
 export default function Footer2() {
     return (
         <footer className={`${styles.full_bleed} bg-foreground py-8 text-background dark:bg-background dark:text-foreground`}>
-            <div className={`grid sm:ms-[100px] sm:grid-cols-1 md:m-0 md:grid-cols-2 lg:m-0 lg:grid-cols-4`}>
+            <div className={`grid sm:ms-[110px] sm:grid-cols-1 md:m-0 md:grid-cols-2 lg:m-0 lg:grid-cols-4`}>
                 <div>
                     <div className='mb-8'>
                         <Logo isFooter/>
