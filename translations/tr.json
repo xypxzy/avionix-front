@@ -31,5 +31,28 @@
 	"AirlineRating": {
 		"title": "Havayolu derecelendirmesi",
 		"link": "Değerlendirmenin tamamını görün"
+	},
+	"Footer": {
+		"address": "Vasilyevsky yolu 105, Manas havaalanı, Bişkek, Kırgız Cumhuriyeti",
+		"term_of_use": "Kullanım koşulu",
+		"privacy_police": "Gizlilik Politikası",
+		"Company": {
+			"title": "Şirket",
+			"contacts": "İletişim",
+			"support": "Destek",
+			"faq": "Çok sorulan sorular"
+		},
+		"Quick_links": {
+			"title": "Hızlı Linkler",
+			"flights": "Uçuşlar",
+			"hotels": "Oteller",
+			"services": "Hizmetler"
+		},
+		"Newsletter": {
+			"title": "Bülten",
+			"input_placeholder": "E-posta",
+			"subscribe": "Haber ve teklifler almak için abone olun",
+			"social_media": "Bizi sosyal medyada bulun"
+		}
 	}
 }

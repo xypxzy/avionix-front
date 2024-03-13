@@ -31,5 +31,28 @@
 	"AirlineRating": {
 		"title": "Airline rating",
 		"link": "See full rating"
+	},
+	"Footer": {
+		"address": "Vasilyevsky tract 105, Manas airport, Bishkek, Kyrgyz Republic",
+		"term_of_use": "Term of use",
+		"privacy_police": "Privacy policy",
+		"Company": {
+			"title": "Company",
+			"contacts": "Contacts",
+			"support": "Support",
+			"faq": "FAQ"
+		},
+		"Quick_links": {
+			"title": "Quick links",
+			"flights": "Flights",
+			"hotels": "Hotels",
+			"services": "Services"
+		},
+		"Newsletter": {
+			"title": "Newsletter",
+			"input_placeholder": "Email",
+			"subscribe": "Subscribe to get news & offers",
+			"social_media": "Find us on social media"
+		}
 	}
 }
