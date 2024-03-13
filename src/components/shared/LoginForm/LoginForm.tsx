@@ -18,9 +18,9 @@ import { z } from 'zod'
 
 import { Card, CardContent } from '@/src/components/ui/card'
 import { useToast } from '@/src/components/ui/use-toast'
-import { loginFormSchema } from '@/src/types/schemas/loginSchema'
-import { formatDate } from '@/src/utils/formatDate'
-import { handleLoginError } from '@/src/utils/handleAuthError'
+import { loginFormSchema } from '@/src/shared/types/schemas/loginSchema'
+import { formatDate } from '@/src/shared/utils/formatDate'
+import { handleLoginError } from '@/src/shared/utils/handleAuthError'
 
 export default function LoginForm() {
 	const router = useRouter()

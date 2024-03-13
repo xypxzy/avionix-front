@@ -14,7 +14,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/src/components/ui/card'
-import { LinkEnum } from '@/src/utils/route'
+import { LinkEnum } from '@/src/shared/utils/route'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 

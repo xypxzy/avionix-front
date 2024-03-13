@@ -6,34 +6,24 @@ import {
     AccordionTrigger,
 } from '@/src/components/ui/accordion'
 import { Button } from '@/src/components/ui/button'
-import { LinkEnum } from '@/src/utils/route'
+import { LinkEnum } from '@/src/shared/utils/route'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import styles from './FrequentlyAskedQuestions.module.scss'
 import {useEffect, useState} from "react";
 import {useParams} from "next/navigation";
-import axios from "axios";
-import {FAQItem} from "@/src/types/FAQItem";
-const getFAQ = async (lan: string | string[]): Promise<FAQItem[]> => {
-    const baseUrl = `http://localhost:8072/avionix/discovery/api/faq?lan=${lan}`;
-    try {
-        const response = await axios.get(baseUrl);
-        console.log('Данные получены:', response.data);
-        return response.data;
-    } catch (error) {
-        console.error('Произошла ошибка:', error);
-        throw error;
-    }
-};
+import DiscoveryService from "@/src/services/api/discovery";
+import {IFaq} from "@/src/shared/types/discovery";
+
 const FrequentlyAskedQuestions = () => {
     const t = useTranslations('FAQ')
     const params = useParams()
-    const [data, setData] = useState<FAQItem[]>([]);
+    const [data, setData] = useState<IFaq[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await getFAQ(params.locale);
-                setData(result);
+                const response = await DiscoveryService.getFaqList();
+                setData(response.data);
             } catch (error) {
                 return <div>ERROR!!!</div>
             }

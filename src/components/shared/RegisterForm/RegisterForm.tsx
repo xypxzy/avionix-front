@@ -15,10 +15,10 @@ import {
 } from '@/src/components/ui/card'
 
 import { useToast } from '@/src/components/ui/use-toast'
-import { registerFormSchema } from '@/src/types/schemas/registerSchema'
+import { registerFormSchema } from '@/src/shared/types/schemas/registerSchema'
 
 import { Form } from '@/src/components/ui/form'
-import { formatDate } from '@/src/utils/formatDate'
+import { formatDate } from '@/src/shared/utils/formatDate'
 import axios from 'axios'
 import { useState } from 'react'
 import { RenderFormFields } from './RenderFormFields'

@@ -7,7 +7,7 @@ import { Locale, locales } from '@/i18n'
 import { Toaster } from '@/src/components/ui/toaster'
 import { AuthProvider, ThemeProvider } from '@/src/providers'
 import { LanguagesProvider } from '@/src/providers/LanguagesProvider/LanguagesProvider'
-import { cn } from '@/src/utils/classnames'
+import { cn } from '@/src/shared/utils/classnames'
 import './globals.css'
 
 const ibmPlexMono = IBM_Plex_Mono({

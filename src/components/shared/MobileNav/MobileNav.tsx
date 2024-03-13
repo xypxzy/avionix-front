@@ -7,8 +7,8 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from '@/src/components/ui/sheet'
-import { cn } from '@/src/utils/classnames'
-import { navLinks } from '@/src/utils/route'
+import { cn } from '@/src/shared/utils/classnames'
+import { navLinks } from '@/src/shared/utils/route'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

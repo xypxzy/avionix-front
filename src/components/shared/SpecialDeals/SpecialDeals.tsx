@@ -4,7 +4,7 @@ import React from "react";
 import { InfiniteMovingCards } from "@/src/components/ui/infinite-moving-cards";
 import {useTranslations} from "next-intl";
 import Link from "next/link";
-import {LinkEnum} from "@/src/utils/route";
+import {LinkEnum} from "@/src/shared/utils/route";
 import {Button} from "@/src/components/ui/button";
 
 export function SpecialDeals() {

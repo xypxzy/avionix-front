@@ -1,7 +1,7 @@
 import { NextAuthOptions, getServerSession } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
-import { authService } from '../services/auth.service'
+import AuthService from '../../services/api/auth'
 
 export const authOptions: NextAuthOptions = {
 	session: {
@@ -28,7 +28,8 @@ export const authOptions: NextAuthOptions = {
 					email: string
 					password: string
 				}
-				const user = await authService.authenticate(email, password)
+
+				const user = await AuthService.authenticate(email, password)
 
 				return user
 			},

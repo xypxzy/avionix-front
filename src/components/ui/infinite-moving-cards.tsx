@@ -1,12 +1,12 @@
 "use client";
 
-import { cn } from "@/src/utils/classnames";
+import { cn } from "@/src/shared/utils/classnames";
 import React, { useEffect, useState } from "react";
-import {LinkEnum} from "@/src/utils/route";
+import {LinkEnum} from "@/src/shared/utils/route";
 import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
 import {useParams} from "next/navigation";
-import {addAnimation} from "@/src/utils/infinite-moving-card-functions";
+import {addAnimation} from "@/src/shared/utils/infinite-moving-card-functions";
 
 export const InfiniteMovingCards = ({
                                         items,

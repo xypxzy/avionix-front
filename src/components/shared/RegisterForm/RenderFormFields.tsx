@@ -14,8 +14,8 @@ import {
 	PopoverTrigger,
 } from '@/src/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/src/components/ui/radio-group'
-import { registerFormSchema } from '@/src/types/schemas/registerSchema'
-import { cn } from '@/src/utils/classnames'
+import { registerFormSchema } from '@/src/shared/types/schemas/registerSchema'
+import { cn } from '@/src/shared/utils/classnames'
 import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { UseFormReturn } from 'react-hook-form'

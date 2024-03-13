@@ -1,4 +1,4 @@
-import {LinkEnum} from "@/src/utils/route";
+import {LinkEnum} from "@/src/shared/utils/route";
 import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
 import {useTranslations} from "next-intl";

@@ -3,7 +3,7 @@
 import googleIcon from '@/public/assets/images/google-icon.svg'
 import { Button } from '@/src/components/ui/button'
 import { useToast } from '@/src/components/ui/use-toast'
-import { formatDate } from '@/src/utils/formatDate'
+import { formatDate } from '@/src/shared/utils/formatDate'
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 
