@@ -17,7 +17,7 @@ import {
 
 import { Button } from '@/src/components/ui/button'
 import { Card, CardContent } from '@/src/components/ui/card'
-import { LinkEnum } from '@/src/utils/route'
+import { LinkEnum } from '@/src/shared/utils/route'
 import { User } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'

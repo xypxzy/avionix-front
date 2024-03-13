@@ -1,4 +1,4 @@
-import { Locale } from '@/i18n'
+import { Locale } from '@/src/shared/types/i18n'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
 import React from 'react'
 
