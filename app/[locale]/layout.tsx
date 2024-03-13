@@ -3,12 +3,13 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { IBM_Plex_Mono } from 'next/font/google'
 import { ReactNode } from 'react'
 
-import { Locale, locales } from '@/i18n'
 import { Toaster } from '@/src/components/ui/toaster'
 import { AuthProvider, ThemeProvider } from '@/src/providers'
 import { LanguagesProvider } from '@/src/providers/LanguagesProvider/LanguagesProvider'
 import { cn } from '@/src/shared/utils/classnames'
 import './globals.css'
+import {locales} from "@/src/shared/const/i18n";
+import { Locale } from '@/src/shared/types/i18n'
 
 const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ['latin'],

@@ -1,5 +1,5 @@
-import { Locale } from '@/i18n'
 import { DateTimeFormatOptions } from 'next-intl'
+import { Locale } from '@/src/shared/types/i18n'
 
 export const formatDate = (nowDate: Date, locale: Locale) => {
 	const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone

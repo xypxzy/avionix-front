@@ -1,5 +1,5 @@
 import {client} from "@/src/services/axios";
-import {IFaq, IWhyUs} from "@/src/shared/types/discovery";
+import {IWhyUs} from "@/src/shared/types/discovery";
 
 const USER_URL = '/client/api/'
 
