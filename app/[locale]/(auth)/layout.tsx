@@ -7,9 +7,7 @@ export default function Layout({
 }>) {
 	return (
 		<>
-			<main className='container flex h-screen flex-col items-center justify-center space-y-14'>
-				{children}
-			</main>
+			<main className='flex h-screen items-center space-y-14'>{children}</main>
 		</>
 	)
 }

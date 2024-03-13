@@ -1,7 +1,7 @@
-import { NextAuthOptions, getServerSession } from 'next-auth'
+import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
-import { authService } from '../services/auth.service'
+import { authService } from '../service/auth.service'
 
 export const authOptions: NextAuthOptions = {
 	session: {
@@ -64,5 +64,3 @@ export const authOptions: NextAuthOptions = {
 	},
 	secret: process.env.NEXTAUTH_SECRET,
 }
-
-export const getServerAuthSession = () => getServerSession(authOptions)

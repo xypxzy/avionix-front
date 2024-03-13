@@ -22,6 +22,7 @@ export const registerFormSchema = z
 		passportId: z.string(),
 		passportExpiryDate: z.date(),
 		agreedToTermsOfUse: z.boolean(),
+		OTP: z.string().min(6).max(6),
 	})
 	.refine(data => data.password === data.confirmPassword, {
 		message: "Password don't much",

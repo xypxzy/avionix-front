@@ -31,6 +31,7 @@
 		--ring: 238 56% 13%;
 		--radius: 0.8rem;
 		--background-hero: #f0ebe4;
+		--success: #0cb04ec7;
 	}
 
 	.dark {
@@ -55,6 +56,7 @@
 		--ring: 192 54% 67%;
 		--radius: 0.8rem;
 		--background-hero: #365486;
+		--success: #0cb04ec7;
 	}
 }
 

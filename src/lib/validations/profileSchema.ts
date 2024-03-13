@@ -3,7 +3,7 @@ import { z } from 'zod'
 export const GENDERS = ['MALE', 'FEMALE', 'OTHER'] as const
 export const zGENDERS = z.enum(GENDERS)
 
-export const registerFormSchema = z.object({
+export const profileFormSchema = z.object({
 	email: z.string().email(),
 	phone: z.string().min(8),
 	password: z.string().min(4),

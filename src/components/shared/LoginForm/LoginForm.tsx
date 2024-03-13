@@ -15,16 +15,16 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Checkbox } from '@/components/ui/checkbox'
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardTitle,
 } from '@/src/components/ui/card'
+import { Checkbox } from '@/src/components/ui/ui/checkbox'
 import { useToast } from '@/src/components/ui/use-toast'
+import { loginFormSchema } from '@/src/lib/validations/loginSchema'
 import { useUserStore } from '@/src/stores/user.store'
-import { loginFormSchema } from '@/src/types/schemas/loginSchema'
 import { formatDate } from '@/src/utils/formatDate'
 import { handleLoginError } from '@/src/utils/handleAuthError'
 import Link from 'next/link'

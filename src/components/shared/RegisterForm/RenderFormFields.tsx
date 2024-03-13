@@ -1,5 +1,6 @@
 import { Button } from '@/src/components/ui/button'
 import { Calendar } from '@/src/components/ui/calendar'
+import { Checkbox } from '@/src/components/ui/checkbox'
 import {
 	FormControl,
 	FormField,
@@ -9,26 +10,37 @@ import {
 } from '@/src/components/ui/form'
 import { Input } from '@/src/components/ui/input'
 import {
+	InputOTP,
+	InputOTPGroup,
+	InputOTPSlot,
+} from '@/src/components/ui/input-otp'
+import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
 } from '@/src/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/src/components/ui/radio-group'
-import { registerFormSchema } from '@/src/types/schemas/registerSchema'
+import { registerFormSchema } from '@/src/lib/validations/registerSchema'
 import { cn } from '@/src/utils/classnames'
 import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { UseFormReturn } from 'react-hook-form'
 import { z } from 'zod'
+import { CardTitle } from '../../ui/card'
 
-export const RenderFormFields = (
+export const renderFormFields = (
 	currentStep: number,
-	form: UseFormReturn<z.infer<typeof registerFormSchema>>
+	form: UseFormReturn<z.infer<typeof registerFormSchema>>,
+	otpValue?: string,
+	setOtpValue?: (value: string) => void
 ) => {
 	switch (currentStep) {
-		case 1:
+		case 0:
 			return (
 				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Create your account
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='email'
@@ -36,7 +48,7 @@ export const RenderFormFields = (
 							<FormItem>
 								<FormLabel>Enter your email</FormLabel>
 								<FormControl>
-									<Input placeholder='Email' type='email' required {...field} />
+									<Input placeholder='Email' type='email' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -49,7 +61,7 @@ export const RenderFormFields = (
 							<FormItem>
 								<FormLabel>Enter your phone</FormLabel>
 								<FormControl>
-									<Input placeholder='+XXX XXX XXX XXX' required {...field} />
+									<Input placeholder='+XXX XXX XXX XXX' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -62,12 +74,7 @@ export const RenderFormFields = (
 							<FormItem>
 								<FormLabel>Create a password</FormLabel>
 								<FormControl>
-									<Input
-										placeholder='Password'
-										type='password'
-										required
-										{...field}
-									/>
+									<Input placeholder='Password' type='password' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -88,9 +95,52 @@ export const RenderFormFields = (
 					/>
 				</>
 			)
+		case 1:
+			return (
+				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Email verification
+					</CardTitle>
+					<FormField
+						control={form.control}
+						name='OTP'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>
+									<p className='inline text-xs'>
+										Is this your email? Enter the six-digit code from the
+										letter.
+									</p>
+									<Button variant={'link'} className='h-4 p-0'>
+										{form.watch('email')}
+									</Button>
+								</FormLabel>
+								<FormControl>
+									<InputOTP
+										maxLength={6}
+										className='justify-center pt-4'
+										render={({ slots }) => (
+											<InputOTPGroup>
+												{slots.map((slot, index) => (
+													<InputOTPSlot key={index} {...slot} />
+												))}
+											</InputOTPGroup>
+										)}
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</>
+			)
 		case 2:
 			return (
 				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Personal Info
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='firstName'
@@ -158,6 +208,9 @@ export const RenderFormFields = (
 		case 3:
 			return (
 				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Passport details
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='dateOfBirth'
@@ -266,13 +319,22 @@ export const RenderFormFields = (
 							</FormItem>
 						)}
 					/>
-				</>
-			)
-		case 4:
-			return (
-				<>
-					<div>Check Your Email</div>
-					<Button type='submit'>Submit</Button>
+					<FormField
+						control={form.control}
+						name='agreedToTermsOfUse'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Term of use</FormLabel>
+								<FormControl>
+									<Checkbox
+										checked={field.value}
+										onCheckedChange={field.onChange}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
 				</>
 			)
 		default:

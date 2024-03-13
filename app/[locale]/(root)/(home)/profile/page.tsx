@@ -1,9 +1,13 @@
 'use client'
 
 import { useUserStore } from '@/src/stores/user.store'
+import { useSession } from 'next-auth/react'
 
 export default function Profile() {
 	const { user } = useUserStore()
+	const { data } = useSession()
+
+	console.log(data)
 
 	return (
 		<div>
