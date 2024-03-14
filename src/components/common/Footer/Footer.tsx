@@ -15,7 +15,7 @@ export default function Footer() {
 			className={`${styles.full_bleed} bg-dark_blue py-8 text-background dark:bg-background dark:text-foreground`}
 		>
 			<div className="grid grid-cols-1 justify-center lg:grid-cols-4">
-				<div className={`max-w-[328px] mx-auto`}>
+				<div className={`mx-auto max-w-[328px]`}>
 					<div className='mb-8'>
 						<Logo isFooter/>
 					</div>
@@ -41,7 +41,7 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`max-w-[105px] mx-auto`}>
+				<div className={`mx-auto max-w-[105px]`}>
 					<h3 className='mb-8 text-base  font-[600]'>Company</h3>
 					<ul className='gap-3 space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
@@ -55,7 +55,7 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`max-w-[152px] mx-auto`}>
+				<div className={`mx-auto max-w-[152px]`}>
 					<h3 className='mb-8 text-base font-[600]'>Quick links</h3>
 					<ul className='space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
@@ -69,7 +69,7 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`max-w-[271px] mx-auto`}>
+				<div className={`mx-auto max-w-[271px]`}>
 					<h3 className='mb-6 text-base  font-[600]'>Newsletter</h3>
 					<div className='relative w-fit min-w-[280px] space-y-2 sm:min-w-[360px]'>
 						<form
@@ -100,7 +100,7 @@ export default function Footer() {
 								/>
 							</Button>
 						</form>
-						<p className='p-2 text-xs text-blue_light'>
+						<p className='p-2 text-xs text-light_blue'>
 							<Link href={'/notfound'} className={`hover:text-primary`}>Subscribe to get news & offers</Link>
 						</p>
 						<Separator
