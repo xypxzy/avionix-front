@@ -31,5 +31,32 @@
 	"AirlineRating": {
 		"title": "Havayolu derecelendirmesi",
 		"link": "Değerlendirmenin tamamını görün"
+	},
+	"Footer": {
+		"location": {
+			"address": "Vasilyevsky yolu 105, Manas havaalanı, Bişkek, Kırgız Cumhuriyeti",
+			"tel": "+996 (700) 999 999",
+			"mail": "avionix2024@gmail.com",
+			"term_of_use": "Kullanım koşulu",
+			"privacy_police": "Gizlilik Politikası"
+		},
+		"company": {
+			"title": "Şirket",
+			"contacts": "İletişim",
+			"support": "Destek",
+			"faq": "Çok sorulan sorular"
+		},
+		"qucik_links": {
+			"title": "Hızlı Linkler",
+			"flights": "Uçuşlar",
+			"hotels": "Oteller",
+			"services": "Hizmetler"
+		},
+		"newsletter": {
+			"title": "Bülten",
+			"input_placeholder": "E-posta",
+			"subscribe": "Haber ve teklifler almak için abone olun",
+			"social_media": "Bizi sosyal medyada bulun"
+		}
 	}
 }
