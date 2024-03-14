@@ -55,7 +55,7 @@ export default function Logo({ isFooter }: LogoProps) {
 				width={isMobile ? 60 : 200}
 				height={40}
 				loading='lazy'
-				className='mx-auto h-[40px]'
+				className=' h-[40px]'
 			/>
 		</Link>
 	)
