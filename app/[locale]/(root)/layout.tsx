@@ -1,6 +1,6 @@
 import Footer from '@/src/components/common/Footer/Footer'
 import Header from '@/src/components/common/Header/Header'
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 export default function Layout({
 	children,
