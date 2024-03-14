@@ -4,10 +4,7 @@ import { Input } from '@/src/components/ui/input'
 import { Separator } from '@/src/components/ui/separator'
 import {
 	ArrowRight,
-	CreditCard,
-	FacebookIcon,
 	InstagramIcon,
-	TwitterIcon,
 } from 'lucide-react'
 import Link from 'next/link'
 import styles from './Footer.module.css'
