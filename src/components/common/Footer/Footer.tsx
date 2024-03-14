@@ -1,3 +1,4 @@
+'use client'
 import Logo from '@/src/components/shared/Logo/Logo'
 import { Button } from '@/src/components/ui/button'
 import { Input } from '@/src/components/ui/input'
@@ -8,8 +9,16 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import styles from './Footer.module.css'
+import {useTranslations} from "next-intl";
+import React from "react";
 
 export default function Footer() {
+
+	const t = useTranslations('Footer')
+	React.useEffect(()=>{
+		console.log("t: ", t('location.address'))
+	},[])
+
 	return (
 		<footer
 			className={`${styles.full_bleed} bg-dark_blue py-8 text-background dark:bg-background dark:text-foreground`}
@@ -22,50 +31,50 @@ export default function Footer() {
 					<ul className={`flex flex-col gap-3`}>
 						<li>
 							<Link className={`text-[16px] font-[400] leading-[21px] hover:text-primary`}
-								  href={`https://2gis.kg/bishkek/firm/70000001020527681/74.575695%2C42.833417?m=74.575996%2C42.83333%2F19.97`}>Vasilyevsky tract 105, Manas airport, Bishkek, Kyrgyz Republic</Link>
+								  href={`https://2gis.kg/bishkek/firm/70000001020527681/74.575695%2C42.833417?m=74.575996%2C42.83333%2F19.97`}>{t('location.address')}</Link>
 						</li>
 						<li>
 							<Link className={`text-[16px] font-[400] leading-[21px] hover:text-primary`}
-								  href='tel:+99677777777'>+996 777 77 77 77</Link>
+								  href='tel:+99677777777'>{t('location.tel')}</Link>
 						</li>
 						<li>
 							<Link className={`text-[16px] font-[400] leading-[21px] hover:text-primary`}
-								  href='mailto:info@tripper.com'>info@tripper.com</Link>
+								  href='mailto:info@tripper.com'>{t('location.mail')}</Link>
 						</li>
 						<li className={`flex items-center`}>
 							<Link className={`text-[16px] font-[400] leading-[21px] hover:text-primary`}
-								  href='mailto:info@tripper.com'>Term of use</Link>
+								  href='/term_of_use'>{t('location.term_of_use')}</Link>
 							<div className={`mx-4 h-7 w-[1.5px] rounded-[1px] bg-white`}></div>
 							<Link className={`text-[16px] font-[400] leading-[21px] hover:text-primary`}
-								  href='mailto:info@tripper.com'>Privacy police</Link>
+								  href='/privacy_policy'>{t('location.privacy_police')}</Link>
 						</li>
 					</ul>
 				</div>
-				<div className={`mx-auto max-w-[105px]`}>
-					<h3 className='mb-8 text-base  font-[600]'>Company</h3>
+				<div className={`mx-auto max-w-[155px]`}>
+					<h3 className='mb-8 text-base  font-[600]'>{t('company.title')}</h3>
 					<ul className='gap-3 space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/contacts'}>Contacts</Link>
+							<Link href={'/contacts'}>{t('company.contacts')}</Link>
 						</li>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/support'}>Support</Link>
+							<Link href={'/support'}>{t('company.support')}</Link>
 						</li>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/faq'}>FAQ</Link>
+							<Link href={'/faq'}>{t('company.faq')}</Link>
 						</li>
 					</ul>
 				</div>
-				<div className={`mx-auto max-w-[152px]`}>
-					<h3 className='mb-8 text-base font-[600]'>Quick links</h3>
+				<div className={`mx-auto max-w-[192px]`}>
+					<h3 className='mb-8 text-base font-[600]'>{t('quick_links.title')}</h3>
 					<ul className='space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/flights'}>Flights</Link>
+							<Link href={'/flights'}>{t('quick_links.flights')}</Link>
 						</li>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/flights'}>Hotels</Link>
+							<Link href={'/hotels'}>{t('quick_links.hotels')}</Link>
 						</li>
 						<li className='cursor-pointer transition hover:text-primary'>
-							<Link href={'/services'}>Services</Link>
+							<Link href={'/services'}>{t('quick_links.services')}</Link>
 						</li>
 					</ul>
 				</div>
