@@ -13,12 +13,7 @@ import {useTranslations} from "next-intl";
 import React from "react";
 
 export default function Footer() {
-
 	const t = useTranslations('Footer')
-	React.useEffect(()=>{
-		console.log("t: ", t('location.address'))
-	},[])
-
 	return (
 		<footer
 			className={`${styles.full_bleed} bg-dark_blue py-8 text-background dark:bg-background dark:text-foreground`}
