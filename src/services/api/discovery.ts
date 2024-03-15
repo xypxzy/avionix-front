@@ -1,7 +1,7 @@
 import {client} from "@/src/services/axios";
 import {IFaq, IWhyUs} from "@/src/shared/types/discovery";
 
-const DISCOVERY_URL = 'discovery/api/'
+const DISCOVERY_URL = 'discovery/api'
 
 class DiscoveryService {
 	getWhyUsList() {
@@ -9,7 +9,7 @@ class DiscoveryService {
 	}
 
 	getFaqList() {
-		return client.get<IFaq[]>(`${DISCOVERY_URL}/faq`)
+		return client.get<IFaq[]>(`${DISCOVERY_URL}/faq?lan=en`)
 	}
 }
 
