@@ -22,7 +22,8 @@
 			"input_area": "Ask us a question",
 			"button": "Follow",
 			"under_button": "I accept the terms of the Privacy Policy and consent to the processing of personal data"
-		}
+		},
+		"loading": "Loading..."
 	},
 	"SpecialDeals": {
 		"title": "Special deals",
