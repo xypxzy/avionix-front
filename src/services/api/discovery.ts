@@ -8,8 +8,12 @@ class DiscoveryService {
 		return client.get<IWhyUs[]>(`${DISCOVERY_URL}/whyUs`)
 	}
 
-	getFaqList() {
-		return client.get<IFaq[]>(`${DISCOVERY_URL}/faq?lan=en`)
+	getFaqList(lan: string) {
+		return client.get<IFaq[]>(`${DISCOVERY_URL}/faq?lan=${lan}`)
+	}
+
+	setFaqList(userMessage: any) {
+		return client.post<IFaq[]>(`${DISCOVERY_URL}/contact`, userMessage)
 	}
 }
 
