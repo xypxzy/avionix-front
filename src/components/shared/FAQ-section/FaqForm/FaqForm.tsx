@@ -27,13 +27,13 @@ const FaqForm = () => {
         },
     })
     const onSubmit = async (values:z.infer<typeof formSchema>) => {
-        console.log('click')
+        setIsLoading(true)
         try {
-            setIsLoading(true);
-            const postData = await DiscoveryService.setFaqList(values);
-            setIsLoading(postData.status !== 201)
+            await DiscoveryService.setFaqList(values);
+            setIsLoading(false)
         } catch (error) {
             console.error('Error:', error);
+            setIsLoading(false)
         }
     }
     return (
