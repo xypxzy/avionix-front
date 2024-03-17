@@ -22,7 +22,8 @@
 			"input_area": "Bize bir soru sorun",
 			"button": "Takip etmek",
 			"under_button": "Gizlilik Politikası şartlarını kabul ediyorum ve kişisel verilerimin işlenmesine izin veriyorum"
-		}
+		},
+		"loading": "Yükleniyor..."
 	},
 	"SpecialDeals": {
 		"title": "Özel fırsatlar",
