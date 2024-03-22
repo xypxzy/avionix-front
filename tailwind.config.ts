@@ -29,7 +29,6 @@ const config = {
 		extend: {
 			colors: {
 				background_hero: 'var(--background-hero)',
-
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -37,6 +36,7 @@ const config = {
 				foreground: 'hsl(var(--foreground))',
 				dark_blue: 'var(--background-dark-blue)',
 				light_blue: 'var(--background-light-blue)',
+				pagination: 'var(--background-pagination)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',

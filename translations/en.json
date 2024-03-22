@@ -25,6 +25,10 @@
 		},
 		"loading": "Loading..."
 	},
+	"WhyUs": {
+		"title": "Why us",
+		"loading": "Loading..."
+	},
 	"SpecialDeals": {
 		"title": "Special deals",
 		"link": "View all promotions"

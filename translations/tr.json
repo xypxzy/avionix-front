@@ -25,6 +25,10 @@
 		},
 		"loading": "Yükleniyor..."
 	},
+	"WhyUs": {
+		"title": "Neden biz",
+		"loading": "Yükleniyor..."
+	},
 	"SpecialDeals": {
 		"title": "Özel fırsatlar",
 		"link": "Tüm promosyonları görüntüle"

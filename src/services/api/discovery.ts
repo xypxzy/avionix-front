@@ -4,8 +4,8 @@ import {IFaq, IWhyUs} from "@/src/shared/types/discovery";
 const DISCOVERY_URL = 'discovery/api'
 
 class DiscoveryService {
-	getWhyUsList() {
-		return client.get<IWhyUs[]>(`${DISCOVERY_URL}/whyUs`)
+	getWhyUsList(lan: string) {
+		return client.get<IWhyUs[]>(`${DISCOVERY_URL}/whyUs?lan=${lan}`)
 	}
 
 	getFaqList(lan: string) {
