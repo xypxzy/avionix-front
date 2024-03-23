@@ -1,5 +1,4 @@
 import React from 'react'
-import '../WhyUs.css'
 import ISlidesProps from "@/src/shared/types/discovery";
 
 const styles = [

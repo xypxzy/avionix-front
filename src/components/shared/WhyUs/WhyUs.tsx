@@ -1,6 +1,6 @@
 'use client'
 import React, { useCallback, useEffect, useState } from 'react'
-import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
+import { EmblaCarouselType } from 'embla-carousel'
 import { DotButton, useDotButton } from './SlidesPagination'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -11,12 +11,11 @@ import DiscoveryService from "@/src/services/api/discovery";
 import {IWhyUs} from "@/src/shared/types/discovery";
 
 const WhyUs: React.FC = () => {
-    const options: EmblaOptionsType = { loop: true }
     const t = useTranslations('WhyUs')
     const locale = useLocale()
     const [data, setData] = useState<IWhyUs[]>([])
     const [Loading, setLoading] = useState(true);
-    const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    const [emblaRef, emblaApi] = useEmblaCarousel({loop:true}, [
         Autoplay({ delay: 3000 }),
     ])
     useEffect(() => {
