@@ -16,10 +16,10 @@ export default function Footer() {
 	const t = useTranslations('Footer')
 	return (
 		<footer
-			className={`${styles.full_bleed} bg-dark_blue py-8 text-background dark:bg-background dark:text-foreground`}
+			className={`${styles.full_bleed} bg-dark_blue p-4 md:p-8 lg:p-12 text-background dark:bg-background dark:text-foreground`}
 		>
-			<div className="grid grid-cols-1 justify-center lg:grid-cols-4">
-				<div className={`mx-auto max-w-[328px]`}>
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+				<div className={`lg:mx-auto max-w-[330px]`}>
 					<div className='mb-8'>
 						<Logo isFooter/>
 					</div>
@@ -45,7 +45,7 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`mx-auto max-w-[155px]`}>
+				<div className={`lg:mx-auto max-w-[155px]`}>
 					<h3 className='mb-8 text-base  font-[600]'>{t('company.title')}</h3>
 					<ul className='gap-3 space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
@@ -59,7 +59,7 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`mx-auto max-w-[192px]`}>
+				<div className={`lg:mx-auto max-w-[192px]`}>
 					<h3 className='mb-8 text-base font-[600]'>{t('quick_links.title')}</h3>
 					<ul className='space-y-4'>
 						<li className='cursor-pointer transition hover:text-primary'>
@@ -73,9 +73,9 @@ export default function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div className={`mx-auto max-w-[271px]`}>
+				<div className={`lg:mx-auto max-w-[271px]`}>
 					<h3 className='mb-6 text-base  font-[600]'>Newsletter</h3>
-					<div className='relative w-fit min-w-[280px] space-y-2 sm:min-w-[360px]'>
+					<div className='relative w-fit'>
 						<form
 							className='relative flex min-h-[46px] grow items-center gap-1 rounded-sm border border-primary dark:border-border'>
 							<Input
