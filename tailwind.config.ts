@@ -37,6 +37,9 @@ const config = {
 				dark_blue: 'var(--background-dark-blue)',
 				light_blue: 'var(--background-light-blue)',
 				pagination: 'var(--background-pagination)',
+				gold: 'var(--background-gold)',
+				silver: 'var(--background-silver)',
+				bronze: 'var(--background-bronze)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
