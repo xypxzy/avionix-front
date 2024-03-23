@@ -14,23 +14,10 @@ const WhyUs: React.FC = () => {
     const t = useTranslations('WhyUs')
     const locale = useLocale()
     const [data, setData] = useState<IWhyUs[]>([])
-    const [Loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [emblaRef, emblaApi] = useEmblaCarousel({loop:true}, [
         Autoplay({ delay: 3000 }),
     ])
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await DiscoveryService.getWhyUsList(locale);
-                setData(result.data)
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error)
-                setLoading(false);
-            }
-        }
-        fetchData()
-    }, [locale])
     const [progressValue, setProgressValue] = React.useState(0)
     const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
         // @ts-ignore
@@ -43,12 +30,10 @@ const WhyUs: React.FC = () => {
 
         resetOrStop()
     }, [])
-
     const { selectedIndex, onDotButtonClick } = useDotButton(
         emblaApi,
         onNavButtonClick
     )
-
     useEffect(() => {
         const duration = 2999
         const totalTicks = 100
@@ -68,9 +53,21 @@ const WhyUs: React.FC = () => {
 
         return () => clearInterval(timer)
     }, [selectedIndex])
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await DiscoveryService.getWhyUsList(locale);
+                setData(result.data)
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error)
+                setIsLoading(false);
+            }
+        }
+        fetchData()
+    }, [locale])
     return (
-        Loading ? <div className={`w-full max-w-[480px] text-center text-lg md:text-2xl`}>{t('loading')}</div> :
+        isLoading ? <div className={`w-full max-w-[480px] text-center text-lg md:text-2xl`}>{t('loading')}</div> :
         <section className='border-y border-primary py-4 sm:py-10 md:py-20 lg:py-32'>
             <div className={`mx-auto`}>
                 <div className={`mx-auto w-full px-10`}>
