@@ -4,6 +4,10 @@ export interface IWhyUs {
     title: string;
     description: string;
 }
+export default interface ISlidesProps {
+    index: number
+    data: IWhyUs
+}
 
 export interface IFaq {
     id: string;
