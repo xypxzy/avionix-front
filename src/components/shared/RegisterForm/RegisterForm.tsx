@@ -16,8 +16,8 @@ import {cn} from "@/src/shared/utils/classnames";
 
 export default function RegisterForm() {
   const [currentStep, setCurrentStep] = useState(0)
-  const [previousStep, setPreviousStep] = useState(0)
-  const delta = currentStep - previousStep
+  // const [previousStep, setPreviousStep] = useState(0)
+  // const delta = currentStep - previousStep
 
   const form = useForm<RegisterInputs>({
     resolver: zodResolver(registerFormSchema),
@@ -57,14 +57,14 @@ export default function RegisterForm() {
       if (currentStep === STEPS.length - 2) {
         await form.handleSubmit(onSubmit)()
       }
-      setPreviousStep(currentStep)
+      // setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
     }
   }
 
   const prev = () => {
     if (currentStep > 0) {
-      setPreviousStep(currentStep)
+      // setPreviousStep(currentStep)
       setCurrentStep(step => step - 1)
     }
   }

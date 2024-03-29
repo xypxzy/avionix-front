@@ -17,11 +17,8 @@ export const RegisterOtp: React.FC<RegisterOTPProps> = ({form}) => {
   const {toast} = useToast()
 
   const handleSubmit = async () => {
-    const response = await AuthService.confirmEmail(value, form.getValues('email'))
-
-    console.log(response)
-
-    if (response.status === 200) {
+    try {
+      await AuthService.confirmEmail(value, form.getValues('email'))
       toast({
         title: 'Your successfully registered!',
         description: formatDate(new Date(), 'en'),
@@ -29,7 +26,7 @@ export const RegisterOtp: React.FC<RegisterOTPProps> = ({form}) => {
       })
       form.reset()
       redirect('/login')
-    } else {
+    } catch (e) {
       toast({
         title: 'Your failed registered, Please try again!',
         color: 'error',
