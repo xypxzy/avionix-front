@@ -29,9 +29,7 @@ export const authOptions: NextAuthOptions = {
 					password: string
 				}
 
-				const user = await AuthService.authenticate(email, password)
-
-				return user
+				return await AuthService.authenticate(email, password)
 			},
 		}),
 	],

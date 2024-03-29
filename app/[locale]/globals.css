@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-	/*  218 43% 37% - #365486  */
-	/*  238 56% 13% - #0f1035  */
-	/*  177 46% 91% - #dcf2f1  */
-	/*  192, 54%, 67% - #7fc7d9  */
-	/*  40 27% 94% - bg */
-
 	:root {
 		--background: 40 27% 94%;
 		--foreground: 222.2 84% 4.9%;
@@ -31,6 +25,7 @@
 		--ring: 238 56% 13%;
 		--radius: 0.8rem;
 		--background-hero: #f0ebe4;
+		--success: #0CB04EC7;
 	}
 
 	.dark {
@@ -55,6 +50,7 @@
 		--ring: 192 54% 67%;
 		--radius: 0.8rem;
 		--background-hero: #365486;
+		--success: #0CB04EC7;
 	}
 }
 
@@ -64,5 +60,8 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+	.card__border__layer {
+		@apply before:absolute before:inset-0 before:-left-6 before:top-[10%] before:z-[-2] before:h-[80%] before:w-[calc(100%+3rem)] before:rounded-sm before:border-2 before:border-secondary before:bg-primary after:absolute after:inset-0 after:-left-3 after:top-[5%] after:z-[-1] after:h-[90%] after:w-[calc(100%+1.5rem)] after:rounded-sm after:border-2 after:border-secondary-foreground after:bg-secondary dark:before:border-foreground;
 	}
 }
