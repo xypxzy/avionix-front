@@ -1,5 +1,5 @@
-import {client} from "@/src/services/axios";
-import {IFaq, IWhyUs} from "@/src/shared/types/discovery";
+import { client } from '@/src/services/axios'
+import { IFaq, IWhyUs } from '@/src/shared/types/discovery'
 
 const DISCOVERY_URL = 'discovery/api'
 
@@ -17,4 +17,6 @@ class DiscoveryService {
 	}
 }
 
-export default new DiscoveryService()
+const DiscoveryServiceInstance = new DiscoveryService()
+
+export default DiscoveryServiceInstance

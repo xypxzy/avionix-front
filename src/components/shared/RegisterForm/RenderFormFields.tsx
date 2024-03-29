@@ -1,5 +1,6 @@
 import { Button } from '@/src/components/ui/button'
 import { Calendar } from '@/src/components/ui/calendar'
+import { Checkbox } from '@/src/components/ui/checkbox'
 import {
 	FormControl,
 	FormField,
@@ -14,21 +15,27 @@ import {
 	PopoverTrigger,
 } from '@/src/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/src/components/ui/radio-group'
-import { registerFormSchema } from '@/src/shared/types/schemas/registerSchema'
-import { cn } from '@/src/shared/utils/classnames'
 import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { UseFormReturn } from 'react-hook-form'
 import { z } from 'zod'
+import { CardTitle } from '@/src/components/ui/card'
+import {registerFormSchema} from "@/src/shared/types/schemas/registerSchema";
+import {cn} from "@/src/shared/utils/classnames";
+import { PhoneInput } from '@/src/components/ui/phone-input'
+import {RegisterOtp} from "@/src/components/shared/RegisterForm/RegisterOTP";
 
-export const RenderFormFields = (
+export const renderFormFields = (
 	currentStep: number,
-	form: UseFormReturn<z.infer<typeof registerFormSchema>>
+	form: UseFormReturn<z.infer<typeof registerFormSchema>>,
 ) => {
 	switch (currentStep) {
-		case 1:
+		case 0:
 			return (
 				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Create your account
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='email'
@@ -36,7 +43,7 @@ export const RenderFormFields = (
 							<FormItem>
 								<FormLabel>Enter your email</FormLabel>
 								<FormControl>
-									<Input placeholder='Email' type='email' required {...field} />
+									<Input placeholder='Email' type='email' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -47,9 +54,9 @@ export const RenderFormFields = (
 						name='phone'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Enter your phone</FormLabel>
+								<FormLabel>Phone Number</FormLabel>
 								<FormControl>
-									<Input placeholder='+XXX XXX XXX XXX' required {...field} />
+									<PhoneInput placeholder='Enter a phone number' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -62,25 +69,29 @@ export const RenderFormFields = (
 							<FormItem>
 								<FormLabel>Create a password</FormLabel>
 								<FormControl>
-									<Input
-										placeholder='Password'
-										type='password'
-										required
-										{...field}
-									/>
+									<Input placeholder='Password' type='password' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						)}
 					/>
 					<FormField
+						{...form.register("confirmPassword", {
+							required: true,
+							validate: (val: string) => {
+								console.log('validate')
+								if (form.watch('password') !== val) {
+									return "Your passwords do no match";
+								}
+							},
+						})}
 						control={form.control}
-						name='confirmPassword'
+						name={"confirmPassword"}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Confirm a password</FormLabel>
 								<FormControl>
-									<Input placeholder='Password' type='password' {...field} />
+									<Input placeholder='Confirm a password' type='password' {...field}/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -88,9 +99,12 @@ export const RenderFormFields = (
 					/>
 				</>
 			)
-		case 2:
-			return (
-				<>
+		case 1:
+		return (
+			<>
+				<CardTitle className='pt-6 text-lg font-normal'>
+					Personal Info
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='firstName'
@@ -121,31 +135,25 @@ export const RenderFormFields = (
 						control={form.control}
 						name='gender'
 						render={({ field }) => (
-							<FormItem className='space-y-3'>
-								<FormLabel>Notify me about...</FormLabel>
+							<FormItem className='space-y-1'>
+								<FormLabel>Gender</FormLabel>
 								<FormControl>
 									<RadioGroup
 										onValueChange={field.onChange}
 										defaultValue={field.value}
-										className='flex flex-col space-y-1'
+										className='flex items-center space-x-4'
 									>
-										<FormItem className='flex items-center space-x-3 space-y-0'>
+										<FormItem className='flex items-end justify-between space-x-2'>
 											<FormControl>
 												<RadioGroupItem value='MALE' />
 											</FormControl>
-											<FormLabel className='font-normal'>Men</FormLabel>
+											<FormLabel className='font-normal'>Male</FormLabel>
 										</FormItem>
-										<FormItem className='flex items-center space-x-3 space-y-0'>
+										<FormItem className='flex items-end justify-between space-x-2'>
 											<FormControl>
 												<RadioGroupItem value='FEMALE' />
 											</FormControl>
-											<FormLabel className='font-normal'>Women</FormLabel>
-										</FormItem>
-										<FormItem className='flex items-center space-x-3 space-y-0'>
-											<FormControl>
-												<RadioGroupItem value='OTHER' />
-											</FormControl>
-											<FormLabel className='font-normal'>Other</FormLabel>
+											<FormLabel className='font-normal'>Female</FormLabel>
 										</FormItem>
 									</RadioGroup>
 								</FormControl>
@@ -155,9 +163,12 @@ export const RenderFormFields = (
 					/>
 				</>
 			)
-		case 3:
+		case 2:
 			return (
 				<>
+					<CardTitle className='pt-6 text-lg font-normal'>
+						Passport details
+					</CardTitle>
 					<FormField
 						control={form.control}
 						name='dateOfBirth'
@@ -172,7 +183,7 @@ export const RenderFormFields = (
 													id='dateOfBirth'
 													variant={'outline'}
 													className={cn(
-														'w-full 2xl:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit hover:bg-inherit hover:text-muted-foreground',
+														'w-full pl-3 text-left font-normal bg-inherit hover:bg-inherit hover:text-muted-foreground',
 														!field.value && 'text-muted-foreground'
 													)}
 												>
@@ -189,6 +200,7 @@ export const RenderFormFields = (
 											<Calendar
 												initialFocus
 												mode='single'
+												selected={field.value}
 												disabled={date => date > new Date()}
 												onSelect={field.onChange}
 											/>
@@ -239,7 +251,7 @@ export const RenderFormFields = (
 													id='passportExpiryDate'
 													variant={'outline'}
 													className={cn(
-														'w-full 2xl:w-[160px] pl-3 text-left font-normal h-8 border-none bg-inherit hover:bg-inherit hover:text-muted-foreground',
+														'w-full bg-inherit hover:bg-inherit hover:text-muted-foreground',
 														!field.value && 'text-muted-foreground'
 													)}
 												>
@@ -256,6 +268,7 @@ export const RenderFormFields = (
 											<Calendar
 												initialFocus
 												mode='single'
+												selected={field.value}
 												disabled={date => date < new Date()}
 												onSelect={field.onChange}
 											/>
@@ -266,15 +279,27 @@ export const RenderFormFields = (
 							</FormItem>
 						)}
 					/>
+					<FormField
+						control={form.control}
+						name='agreedToTermsOfUse'
+						render={({ field }) => (
+							<FormItem className='flex w-full items-center justify-between'>
+								<FormLabel>Term of use</FormLabel>
+								<FormControl>
+									<Checkbox
+										className='mr-4 size-6'
+										checked={field.value}
+										onCheckedChange={field.onChange}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
 				</>
 			)
-		case 4:
-			return (
-				<>
-					<div>Check Your Email</div>
-					<Button type='submit'>Submit</Button>
-				</>
-			)
+		case 3:
+			return <RegisterOtp form={form} />
 		default:
 			return null
 	}

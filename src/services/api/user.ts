@@ -1,11 +1,15 @@
 import {client} from "@/src/services/axios";
-import {IWhyUs} from "@/src/shared/types/discovery";
+import {IUser} from "@/src/shared/types/user";
 
 const USER_URL = '/client/api/'
 
 class UserService {
-    async getUser(username: string) {
-        return client.get<IWhyUs>(`${USER_URL}/${username}`);
+    async getUser(accessToken: string) {
+        return client.get<IUser>(`${USER_URL}/customer}`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
+        }).then(res => res.data)
     }
 }
 

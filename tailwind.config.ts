@@ -29,6 +29,8 @@ const config = {
 		extend: {
 			colors: {
 				background_hero: 'var(--background-hero)',
+				success: 'var(--success)',
+
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

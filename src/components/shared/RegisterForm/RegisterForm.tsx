@@ -1,112 +1,111 @@
 'use client'
 
-import { Button } from '@/src/components/ui/button'
-
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from '@/src/components/ui/card'
-
-import { useToast } from '@/src/components/ui/use-toast'
-import { registerFormSchema } from '@/src/shared/types/schemas/registerSchema'
-
-import { Form } from '@/src/components/ui/form'
-import { formatDate } from '@/src/shared/utils/formatDate'
-import axios from 'axios'
-import { useState } from 'react'
-import { RenderFormFields } from './RenderFormFields'
+import {zodResolver} from '@hookform/resolvers/zod'
+import React, {useState} from 'react'
+import {SubmitHandler, useForm} from 'react-hook-form'
+import {Button} from '@/src/components/ui/button'
+import {Card, CardContent} from '@/src/components/ui/card'
+import {Form} from '@/src/components/ui/form'
+import {RegisterFormStep} from './RegisterFormStep'
+import {renderFormFields} from './RenderFormFields'
+import {registerFormSchema} from "@/src/shared/types/schemas/registerSchema";
+import {RegisterFieldName, RegisterInputs} from "@/src/shared/types/auth";
+import {STEPS} from "@/src/shared/const/auth";
+import AuthService from '@/src/services/api/auth'
+import {cn} from "@/src/shared/utils/classnames";
 
 export default function RegisterForm() {
-	const form = useForm<z.infer<typeof registerFormSchema>>({
-		resolver: zodResolver(registerFormSchema),
-		defaultValues: {
-			email: '',
-			phone: '',
-			password: '',
-			confirmPassword: '',
-			firstName: '',
-			lastName: '',
-			gender: '',
-			dateOfBirth: undefined,
-			nationality: '',
-			passportId: '',
-			passportExpiryDate: undefined,
-			agreedToTermsOfUse: true,
-		},
-	})
-	const { toast } = useToast()
-	const [currentStep, setCurrentStep] = useState(1)
-	const handleNextChange = (step: number) => {
-		setCurrentStep(step)
-	}
+  const [currentStep, setCurrentStep] = useState(0)
+  const [previousStep, setPreviousStep] = useState(0)
+  const delta = currentStep - previousStep
 
-	async function onSubmit(formData: z.infer<typeof registerFormSchema>) {
-		try {
-			const url = `${process.env.NEXT_PUBLIC_API_URL}/customer`
+  const form = useForm<RegisterInputs>({
+    resolver: zodResolver(registerFormSchema),
+    defaultValues: {
+      email: '',
+      phone: '',
+      password: '',
+      confirmPassword: '',
+      firstName: '',
+      lastName: '',
+      passportId: '',
+      nationality: ''
+    }
+  })
 
-			const response = await axios.post(url, formData, {
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-			})
+  const onSubmit: SubmitHandler<RegisterInputs> = async (formData: RegisterInputs, event?: React.BaseSyntheticEvent) => {
+    try {
+      if (event && event.type === 'submit') {
+        return;
+      }
 
-			if (response.status === 200) {
-				toast({
-					title: 'Your Successfully Register',
-					description: formatDate(new Date(), 'en'),
-					color: 'success',
-				})
-				form.reset()
-			} else {
-				toast({
-					title: 'Your Failed Register, Try again!',
-					color: 'error',
-				})
+      await AuthService.register(formData);
+    } catch (error) {
+      console.error('Error registering customer:', error)
+    }
+  }
 
-				if (response.data && response.data.details) {
-					form.setError('email', {
-						message: response.data.details,
-						type: 'error',
-					})
-				} else {
-					form.setError('email', {
-						message: 'User Registration Failed',
-						type: 'error',
-					})
-				}
-			}
-		} catch (error) {
-			console.error('Error registering customer:', error)
-		}
-	}
+  const next = async () => {
+    const fields = STEPS[currentStep].fields
+    const output = await form.trigger(fields as RegisterFieldName[], {
+      shouldFocus: true,
+    })
 
-	return (
-		<Card className='mx-auto w-2/3 min-w-[500px]'>
-			<CardHeader>
-				<CardTitle>Register</CardTitle>
-			</CardHeader>
-			<CardContent className='h-[350px]'>
-				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
-						{RenderFormFields(currentStep, form)}
-					</form>
-				</Form>
-				<Button onClick={() => setCurrentStep(prev => prev + 1)}>Next</Button>
-			</CardContent>
-			<CardFooter className='absolute -top-20 flex gap-5'>
-				<Button onClick={() => handleNextChange(1)}>1</Button>
-				<Button onClick={() => handleNextChange(2)}>2</Button>
-				<Button onClick={() => handleNextChange(3)}>3</Button>
-				<Button onClick={() => handleNextChange(4)}>4</Button>
-			</CardFooter>
-		</Card>
-	)
+    if (!output) return
+
+    if (currentStep < STEPS.length - 1) {
+      if (currentStep === STEPS.length - 2) {
+        await form.handleSubmit(onSubmit)()
+      }
+      setPreviousStep(currentStep)
+      setCurrentStep(step => step + 1)
+    }
+  }
+
+  const prev = () => {
+    if (currentStep > 0) {
+      setPreviousStep(currentStep)
+      setCurrentStep(step => step - 1)
+    }
+  }
+
+  console.log(form.formState.errors)
+
+  return (
+    <div className="w-2/5 lg:w-2/4">
+      <div className="relative -top-8 flex flex-col items-center justify-center gap-y-4">
+        <RegisterFormStep currentStep={currentStep} steps={STEPS}/>
+        <Card>
+          <CardContent className='min-w-[430px] pb-0'>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className={cn('space-y-4 last:space-y-0', Object.keys(form.formState.errors).length && 'space-y-1')}
+              >
+                {currentStep === 0 && renderFormFields(0, form)}
+                {currentStep === 1 && renderFormFields(1, form)}
+                {currentStep === 2 && renderFormFields(2, form)}
+                {currentStep === 3 && renderFormFields(3, form)}
+              </form>
+            </Form>
+            {currentStep < STEPS.length - 1 && (
+              <div className='space-y-2 py-6'>
+                <Button className='w-full' onClick={next}>
+                  {currentStep === STEPS.length - 2 ? 'Submit' : 'Next'}
+                </Button>
+                <Button
+                  variant='outline'
+                  className='w-full'
+                  onClick={prev}
+                  disabled={currentStep === 0}
+                >
+                  Back
+                </Button>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
 }
