@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+	/*  218 43% 37% - #365486  */
+	/*  238 56% 13% - #0f1035  */
+	/*  177 46% 91% - #dcf2f1  */
+	/*  192, 54%, 67% - #7fc7d9  */
+	/*  40 27% 94% - bg */
+
 	:root {
 		--background: 40 27% 94%;
 		--foreground: 222.2 84% 4.9%;
@@ -25,6 +31,12 @@
 		--ring: 238 56% 13%;
 		--radius: 0.8rem;
 		--background-hero: #f0ebe4;
+		--background-dark-blue: #0E1036;
+		--background-light-blue: #80C7D9;
+		--background-pagination: #365486B5;
+		--background-bronze: #E3AC7F;
+		--background-silver: #365486B5;
+		--background-gold: #FFCD29;
 		--success: #0CB04EC7;
 	}
 
@@ -50,7 +62,6 @@
 		--ring: 192 54% 67%;
 		--radius: 0.8rem;
 		--background-hero: #365486;
-		--success: #0CB04EC7;
 	}
 }
 

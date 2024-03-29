@@ -36,6 +36,12 @@ const config = {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				dark_blue: 'var(--background-dark-blue)',
+				light_blue: 'var(--background-light-blue)',
+				pagination: 'var(--background-pagination)',
+				gold: 'var(--background-gold)',
+				silver: 'var(--background-silver)',
+				bronze: 'var(--background-bronze)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -79,10 +85,6 @@ const config = {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
-				'caret-blink': {
-					'0%,70%,100%': { opacity: '1' },
-					'20%,50%': { opacity: '0' },
-				},
 				scroll: {
 					to: {
 						transform: "translate(calc(-50% - 0.5rem))",
@@ -92,7 +94,6 @@ const config = {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'caret-blink': 'caret-blink 1.25s ease-out infinite',
 				scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 			},
 			fontSize: {

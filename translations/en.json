@@ -22,7 +22,12 @@
 			"input_area": "Ask us a question",
 			"button": "Follow",
 			"under_button": "I accept the terms of the Privacy Policy and consent to the processing of personal data"
-		}
+		},
+		"loading": "Loading..."
+	},
+	"WhyUs": {
+		"title": "Why us",
+		"loading": "Loading..."
 	},
 	"SpecialDeals": {
 		"title": "Special deals",
@@ -31,5 +36,32 @@
 	"AirlineRating": {
 		"title": "Airline rating",
 		"link": "See full rating"
+	},
+	"Footer": {
+		"location": {
+			"address": "Vasilyevsky tract 105, Manas airport, Bishkek, Kyrgyz Republic",
+			"tel": "+996 (700) 999 999",
+			"mail": "avionix2024@gmail.com",
+			"term_of_use": "Term of use",
+			"privacy_police": "Privacy police"
+		},
+		"company": {
+			"title": "Company",
+			"contacts": "Contacts",
+			"support": "Support",
+			"faq": "FAQ"
+		},
+		"quick_links": {
+			"title": "Quick links",
+			"flights": "Flights",
+			"hotels": "Hotels",
+			"services": "Services"
+		},
+		"newsletter": {
+			"title": "Newsletter",
+			"input_placeholder": "Email",
+			"subscribe": "Subscribe to get news & offers",
+			"social_media": "Find us on social media"
+		}
 	}
 }
