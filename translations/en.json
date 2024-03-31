@@ -10,7 +10,12 @@
 	},
 	"top-flights": {
 		"title": "Top flights",
-		"link": "Browse all flights"
+		"link": "Browse all flights",
+		"button": "Book",
+		"startPrice": "Starting from",
+		"departure": "Departure",
+		"arrival": "Arrival",
+		"gotoBooking": "Go to booking"
 	},
 	"FAQ": {
 		"title": "FAQ",
