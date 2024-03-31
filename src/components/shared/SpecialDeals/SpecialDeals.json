@@ -3,7 +3,7 @@
     "item": [
       {
         "id": "dd085cc3-0bf6-412e-ada7-eb34aeea318d",
-        "image": "https://s3-alpha-sig.figma.com/img/f50f/2ca0/5fab5e12d40cda5dd6da89837f22e96c?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GTAkDxRyGWZQ0VZ6ceXwmRz3L9ybDPyLwsEaxI2ig30HAmU2RdXBvRHuFLIhBQQrnX8EvJh928yfn4CbQ49shdrDJpPPVy4yTWeYbo~1Ob5KVozJJGZjMCpA2qW5MAe4qsMm~WpoYyumb8w8lc8kxfWPGFZVso2B-bvmSiPdaiRZ8qD6jcVW4AD-MydF7UCdMwRvhzPw9sqouL~sSksUtDD5dsJZ452UsI3t6ivu83~p1nuVK5cZJQoockihiDbG8CAzK5asZIUWk93u3DklH20QyRZ9LZiA3fRIFC02X-rFo3~V~mEHWN1Gzc77tfS4PYQCZDFrZSnh~5~0JIGLWA__",
+        "image": "bali.jpg",
         "title": "Fly to Bali, Indonesia for only $918",
         "promotion": "Last minute ticket with 15%",
         "bron": "Book now",
@@ -11,7 +11,7 @@
       },
       {
         "id": "56dd0ddd-d363-4a8b-8b22-b6c583010a00",
-        "image": "https://s3-alpha-sig.figma.com/img/f50f/2ca0/5fab5e12d40cda5dd6da89837f22e96c?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GTAkDxRyGWZQ0VZ6ceXwmRz3L9ybDPyLwsEaxI2ig30HAmU2RdXBvRHuFLIhBQQrnX8EvJh928yfn4CbQ49shdrDJpPPVy4yTWeYbo~1Ob5KVozJJGZjMCpA2qW5MAe4qsMm~WpoYyumb8w8lc8kxfWPGFZVso2B-bvmSiPdaiRZ8qD6jcVW4AD-MydF7UCdMwRvhzPw9sqouL~sSksUtDD5dsJZ452UsI3t6ivu83~p1nuVK5cZJQoockihiDbG8CAzK5asZIUWk93u3DklH20QyRZ9LZiA3fRIFC02X-rFo3~V~mEHWN1Gzc77tfS4PYQCZDFrZSnh~5~0JIGLWA__",
+        "image": "bali.jpg",
         "title": "Летите на Бали, Индонезия всего за 918 долларов.",
         "promotion": "Горящий билет со скидкой 15%",
         "bron": "Забронируйте сейчас",
@@ -19,7 +19,7 @@
       },
       {
         "id": "7b197f64-60a7-47b3-a891-c108b76c6a70",
-        "image": "https://s3-alpha-sig.figma.com/img/f50f/2ca0/5fab5e12d40cda5dd6da89837f22e96c?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GTAkDxRyGWZQ0VZ6ceXwmRz3L9ybDPyLwsEaxI2ig30HAmU2RdXBvRHuFLIhBQQrnX8EvJh928yfn4CbQ49shdrDJpPPVy4yTWeYbo~1Ob5KVozJJGZjMCpA2qW5MAe4qsMm~WpoYyumb8w8lc8kxfWPGFZVso2B-bvmSiPdaiRZ8qD6jcVW4AD-MydF7UCdMwRvhzPw9sqouL~sSksUtDD5dsJZ452UsI3t6ivu83~p1nuVK5cZJQoockihiDbG8CAzK5asZIUWk93u3DklH20QyRZ9LZiA3fRIFC02X-rFo3~V~mEHWN1Gzc77tfS4PYQCZDFrZSnh~5~0JIGLWA__",
+        "image": "bali.jpg",
         "title": "Болгону 918 долларга Индонезиянын Бали шаарына учуңуз",
         "promotion": "15% менен акыркы мүнөттүк билет",
         "bron": "Азыр ээлеңиз",
@@ -27,7 +27,7 @@
       },
       {
         "id": "c0e4d8bf-13ae-4ca2-b534-0739a1af5f3c",
-        "image": "https://s3-alpha-sig.figma.com/img/f50f/2ca0/5fab5e12d40cda5dd6da89837f22e96c?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GTAkDxRyGWZQ0VZ6ceXwmRz3L9ybDPyLwsEaxI2ig30HAmU2RdXBvRHuFLIhBQQrnX8EvJh928yfn4CbQ49shdrDJpPPVy4yTWeYbo~1Ob5KVozJJGZjMCpA2qW5MAe4qsMm~WpoYyumb8w8lc8kxfWPGFZVso2B-bvmSiPdaiRZ8qD6jcVW4AD-MydF7UCdMwRvhzPw9sqouL~sSksUtDD5dsJZ452UsI3t6ivu83~p1nuVK5cZJQoockihiDbG8CAzK5asZIUWk93u3DklH20QyRZ9LZiA3fRIFC02X-rFo3~V~mEHWN1Gzc77tfS4PYQCZDFrZSnh~5~0JIGLWA__",
+        "image": "bali.jpg",
         "title": "Sadece 918 $ karşılığında Bali, Endonezya'ya uçun",
         "promotion": "%15 indirimli son dakika bileti",
         "bron": "Şimdi rezervasyon yapın",
@@ -39,31 +39,31 @@
     "item": [
       {
         "id": "dd085cc3-0bf6-412e-ada7-eb34aeea318d",
-        "image": "https://s3-alpha-sig.figma.com/img/63a0/c0cf/8ab62a8ffc843c93c20bbb34c2b4a302?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mjhAwbo7Bbj9aQRMRw~A~fVD~qP39J7K1HymdSJ9us8G7qLBIGGu~mKqcB5EXn8n6Dck7FtyvH~CrkVRECJiysxME8aHAXPAIAxAzz~ZeoZLjAJqyN4HwROECW03j-czpJk59YM1IFVYz46dtjKychCRfNvoNxyZY9x3Wa~ubwle0PWriS4VItkVUZGVk0TJLqdoYIY3kASAhXxpxltQqubHVKawTWAi0Ry7bhrQP9xUQ~kusk4ogjmA7mrPyPDwKXK85Yc3rHOGTnnJwGskN3znylPgAqzA8VUwWhnlKtemyYVU6xsHU3QAsMIvnduYU361IAoZcXBpZvEYTdTBCQ__",
-        "title": "Fly to Bali, Indonesia for only $918",
+        "image": "bankgok.jpg",
+        "title": "Direct flights to Bangkok,\nThailand for only $755",
         "promotion": "Last minute ticket with 15%",
         "bron": "Book now",
         "lan": "EN"
       },
       {
         "id": "56dd0ddd-d363-4a8b-8b22-b6c583010a00",
-        "image": "https://s3-alpha-sig.figma.com/img/63a0/c0cf/8ab62a8ffc843c93c20bbb34c2b4a302?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mjhAwbo7Bbj9aQRMRw~A~fVD~qP39J7K1HymdSJ9us8G7qLBIGGu~mKqcB5EXn8n6Dck7FtyvH~CrkVRECJiysxME8aHAXPAIAxAzz~ZeoZLjAJqyN4HwROECW03j-czpJk59YM1IFVYz46dtjKychCRfNvoNxyZY9x3Wa~ubwle0PWriS4VItkVUZGVk0TJLqdoYIY3kASAhXxpxltQqubHVKawTWAi0Ry7bhrQP9xUQ~kusk4ogjmA7mrPyPDwKXK85Yc3rHOGTnnJwGskN3znylPgAqzA8VUwWhnlKtemyYVU6xsHU3QAsMIvnduYU361IAoZcXBpZvEYTdTBCQ__",
-        "title": "Прямые рейсы в Бангкок, Таиланд всего за 755 долларов.",
+        "image": "bankgok.jpg",
+        "title": "Прямые рейсы в Бангкок, Тайланд всего за 755 $",
         "promotion": "Горящий билет со скидкой 25%",
         "bron": "Забронируйте сейчас",
         "lan": "RU"
       },
       {
         "id": "7b197f64-60a7-47b3-a891-c108b76c6a70",
-        "image": "https://s3-alpha-sig.figma.com/img/63a0/c0cf/8ab62a8ffc843c93c20bbb34c2b4a302?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mjhAwbo7Bbj9aQRMRw~A~fVD~qP39J7K1HymdSJ9us8G7qLBIGGu~mKqcB5EXn8n6Dck7FtyvH~CrkVRECJiysxME8aHAXPAIAxAzz~ZeoZLjAJqyN4HwROECW03j-czpJk59YM1IFVYz46dtjKychCRfNvoNxyZY9x3Wa~ubwle0PWriS4VItkVUZGVk0TJLqdoYIY3kASAhXxpxltQqubHVKawTWAi0Ry7bhrQP9xUQ~kusk4ogjmA7mrPyPDwKXK85Yc3rHOGTnnJwGskN3znylPgAqzA8VUwWhnlKtemyYVU6xsHU3QAsMIvnduYU361IAoZcXBpZvEYTdTBCQ__",
-        "title": "Бангкокко түз каттамдар, Таиланд болгону 755 долларга",
+        "image": "bankgok.jpg",
+        "title": "Бангкокко түз каттамдар, Таиланд болгону 755 $",
         "promotion": "25% менен акыркы мүнөттүк билет",
         "bron": "Азыр ээлеңиз",
         "lan": "KY"
       },
       {
         "id": "c0e4d8bf-13ae-4ca2-b534-0739a1af5f3c",
-        "image": "https://s3-alpha-sig.figma.com/img/63a0/c0cf/8ab62a8ffc843c93c20bbb34c2b4a302?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mjhAwbo7Bbj9aQRMRw~A~fVD~qP39J7K1HymdSJ9us8G7qLBIGGu~mKqcB5EXn8n6Dck7FtyvH~CrkVRECJiysxME8aHAXPAIAxAzz~ZeoZLjAJqyN4HwROECW03j-czpJk59YM1IFVYz46dtjKychCRfNvoNxyZY9x3Wa~ubwle0PWriS4VItkVUZGVk0TJLqdoYIY3kASAhXxpxltQqubHVKawTWAi0Ry7bhrQP9xUQ~kusk4ogjmA7mrPyPDwKXK85Yc3rHOGTnnJwGskN3znylPgAqzA8VUwWhnlKtemyYVU6xsHU3QAsMIvnduYU361IAoZcXBpZvEYTdTBCQ__",
+        "image": "bankgok.jpg",
         "title": "Sadece 755 $ karşılığında Bangkok, Tayland'a direkt uçuşlar",
         "promotion": "%25 indirimli son dakika bileti",
         "bron": "Şimdi rezervasyon yapın",
@@ -75,7 +75,7 @@
     "item": [
       {
         "id": "dd085cc3-0bf6-412e-ada7-eb34aeea318d",
-        "image": "https://s3-alpha-sig.figma.com/img/706c/677a/8746e93bc82bee51e0549169594ee310?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oWF8mfEyRNDG2ijVPEdZ-2z~cwBWR5PjI0uMWpmQN6-OU-3S-T1cm2occj4zsC4SHG1ySBRj4c8XoLEa2Wg5qXl9wikpXIy7EajV2s6KZ-ECnxj86c~PpC1QN4UXlbBwAGIZNIDFPUzOSgzdi0lLI3uJK3~WHHSJAkW1IFlh4KHP5brUylCZ202NXj5dlS5DDEQ8urdp9fMgqmy7JRF3kG99upv3bkrgyq5yvmA5zJ25hQTK3hBlWDgHzoVJuw0Qyj3OK-ahyjL6MlEY3taXjd8eFiv0G4yY3TmLRxylvy~ACnPNIOwqkcimCkvxdV4eADspJst7be1Ot1~TXrzQ4g__",
+        "image": "phuket.jpg",
         "title": "Fly to Bali, Indonesia for only $918",
         "promotion": "Last minute ticket with 25%",
         "bron": "Book now",
@@ -83,7 +83,7 @@
       },
       {
         "id": "56dd0ddd-d363-4a8b-8b22-b6c583010a00",
-        "image": "https://s3-alpha-sig.figma.com/img/706c/677a/8746e93bc82bee51e0549169594ee310?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oWF8mfEyRNDG2ijVPEdZ-2z~cwBWR5PjI0uMWpmQN6-OU-3S-T1cm2occj4zsC4SHG1ySBRj4c8XoLEa2Wg5qXl9wikpXIy7EajV2s6KZ-ECnxj86c~PpC1QN4UXlbBwAGIZNIDFPUzOSgzdi0lLI3uJK3~WHHSJAkW1IFlh4KHP5brUylCZ202NXj5dlS5DDEQ8urdp9fMgqmy7JRF3kG99upv3bkrgyq5yvmA5zJ25hQTK3hBlWDgHzoVJuw0Qyj3OK-ahyjL6MlEY3taXjd8eFiv0G4yY3TmLRxylvy~ACnPNIOwqkcimCkvxdV4eADspJst7be1Ot1~TXrzQ4g__",
+        "image": "phuket.jpg",
         "title": "Пхукет, Природа Пхукета $811",
         "promotion": "Горящий билет со скидкой 25%",
         "bron": "Забронируйте сейчас",
@@ -91,7 +91,7 @@
       },
       {
         "id": "7b197f64-60a7-47b3-a891-c108b76c6a70",
-        "image": "https://s3-alpha-sig.figma.com/img/706c/677a/8746e93bc82bee51e0549169594ee310?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oWF8mfEyRNDG2ijVPEdZ-2z~cwBWR5PjI0uMWpmQN6-OU-3S-T1cm2occj4zsC4SHG1ySBRj4c8XoLEa2Wg5qXl9wikpXIy7EajV2s6KZ-ECnxj86c~PpC1QN4UXlbBwAGIZNIDFPUzOSgzdi0lLI3uJK3~WHHSJAkW1IFlh4KHP5brUylCZ202NXj5dlS5DDEQ8urdp9fMgqmy7JRF3kG99upv3bkrgyq5yvmA5zJ25hQTK3hBlWDgHzoVJuw0Qyj3OK-ahyjL6MlEY3taXjd8eFiv0G4yY3TmLRxylvy~ACnPNIOwqkcimCkvxdV4eADspJst7be1Ot1~TXrzQ4g__",
+        "image": "phuket.jpg",
         "title": "Пхукет, Табият Пхукет $811",
         "promotion": "25% менен акыркы мүнөттүк билет",
         "bron": "Азыр ээлеңиз",
@@ -99,7 +99,7 @@
       },
       {
         "id": "c0e4d8bf-13ae-4ca2-b534-0739a1af5f3c",
-        "image": "https://s3-alpha-sig.figma.com/img/706c/677a/8746e93bc82bee51e0549169594ee310?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oWF8mfEyRNDG2ijVPEdZ-2z~cwBWR5PjI0uMWpmQN6-OU-3S-T1cm2occj4zsC4SHG1ySBRj4c8XoLEa2Wg5qXl9wikpXIy7EajV2s6KZ-ECnxj86c~PpC1QN4UXlbBwAGIZNIDFPUzOSgzdi0lLI3uJK3~WHHSJAkW1IFlh4KHP5brUylCZ202NXj5dlS5DDEQ8urdp9fMgqmy7JRF3kG99upv3bkrgyq5yvmA5zJ25hQTK3hBlWDgHzoVJuw0Qyj3OK-ahyjL6MlEY3taXjd8eFiv0G4yY3TmLRxylvy~ACnPNIOwqkcimCkvxdV4eADspJst7be1Ot1~TXrzQ4g__",
+        "image": "phuket.jpg",
         "title": "Phuket, Doğa Phuket $811",
         "promotion": "%25 indirimli son dakika bileti",
         "bron": "Şimdi rezervasyon yapın",

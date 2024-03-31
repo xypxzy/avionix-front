@@ -33,11 +33,12 @@ export const InfiniteMovingCards = ({
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
     const params = useParams()
+    const [start, setStart] = useState(false);
     useEffect(() => {
         addAnimation(speed, direction, containerRef, scrollerRef, setStart);
     }, [direction, speed]);
-    const [start, setStart] = useState(false);
     return (
+        <div>
         <div
             ref={containerRef}
             className={cn(
@@ -58,16 +59,16 @@ export const InfiniteMovingCards = ({
                         {element.item
                             .filter((el) => params.locale === el.lan.toLowerCase())
                             .map((item) => (
-                                <div key={item.id} className="relative flex size-full flex-col rounded border p-3">
+                                <div key={item.id} className="relative flex size-full flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 rounded sm:rounded-sm md:rounded-xl border p-1 sm:p-2 md:p-3 lg:p-4">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img className="h-[327px] w-[522px] rounded"  src={item.image} alt={item.id}/>
-                                    <h4 className="max-w-[520px] pt-4 text-[20px]">{item.title}</h4>
-                                    <div className="mt-auto pt-4">
-                                        <p className="text-[18px] text-red-700">{item.promotion}</p>
-                                        <Link href={LinkEnum.Flights}>
+                                    <img className="max-h-[107px] sm:max-h-[170px] md:max-h-[257px] lg:max-h-[327px] max-w-[180px] sm:max-w-[322px] md:max-w-[452px] lg:max-w-[542px] size-full rounded-xs"  src={`assets/specialDeals/${item.image}`} alt={item.title}/>
+                                    <h4 className="max-w-[180px] md:max-w-[525px] text-[12px] sm:text-xs md:text-base">{item.title}</h4>
+                                    <div className="flex flex-col gap-0 md:gap-2">
+                                        <p className="text-[10px] sm:text-caption md:text-xs lg:text-sm text-red-700">{item.promotion}</p>
+                                        <Link href={LinkEnum.Flights} className={``}>
                                             <Button
                                                 variant="link"
-                                                className="pl-0 text-foreground underline hover:text-muted-foreground"
+                                                className="text-[8px] h-[12px] sm:text-caption md:text-xs p-0 m-0 text-foreground underline hover:text-muted-foreground"
                                             >
                                                 {item.bron}
                                             </Button>
@@ -78,8 +79,7 @@ export const InfiniteMovingCards = ({
                     </div>
                 ))}
             </ul>
-
-
+        </div>
         </div>
     );
 };

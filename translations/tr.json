@@ -36,7 +36,8 @@
 	},
 	"SpecialDeals": {
 		"title": "Özel fırsatlar",
-		"link": "Tüm promosyonları görüntüle"
+		"link": "Tüm promosyonları görüntüle",
+		"loading": "Yükleniyor..."
 	},
 	"AirlineRating": {
 		"title": "Havayolu derecelendirmesi",

@@ -36,7 +36,8 @@
 	},
 	"SpecialDeals": {
 		"title": "Special deals",
-		"link": "View all promotions"
+		"link": "View all promotions",
+		"loading": "Loading..."
 	},
 	"AirlineRating": {
 		"title": "Airline rating",
