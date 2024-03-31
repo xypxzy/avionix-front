@@ -9,8 +9,13 @@
 		"home-desc": "Bizimle seyahat edin"
 	},
 	"top-flights": {
-		"title": "Top flights",
-		"link": "Tüm uçuşlara göz atın"
+		"title": "En iyi uçuşlar",
+		"link": "Tüm uçuşlara göz atın",
+		"button": "Reservasyon",
+		"startPrice": "Başlangıç",
+		"departure": "Uçuş",
+		"arrival": "Konuş",
+		"gotoBooking": "Rezervasyona git"
 	},
 	"FAQ": {
 		"title": "FAQ",

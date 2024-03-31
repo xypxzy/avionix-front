@@ -9,8 +9,13 @@
 		"home-desc": "Биз менен саякаттаңыз"
 	},
 	"top-flights": {
-		"title": "Top flights",
-		"link": "Browse all flights"
+		"title": "Эң мыкты каттамдар",
+		"link": "Browse all flights",
+		"button": "Заказ кылуу",
+		"startPrice": "Башталыш баасы",
+		"departure": "Учуу",
+		"arrival": "Конуу",
+		"gotoBooking": "Сатып алууга өтүү"
 	},
 	"FAQ": {
 		"title": "Көп берилүүчү суроолор",
