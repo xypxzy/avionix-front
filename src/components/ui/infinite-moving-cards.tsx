@@ -59,16 +59,16 @@ export const InfiniteMovingCards = ({
                         {element.item
                             .filter((el) => params.locale === el.lan.toLowerCase())
                             .map((item) => (
-                                <div key={item.id} className="relative flex size-full flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 rounded sm:rounded-sm md:rounded-xl border p-1 sm:p-2 md:p-3 lg:p-4">
+                                <div key={item.id} className="relative flex size-full flex-col gap-1 rounded border p-1 sm:gap-2 sm:rounded-sm sm:p-2 md:gap-3 md:rounded-xl md:p-3 lg:gap-4 lg:p-4">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img className="max-h-[107px] sm:max-h-[170px] md:max-h-[257px] lg:max-h-[327px] max-w-[180px] sm:max-w-[322px] md:max-w-[452px] lg:max-w-[542px] size-full rounded-xs"  src={`assets/specialDeals/${item.image}`} alt={item.title}/>
-                                    <h4 className="max-w-[180px] md:max-w-[525px] text-[12px] sm:text-xs md:text-base">{item.title}</h4>
+                                    <img className="size-full max-h-[107px] max-w-[180px] rounded-xs sm:max-h-[170px] sm:max-w-[322px] md:max-h-[257px] md:max-w-[452px] lg:max-h-[327px] lg:max-w-[542px]"  src={`assets/specialDeals/${item.image}`} alt={item.title}/>
+                                    <h4 className="max-w-[180px] text-[12px] sm:text-xs md:max-w-[525px] md:text-base">{item.title}</h4>
                                     <div className="flex flex-col gap-0 md:gap-2">
-                                        <p className="text-[10px] sm:text-caption md:text-xs lg:text-sm text-red-700">{item.promotion}</p>
-                                        <Link href={LinkEnum.Flights} className={``}>
+                                        <p className="text-[10px] text-red-700 sm:text-caption md:text-xs lg:text-sm">{item.promotion}</p>
+                                        <Link href={LinkEnum.Flights}>
                                             <Button
                                                 variant="link"
-                                                className="text-[8px] h-[12px] sm:text-caption md:text-xs p-0 m-0 text-foreground underline hover:text-muted-foreground"
+                                                className="m-0 h-[12px] p-0 text-[8px] text-foreground underline hover:text-muted-foreground sm:text-caption md:text-xs"
                                             >
                                                 {item.bron}
                                             </Button>
