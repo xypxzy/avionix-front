@@ -17,6 +17,10 @@
 		"arrival": "Arrival",
 		"gotoBooking": "Go to booking"
 	},
+	"flightsFilter": {
+		"notificationSwitch": "Enable notification",
+		"notificationText": "Receive notifications about price changes for this route"
+	},
 	"FAQ": {
 		"title": "FAQ",
 		"link": "Browse all questions",
