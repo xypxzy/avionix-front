@@ -17,6 +17,10 @@
 		"arrival": "Konuş",
 		"gotoBooking": "Rezervasyona git"
 	},
+	"flightsFilter": {
+		"notificationSwitch": "Bildirimleri etkinleştir",
+		"notificationText": "Bu rotaya ilişkin fiyat değişiklikleriyle ilgili bildirimler alın"
+	},
 	"FAQ": {
 		"title": "FAQ",
 		"link": "Tüm sorulara göz atın",
