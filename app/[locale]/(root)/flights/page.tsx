@@ -7,11 +7,11 @@ export default function Flights() {
 		<div>
 			<Hero title='Discover Flights' type='flights' />
 			<div className={`flex mt-20`}>
-				<div className={`w-[30%] h-[100vh]`}>
+				<div className={`w-[30%]`}>
 					<Filter/>
 				</div>
-				<div className={`w-[50%] h-[100vh] bg-blue-600`}>Main</div>
-				<div className={`w-[20%] h-[100vh] bg-yellow-500`}>Reclama</div>
+				<div className={`w-[50%] bg-red-400`}>Main</div>
+				<div className={`w-[20%] bg-slate-500`}>Reclama</div>
 			</div>
 		</div>
 	)
