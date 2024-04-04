@@ -6,22 +6,32 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/src/comp
 import { LinkEnum } from '@/src/shared/utils/route';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
-import data from './topFlightsData.json';
 import {LanguageData, FlightData} from '@/src/shared/types/topFlightsTypes'
 
 
 export default function TopFlights() {
 	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
+	const [data, setData] = useState([])
+	const [isLoadong, setIsLoading] = useState(true)
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
 	const handleAccordionClick = (content:FlightData):void => {
 		setSelectedAccordionContent(content);
 	};
 	useEffect(() => {
-		if (data && data.length > 0) {
-			setSelectedAccordionContent(data[0].data[0]);
-		}
-	}, []);
+		const fetchData = async () => {
+			try {
+				const response = await FlightS
+				setData(response.data);
+				setIsLoading(false);
+
+			} catch (error:any) {
+				console.error('Yut have error with code error.response.request.status');
+				setIsLoading(false);
+			}
+		};
+		fetchData();
+	}, [locale]);
 
 	return (
 		<section>
