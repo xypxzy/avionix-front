@@ -14,3 +14,9 @@ export interface IFaq {
     question: string;
     answer: string;
 }
+
+export interface IAirlineRating {
+    name: string,
+    imageUrl: string,
+    rating: number
+}
