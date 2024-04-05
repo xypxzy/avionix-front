@@ -44,7 +44,7 @@ export const BestPrices = () => {
                                 <SelectContent className={`bg-white`}>
                                     <SelectItem value="sd">Самый надежный</SelectItem>
                                     <SelectItem value="dark">Самый маленький</SelectItem>
-                                    <SelectItem value="system">Самый долгий</SelectItem>
+                                    <SelectItem value="system">Самый готовый</SelectItem>
                                 </SelectContent>
                             </Select>
                             <p className={`text-xs font-normal`}>Самое раннее отправление</p>
