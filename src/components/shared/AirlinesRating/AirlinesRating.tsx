@@ -12,8 +12,8 @@ const AirlinesRating = () => {
     const [data, setData] = useState<IAirlineRating[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
+    useEffect(():void => {
+        const fetchData = async ():Promise<void> => {
             try {
                 const response = await Client_Service.getAirlineRatingList();
                 setData(response.data);
@@ -29,7 +29,6 @@ const AirlinesRating = () => {
 
     const t = useTranslations('AirlineRating');
 
-    // Функция для добавления классов gold, silver и bronze к трем самым высоким рейтингам
     const addMedalClass = (index: number) => {
         if (index === 0) return 'bg-gold';
         if (index === 1) return 'bg-silver';
@@ -37,8 +36,7 @@ const AirlinesRating = () => {
         return '';
     };
 
-    // Сортировка массива по убыванию рейтинга и взятие трех самых высоких элементов
-    const topThreeRatings = data.sort((a, b) => b.rating - a.rating);
+    const topThreeRatings:IAirlineRating[] = data.sort((a:IAirlineRating, b:IAirlineRating) => b.rating - a.rating);
 
     return (
         <section className={`${styles.full_bleed} flex flex-col items-center justify-center gap-12 bg-dark_blue p-4 sm:py-8 md:py-16 lg:px-4 lg:py-[110px]`}>
