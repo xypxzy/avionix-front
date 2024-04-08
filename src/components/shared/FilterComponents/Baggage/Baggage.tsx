@@ -3,7 +3,7 @@ import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
 import {Checkbox} from '@/src/components/ui/checkbox'
 
-export const Bagage = () => {
+export const Baggage = () => {
     return (
         <div className={`mt-10`}>
             <AccordionDefault type="single" collapsible className='flex flex-col gap-6'>
