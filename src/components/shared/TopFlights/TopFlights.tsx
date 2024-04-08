@@ -18,9 +18,7 @@ export default function TopFlights() {
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
-	const handleAccordionClick = (content:FlightData):void => {
-		setSelectedAccordionContent(content);
-	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -69,12 +67,12 @@ export default function TopFlights() {
 										height={384}
 										src={`${selectedAccordionContent.imageUrl}`}
 										alt={selectedAccordionContent.flight.to}
-										className='size-full max-h-[444px] max-w-[384px] rounded-[3px] text-black p-0'
+										className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
 									/>
 								}
 							</CardContent>
 							<CardFooter className='p-0 px-4 pb-2'>
-								<Link href={LinkEnum.Flights} className='items-start px-0 text-caption text-foreground hover:underline  hover:text-muted-foreground  md:text-xs'>
+								<Link href={LinkEnum.Flights} className='items-start px-0 text-caption text-foreground hover:text-muted-foreground  hover:underline  md:text-xs'>
 									{t('gotoBooking')}
 								</Link>
 							</CardFooter>
