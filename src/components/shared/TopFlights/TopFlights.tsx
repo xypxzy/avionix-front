@@ -6,13 +6,16 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/src/comp
 import { LinkEnum } from '@/src/shared/utils/route';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
-import {LanguageData, FlightData} from '@/src/shared/types/topFlightsTypes'
+import FlightService from '@/src/services/api/flight-host'
+import {FlightData} from '@/src/shared/types/topFlightsTypes'
+import {FlightInfo} from "@/src/components/shared/TopFlights/FlightInfo/FlightInfo";
+import Image from "next/image";
 
 
 export default function TopFlights() {
 	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
-	const [data, setData] = useState([])
-	const [isLoadong, setIsLoading] = useState(true)
+	const [data, setData] = useState<FlightData[]>([])
+	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
 	const handleAccordionClick = (content:FlightData):void => {
@@ -21,8 +24,10 @@ export default function TopFlights() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await FlightS
+				const response = await FlightService.getTopFlights(locale)
 				setData(response.data);
+				console.log(response.data)
+				setSelectedAccordionContent(response.data[0])
 				setIsLoading(false);
 
 			} catch (error:any) {
@@ -35,6 +40,7 @@ export default function TopFlights() {
 
 	return (
 		<section>
+			<div className={`my-20`}>
 			<div className='my-8 flex w-full flex-col items-center justify-between sm:flex-row'>
 				<h3 className='text-base md:text-lg lg:text-xl'>{t('title')}</h3>
 				<Link href={LinkEnum.Flights}>
@@ -46,83 +52,51 @@ export default function TopFlights() {
 					</Button>
 				</Link>
 			</div>
-			<div className='flex flex-col gap-8 lg:flex-row'>
-				<Card className='flex w-full flex-col justify-between rounded-sm border-2 lg:w-1/4'>
-					<CardHeader className='p-4'>
-						<CardTitle className='text-sm font-normal text-black md:text-base lg:text-lg'>
-							{selectedAccordionContent && <p>{selectedAccordionContent.from} - {selectedAccordionContent.to}</p>}
-						</CardTitle>
-					</CardHeader>
-					<CardContent className='pb-0 pt-4'>
-						{selectedAccordionContent && selectedAccordionContent.posterImg &&
-							// eslint-disable-next-line @next/next/no-img-element
-							<img
-								src={`assets/topFlights/${selectedAccordionContent.posterImg}`}
-								alt={selectedAccordionContent.to}
-								className='size-full rounded-[3px] text-black'
-							/>
-						}
-					</CardContent>
-					<CardFooter className='flex-1 items-end px-6 py-1'>
-						<Link href={LinkEnum.Flights}>
-							<Button
-								variant='link'
-								className='items-start px-0 text-caption text-foreground hover:text-muted-foreground  sm:text-sm  md:text-base'
-							>
-								{t('gotoBooking')}
-							</Button>
-						</Link>
-					</CardFooter>
-				</Card>
-
-				<Accordion
-					type='single'
-					collapsible
-					className='flex flex-1 flex-col gap-6'
-				>
-					{data.map((item:LanguageData, index:number) => (
-
-						locale === item.lan && item.data.map((el:FlightData, innerIndex:number) => (
-							<AccordionItem key={index + "-" + innerIndex} value={`item-${innerIndex + 1}`}>
-								<AccordionTrigger onClick={() => handleAccordionClick(el)} className={`flex flex-col sm:flex-row`}>
-									<p>{el.from} - {el.to}</p>
-									<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${el.startPrice}`}</p>
-									<Link href={LinkEnum.Flights}>
-										<Button
-											variant="link"
-											className="bg-dark_blue text-background hover:text-muted-foreground"
-										>
-											{t('button')}
-										</Button>
-									</Link>
-								</AccordionTrigger>
-								<AccordionContent className={`flex flex-col justify-between gap-10 md:flex-row`}>
-									<div className={`flex flex-col`}>
-										<p>{el.from}</p>
-										<p className={`mt-auto`}>{el.dateFrom}</p>
-									</div>
-									<div className={`w-full max-w-[430px] md:ml-auto`}>
-										<div className={`grid grid-cols-1 gap-1 md:grid-cols-3`}>
-											<p className={`text-sm font-medium text-primary`}>{t('departure')}</p>
-											<p className={`font-bold md:mx-auto`}>{el.flightDuration}</p>
-											<p className={`text-sm font-medium text-primary md:ml-auto`}>{t('arrival')}</p>
-										</div>
-										<div className={`font-medium text-primary`}>{`>------------------------------------------>`}</div>
-										<div className={`grid grid-cols-1 gap-1 md:grid-cols-3`}>
-											<p className={`text-sm font-medium text-primary`}>{el.departure}</p>
-											<p className={`font-bold md:mx-auto`}>{el.airline}</p>
-											<p className={`text-sm font-medium text-primary md:ml-auto`}>{el.arrival}</p>
-										</div>
-									</div>
-									<div className={`flex flex-col md:ml-auto`}>
-										<p className={`md:ml-auto`}>{el.to}</p>
-										<p className={`mt-auto`}>{el.dateTo}</p>
-									</div>
-								</AccordionContent>
-							</AccordionItem>
-						))
-					))}
-				</Accordion>
+			{isLoading ? <div className={`w-full text-center text-lg md:text-2xl`}>Loading...</div>
+				:
+					<div className='flex flex-col gap-8 lg:flex-row'>
+						<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 py-2'>
+							<CardHeader className='p-4'>
+								<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
+									{selectedAccordionContent &&
+										<p>{selectedAccordionContent.flight.from} - {selectedAccordionContent.flight.to}</p>}
+								</CardTitle>
+							</CardHeader>
+							<CardContent className='p-0 px-4'>
+								{selectedAccordionContent && selectedAccordionContent.imageUrl &&
+									<Image
+										width={444}
+										height={384}
+										src={`${selectedAccordionContent.imageUrl}`}
+										alt={selectedAccordionContent.flight.to}
+										className='size-full max-h-[444px] max-w-[384px] rounded-[3px] text-black p-0'
+									/>
+								}
+							</CardContent>
+							<CardFooter className='p-0 px-4 pb-2'>
+								<Link href={LinkEnum.Flights} className='items-start px-0 text-caption text-foreground hover:underline  hover:text-muted-foreground  md:text-xs'>
+									{t('gotoBooking')}
+								</Link>
+							</CardFooter>
+						</Card>
+						<Accordion defaultValue={'item-1'} type='single' collapsible className='flex flex-1 flex-col gap-6'>
+							{data.slice(0, 5).map((item, index: number) => (
+								<AccordionItem key={index} value={`item-${index + 1}`} className={`w-full`}>
+									<AccordionTrigger onClick={() => setSelectedAccordionContent(item)} className={`flex flex-col sm:flex-row`}>
+										<p>{item.flight.from} - {item.flight.to}</p>
+										<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${item.flight.currency==='EUR'? `€` :'$'}${item.flight.tariff.price}`}</p>
+										<Link href={LinkEnum.Flights} className="rounded bg-dark_blue px-3 py-1 text-xs text-background hover:text-muted-foreground">
+												{t('button')}
+										</Link>
+									</AccordionTrigger>
+									<AccordionContent>
+										<FlightInfo item={item}/>
+									</AccordionContent>
+								</AccordionItem>
+							))}
+						</Accordion>
+					</div>
+			}
 			</div>
 		</section>
 	);

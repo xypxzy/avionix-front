@@ -4,7 +4,7 @@ const FLIGHT_URL = 'flight/api'
 
 class FlightService {
 
-    getTopFlights(lan){
+    getTopFlights(lan:string){
         return client.get(`${FLIGHT_URL}/article/topFlight?lan=${lan}`)
     }
 
