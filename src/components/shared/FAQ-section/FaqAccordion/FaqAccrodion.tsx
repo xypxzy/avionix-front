@@ -45,7 +45,7 @@ const FaqAccordion = () => {
                     </div>
                     <Accordion type="single" collapsible className='flex flex-col gap-6'>
                         {data.map((item, index) => (
-                            <AccordionItem key={item.id} value={`item-${index + 1}`}>
+                            <AccordionItem key={index} value={`item-${index + 1}`}>
                                 <AccordionTrigger
                                     className={`bg-light_blue text-lg font-normal text-dark_blue`}>{item.question}</AccordionTrigger>
                                 <AccordionContent>

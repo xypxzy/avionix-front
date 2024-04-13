@@ -9,35 +9,42 @@ import Link from 'next/link';
 import FlightService from '@/src/services/api/flight-host'
 import {FlightData} from '@/src/shared/types/topFlightsTypes'
 import {FlightInfo} from "@/src/components/shared/TopFlights/FlightInfo/FlightInfo";
+import {BookingWindow} from '@/src/components/shared/BookingWindow/BookingWindow'
 import Image from "next/image";
 
 
 export default function TopFlights() {
 	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
+	const [isWindowOpen, setIsWindowOpen] = useState(false)
 	const [data, setData] = useState<FlightData[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await FlightService.getTopFlights(locale)
-				setData(response.data);
-				console.log(response.data)
-				setSelectedAccordionContent(response.data[0])
-				setIsLoading(false);
-
-			} catch (error:any) {
-				console.error('Yut have error with code error.response.request.status');
-				setIsLoading(false);
-			}
+		const fetchData = () => {
+			FlightService.getTopFlights(locale)
+				.then(response => {
+					setData(response.data);
+					setSelectedAccordionContent(response.data[0]);
+					setIsLoading(false);
+				})
+				.catch(error => {
+					console.error('You have an error with code', error.response?.status);
+					setIsLoading(false);
+				});
 		};
+
 		fetchData();
 	}, [locale]);
 
+
+	useEffect(() => {
+		console.log(selectedAccordionContent)
+	}, [selectedAccordionContent]);
+
 	return (
-		<section>
+		<section className={`relative`}>
 			<div className={`my-20`}>
 			<div className='my-8 flex w-full flex-col items-center justify-between sm:flex-row'>
 				<h3 className='text-base md:text-lg lg:text-xl'>{t('title')}</h3>
@@ -72,20 +79,23 @@ export default function TopFlights() {
 								}
 							</CardContent>
 							<CardFooter className='p-0 px-4 pb-2'>
-								<Link href={LinkEnum.Flights} className='items-start px-0 text-caption text-foreground hover:text-muted-foreground  hover:underline  md:text-xs'>
+								<Button onClick={()=>setIsWindowOpen(true)} className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
 									{t('gotoBooking')}
-								</Link>
+								</Button>
 							</CardFooter>
 						</Card>
 						<Accordion defaultValue={'item-1'} type='single' collapsible className='flex flex-1 flex-col gap-6'>
-							{data.slice(0, 5).map((item, index: number) => (
+							{data.slice(0, 5).map((item:FlightData, index: number) => (
 								<AccordionItem key={index} value={`item-${index + 1}`} className={`w-full`}>
 									<AccordionTrigger onClick={() => setSelectedAccordionContent(item)} className={`flex flex-col sm:flex-row`}>
 										<p>{item.flight.from} - {item.flight.to}</p>
 										<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${item.flight.currency==='EUR'? `€` :'$'}${item.flight.tariff.price}`}</p>
-										<Link href={LinkEnum.Flights} className="rounded bg-dark_blue px-3 py-1 text-xs text-background hover:text-muted-foreground">
+										<span onClick={(event) => {
+											event.stopPropagation();
+											setIsWindowOpen(true);
+										}}  className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
 												{t('button')}
-										</Link>
+										</span>
 									</AccordionTrigger>
 									<AccordionContent>
 										<FlightInfo item={item}/>
@@ -96,6 +106,9 @@ export default function TopFlights() {
 					</div>
 			}
 			</div>
+			{
+				isWindowOpen && <BookingWindow locale={locale} closeBtn={setIsWindowOpen} data={selectedAccordionContent?.flight}/>
+			}
 		</section>
 	);
 }
