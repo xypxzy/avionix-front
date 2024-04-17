@@ -40,7 +40,9 @@
 	},
 	"SpecialDeals": {
 		"title": "Special deals",
+		"button": "Book now",
 		"link": "View all promotions",
+		"discount": "Last minute ticket with ",
 		"loading": "Loading..."
 	},
 	"AirlineRating": {
