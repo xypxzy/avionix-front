@@ -1,4 +1,4 @@
-import {flight, FlightData} from "@/src/shared/types/topFlightsTypes";
+import {flight} from "@/src/shared/types/topFlightsTypes";
 
 export interface ISpecialDealsDataType {
     imageUrl: string,

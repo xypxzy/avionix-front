@@ -7,7 +7,6 @@ import {LinkEnum} from "@/src/shared/utils/route";
 import {Button} from "@/src/components/ui/button";
 import FlightService from "@/src/services/api/flight-host";
 import {ISpecialDealsDataType} from "@/src/shared/types/specialDealsTypes";
-import {FlightInfo} from "@/src/components/shared/TopFlights/FlightInfo/FlightInfo";
 
 export function SpecialDeals() {
     const t = useTranslations('SpecialDeals')
