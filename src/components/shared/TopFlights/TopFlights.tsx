@@ -1,17 +1,16 @@
 'use client'
-import React, {useEffect, useState} from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/src/components/ui/accordion';
-import { Button } from '@/src/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
-import { LinkEnum } from '@/src/shared/utils/route';
-import { useLocale, useTranslations } from 'next-intl';
-import Link from 'next/link';
-import FlightService from '@/src/services/api/flight-host'
-import {FlightData} from '@/src/shared/types/topFlightsTypes'
-import {FlightInfo} from "@/src/components/shared/TopFlights/FlightInfo/FlightInfo";
-import {BookingWindow} from '@/src/components/shared/BookingWindow/BookingWindow'
-import Image from "next/image";
 
+import { FlightData } from "@/src/shared/types/topFlightsTypes";
+import { LinkEnum } from "@/src/shared/utils/route";
+import {useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+import {useEffect, useState } from "react";
+import { Button } from "../../ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../../ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/accordion";
+import { FlightInfo } from "./FlightInfo/FlightInfo";
+import { BookingWindow } from "../BookingWindow/BookingWindow";
+import FlightService from '@/src/services/api/flight-host'
 
 export default function TopFlights() {
 	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
@@ -37,11 +36,6 @@ export default function TopFlights() {
 
 		fetchData();
 	}, [locale]);
-
-
-	useEffect(() => {
-		console.log(selectedAccordionContent)
-	}, [selectedAccordionContent]);
 
 	return (
 		<section className={`relative`}>
@@ -69,9 +63,7 @@ export default function TopFlights() {
 							</CardHeader>
 							<CardContent className='p-0 px-4'>
 								{selectedAccordionContent && selectedAccordionContent.imageUrl &&
-									<Image
-										width={444}
-										height={384}
+									<img
 										src={`${selectedAccordionContent.imageUrl}`}
 										alt={selectedAccordionContent.flight.to}
 										className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
@@ -105,10 +97,11 @@ export default function TopFlights() {
 						</Accordion>
 					</div>
 			}
+
 			</div>
 			{
 				isWindowOpen && <BookingWindow locale={locale} closeBtn={setIsWindowOpen} data={selectedAccordionContent?.flight}/>
 			}
 		</section>
-	);
+	)
 }

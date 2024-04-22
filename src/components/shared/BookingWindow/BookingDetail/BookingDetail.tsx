@@ -5,15 +5,13 @@ import { AccordionDefault, AccordionContent, AccordionItem, AccordionTrigger } f
 import { sitsParams } from "@/src/shared/utils/airlineSitsText";
 import {CalendarDays} from "lucide-react";
 import {useLocale} from "next-intl";
+import {determineTicketType} from "@/src/shared/utils/determineTicketType";
+import {BookingDetailProps} from "@/src/shared/types/topFlightsTypes";
 
-interface BookingDetailProps {
-    data: any;
-    locale: string;
-    type: 'departure' | 'return';
-}
+
 
 const BookingDetail: React.FC<BookingDetailProps> = ({ data, type }) => {
-    const tripData = type === 'departure' ? data.flight.departureTrip : data.flight.returnTrip;
+    const tripData = data && determineTicketType(type, data.flight);
     const locale:string = useLocale()
 
     return (

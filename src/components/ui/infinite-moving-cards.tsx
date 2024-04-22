@@ -59,3 +59,4 @@ export const InfiniteMovingCards: React.FC<ISpecialDealsProps> = ({
 
     );
 };
+

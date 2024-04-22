@@ -20,12 +20,12 @@ export const BookingWindow: React.FC<BookingWindowProps> = ({ closeBtn, data, lo
             </div>
 
             {data.oneWay ? (
-                <BookingDetail data={data} locale={locale} type="departure" />
+                <BookingDetail data={data} type="departure" />
             ) : (
                 <>
-                    <BookingDetail data={data} locale={locale} type="departure" />
+                    <BookingDetail data={data} type="departure" />
                     <div className={`mx-auto my-4 h-[1px] w-[90%] rounded bg-light_sky`}></div>
-                    <BookingDetail data={data} locale={locale} type="return" />
+                    <BookingDetail data={data} type="return" />
                 </>
             )}
 

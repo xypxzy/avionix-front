@@ -12,11 +12,17 @@ export interface tariff{
     checkedBaggageIncluded: boolean,
     cabinBaggageIncluded: boolean
 }
-export interface trip {
+export interface tripDetails {
     flightDuration: number,
     transitDuration: number,
     segments: segments[]
 }
+
+export interface trip {
+    departureTrip: tripDetails,
+    returnTrip: tripDetails
+}
+
 export interface flight {
     id: string,
     airline: string,
@@ -26,8 +32,8 @@ export interface flight {
     from: string,
     to: string,
     gate: string,
-    departureTrip: trip,
-    returnTrip: trip,
+    departureTrip: tripDetails,
+    returnTrip: tripDetails,
     currency: string,
     status: string,
     tariff: tariff
@@ -42,4 +48,9 @@ export interface BookingWindowProps {
     closeBtn: (value: boolean) => void;
     data?: flight | undefined;
     locale: string;
+}
+
+export interface BookingDetailProps {
+    data?: flight;
+    type: 'departure' | 'return';
 }
