@@ -11,13 +11,8 @@ export const Baggage = () => {
                         <AccordionTrigger
                             className={`border-0 bg-none text-black`}>
                             <p className={`text-base font-bold`}>Багаж</p>
-                            <Link href={``} className={`ml-auto`}>
-                                <Button
-                                    variant="link"
-                                    className="text-foreground underline hover:text-muted-foreground"
-                                >
-                                    clean
-                                </Button>
+                            <Link href={``} className={`ml-auto text-foreground underline hover:text-muted-foreground`}>
+                                clean
                             </Link>
                         </AccordionTrigger>
                         <AccordionContent className={`flex flex-col gap-2`}>
