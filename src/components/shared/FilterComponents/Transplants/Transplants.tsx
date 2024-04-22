@@ -1,5 +1,4 @@
 import {AccordionDefault, AccordionContent, AccordionItem, AccordionTrigger} from "@/src/components/ui/accordionDefault";
-import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
 import {RadioGroup, RadioGroupItem} from "@/src/components/ui/radio-group";
 import {Label} from '@/src/components/ui/label'
