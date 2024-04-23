@@ -47,7 +47,6 @@ export interface FlightData {
 export interface BookingWindowProps {
     closeBtn: (value: boolean) => void;
     data?: flight | undefined;
-    locale: string;
 }
 
 export interface BookingDetailProps {

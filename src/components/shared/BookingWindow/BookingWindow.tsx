@@ -5,7 +5,7 @@ import { Button } from '@/src/components/ui/button';
 import BookingDetail from '@/src/components/shared/BookingWindow/BookingDetail/BookingDetail';
 import {BookingWindowProps} from "@/src/shared/types/topFlightsTypes";
 
-export const BookingWindow: React.FC<BookingWindowProps> = ({ closeBtn, data, locale }) => {
+export const BookingWindow: React.FC<BookingWindowProps> = ({ closeBtn, data}) => {
     if (!data) {
         return <div>No data available</div>;
     }

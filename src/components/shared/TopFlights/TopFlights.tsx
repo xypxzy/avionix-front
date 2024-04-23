@@ -20,6 +20,10 @@ export default function TopFlights() {
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
 
+	const handleOpenBooking = () => {
+		setIsWindowOpen(true)
+	}
+
 	useEffect(() => {
 		const fetchData = () => {
 			FlightService.getTopFlights(locale)
@@ -82,10 +86,7 @@ export default function TopFlights() {
 									<AccordionTrigger onClick={() => setSelectedAccordionContent(item)} className={`flex flex-col sm:flex-row`}>
 										<p>{item.flight.from} - {item.flight.to}</p>
 										<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${item.flight.currency==='EUR'? `€` :'$'}${item.flight.tariff.price}`}</p>
-										<span onClick={(event) => {
-											event.stopPropagation();
-											setIsWindowOpen(true);
-										}}  className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
+										<span onClick={handleOpenBooking} className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
 												{t('button')}
 										</span>
 									</AccordionTrigger>
@@ -100,7 +101,7 @@ export default function TopFlights() {
 
 			</div>
 			{
-				isWindowOpen && <BookingWindow locale={locale} closeBtn={setIsWindowOpen} data={selectedAccordionContent?.flight}/>
+				isWindowOpen && <BookingWindow closeBtn={setIsWindowOpen} data={selectedAccordionContent?.flight}/>
 			}
 		</section>
 	)
