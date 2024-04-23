@@ -52,7 +52,7 @@ export default function RootLayout({
 
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
-			<body className={`${cn(ibmPlexMono.className)} relative`}>
+			<body className={cn(ibmPlexMono.className, 'relative')}>
 				<LanguagesProvider locale={params.locale}>
 					<ThemeProvider
 						attribute='class'

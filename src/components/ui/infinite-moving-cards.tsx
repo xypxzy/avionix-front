@@ -1,17 +1,17 @@
-import { cn } from "@/src/shared/utils/classnames";
-import React, { useEffect, useState } from "react";
-import { Button } from "@/src/components/ui/button";
-import { addAnimation } from "@/src/shared/utils/infinite-moving-card-functions";
-import { ISpecialDealsProps} from "@/src/shared/types/specialDealsTypes";
+import {cn} from "@/src/shared/utils/classnames";
+import React, {useEffect, useState} from "react";
+import {Button} from "@/src/components/ui/button";
+import {addAnimation} from "@/src/shared/utils/infinite-moving-card-functions";
+import {ISpecialDealsProps} from "@/src/shared/types/specialDealsTypes";
 import {useTranslations} from "next-intl";
 
 export const InfiniteMovingCards: React.FC<ISpecialDealsProps> = ({
-                                                  items,
-                                                  direction = "left",
-                                                  speed = "fast",
-                                                  pauseOnHover = true,
-                                                  className,
-                                              }) => {
+                                                                      items,
+                                                                      direction = "left",
+                                                                      speed = "fast",
+                                                                      pauseOnHover = true,
+                                                                      className,
+                                                                  }) => {
     const t = useTranslations('SpecialDeals')
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -37,7 +37,8 @@ export const InfiniteMovingCards: React.FC<ISpecialDealsProps> = ({
                 )}
             >
                 {items.map((element, elementId) => (
-                    <div key={elementId} className="relative flex max-w-[200px] flex-col gap-1 rounded border p-1 sm:max-w-[300px] sm:gap-2 sm:rounded-sm sm:p-2 md:max-w-[400px] md:gap-3 md:rounded-xl md:p-3 lg:max-w-[575px] lg:gap-4 lg:p-4">
+                    <div key={elementId}
+                         className="relative flex max-w-[200px] flex-col gap-1 rounded border p-1 sm:max-w-[300px] sm:gap-2 sm:rounded-sm sm:p-2 md:max-w-[400px] md:gap-3 md:rounded-xl md:p-3 lg:max-w-[575px] lg:gap-4 lg:p-4">
                         <div className={`max-h-[100px] sm:max-h-[200px] md:max-h-[250px] lg:max-h-[327px]`}>
                             <img className={`size-full`} src={element.imageUrl} alt={element.flight.to}/>
                         </div>
@@ -56,7 +57,5 @@ export const InfiniteMovingCards: React.FC<ISpecialDealsProps> = ({
                 ))}
             </ul>
         </div>
-
-    );
-};
-
+    )
+}

@@ -9,20 +9,14 @@ import { Button } from "../../ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../../ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/accordion";
 import { FlightInfo } from "./FlightInfo/FlightInfo";
-import { BookingWindow } from "../BookingWindow/BookingWindow";
 import FlightService from '@/src/services/api/flight-host'
 
 export default function TopFlights() {
 	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
-	const [isWindowOpen, setIsWindowOpen] = useState(false)
 	const [data, setData] = useState<FlightData[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const t = useTranslations('top-flights');
 	const locale = useLocale();
-
-	const handleOpenBooking = () => {
-		setIsWindowOpen(true)
-	}
 
 	useEffect(() => {
 		const fetchData = () => {
@@ -75,7 +69,7 @@ export default function TopFlights() {
 								}
 							</CardContent>
 							<CardFooter className='p-0 px-4 pb-2'>
-								<Button onClick={()=>setIsWindowOpen(true)} className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
+								<Button className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
 									{t('gotoBooking')}
 								</Button>
 							</CardFooter>
@@ -86,7 +80,7 @@ export default function TopFlights() {
 									<AccordionTrigger onClick={() => setSelectedAccordionContent(item)} className={`flex flex-col sm:flex-row`}>
 										<p>{item.flight.from} - {item.flight.to}</p>
 										<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${item.flight.currency==='EUR'? `€` :'$'}${item.flight.tariff.price}`}</p>
-										<span onClick={handleOpenBooking} className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
+										<span className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
 												{t('button')}
 										</span>
 									</AccordionTrigger>
@@ -100,9 +94,7 @@ export default function TopFlights() {
 			}
 
 			</div>
-			{
-				isWindowOpen && <BookingWindow closeBtn={setIsWindowOpen} data={selectedAccordionContent?.flight}/>
-			}
+
 		</section>
 	)
 }
