@@ -40,7 +40,9 @@
 	},
 	"SpecialDeals": {
 		"title": "Специальные предложения",
+		"button": "Book now",
 		"link": "Посмотреть все акции",
+		"discount": "Горящий билет со скидкой ",
 		"loading": "Загрузка..."
 	},
 	"AirlineRating": {

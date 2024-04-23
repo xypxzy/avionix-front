@@ -44,6 +44,7 @@ const config = {
 				bronze: 'var(--background-bronze)',
 				light_sky: 'var(--bells-color)',
 				gray_custom: 'var(--gray-background)',
+				booking: 'var(--booking-window)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',

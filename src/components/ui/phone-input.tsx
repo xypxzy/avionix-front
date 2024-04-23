@@ -87,7 +87,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
           <ChevronsUpDown className={cn("h-4 w-4 opacity-50 -mr-2", disabled ? "hidden" : "opacity-100")} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0 w-[300px]">
+      <PopoverContent className="w-[300px] p-0">
         <Command>
           <CommandList>
             <CommandInput placeholder="Search country..." />
@@ -102,7 +102,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                     onSelect={() => handleSelect(option.value)}
                   >
                     <FlagComponent country={option.value} countryName={option.label} />
-                    <span className="text-sm flex-1">{option.label}</span>
+                    <span className="flex-1 text-sm">{option.label}</span>
                     {option.value && (
                       <span className="text-sm text-foreground/50">
                         {`+${RPNInput.getCountryCallingCode(option.value)}`}

@@ -40,7 +40,9 @@
 	},
 	"SpecialDeals": {
 		"title": "Атайын сунуштар",
+		"button": "Book now",
 		"link": "Бардык жарнамаларды көрүү",
+		"discount": "Акыркы билеттер арзандатуусу ",
 		"loading": "Жүктөлүү..."
 	},
 	"AirlineRating": {

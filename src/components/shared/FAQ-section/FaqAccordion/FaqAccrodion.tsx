@@ -21,18 +21,21 @@ export const FaqAccordion = () => {
 	const [data, setData] = useState<IFaq[]>([])
 	const locale = useLocale()
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await DiscoveryService.getFaqList(locale)
-				setData(response.data)
-				setLoading(false)
-			} catch (error: any) {
-				console.error('Yut have error with code error.response.request.status')
-				setLoading(false)
-			}
+		const fetchData = () => {
+			DiscoveryService.getFaqList(locale)
+				.then(response => {
+					setData(response.data)
+					setLoading(false)
+				})
+				.catch(error => {
+					console.error(`You have error with code ${error.response.request.status}`)
+					setLoading(false)
+				})
 		}
 		fetchData()
 	}, [locale, params])
+
+
 
 	return Loading ? (
 		<div className={`w-full max-w-[480px] text-center text-lg md:text-2xl`}>

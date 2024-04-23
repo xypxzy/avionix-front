@@ -40,7 +40,9 @@
 	},
 	"SpecialDeals": {
 		"title": "Özel fırsatlar",
+		"button": "Book now",
 		"link": "Tüm promosyonları görüntüle",
+		"discount": "Son dakika bileti indirimli ",
 		"loading": "Yükleniyor..."
 	},
 	"AirlineRating": {
