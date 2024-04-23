@@ -1,5 +1,4 @@
 import {AccordionDefault, AccordionContent, AccordionItem, AccordionTrigger} from "@/src/components/ui/accordionDefault";
-import {Button} from "@/src/components/ui/button";
 import Link from "next/link";
 import {RadioGroup, RadioGroupItem} from "@/src/components/ui/radio-group";
 import {Label} from '@/src/components/ui/label'
@@ -12,13 +11,8 @@ export const Transplants = () => {
                     <AccordionTrigger
                         className={`border-0 bg-none text-black`}>
                         <p className={`text-base font-bold`}>Пересадки</p>
-                        <Link href={``} className={`ml-auto`}>
-                            <Button
-                                variant="link"
-                                className="text-foreground underline hover:text-muted-foreground"
-                            >
-                                clean
-                            </Button>
+                        <Link href={``} className={`ml-auto text-foreground underline hover:text-muted-foreground`}>
+                            clean
                         </Link>
                     </AccordionTrigger>
                     <AccordionContent className={`flex flex-col gap-2`}>
