@@ -1,11 +1,12 @@
 'use client'
-import { InfiniteMovingCards } from '@/src/components/ui/infinite-moving-cards'
 import FlightService from '@/src/services/api/flight-host'
 import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
 import { LinkEnum } from '@/src/shared/utils/route'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { InfiniteMovingCards } from '../../ui/infinite-moving-cards'
+import { SpecialDealsSkeleton } from './SpecialDeals.skeleton'
 
 export function SpecialDeals() {
 	const locale = useLocale()
@@ -16,12 +17,7 @@ export function SpecialDeals() {
 	const t = useTranslations('SpecialDeals')
 
 	if (isLoading) {
-		// TODO: replace here to SKELETON
-		return (
-			<div className={`w-full py-20 text-center text-lg md:text-2xl`}>
-				{t('loading')}
-			</div>
-		)
+		return <SpecialDealsSkeleton />
 	}
 
 	return (
@@ -38,7 +34,7 @@ export function SpecialDeals() {
 				</Link>
 			</div>
 			{specialDeals && (
-				<div className={`absolute top-[47%] size-full max-h-[550px] lg:mt-16`}>
+				<div className={`absolute top-[46%] size-full max-h-[450px]`}>
 					<InfiniteMovingCards
 						items={specialDeals}
 						direction='left'
