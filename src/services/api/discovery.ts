@@ -1,19 +1,25 @@
 import { client } from '@/src/services/axios'
 import { IFaq, IWhyUs } from '@/src/shared/types/discovery'
+import { formSchema } from '@/src/shared/types/schemas/faqFormSchema'
+import { z } from 'zod'
 
 const DISCOVERY_URL = 'discovery/api'
 
 class DiscoveryService {
-	getWhyUsList(lan: string) {
-		return client.get<IWhyUs[]>(`${DISCOVERY_URL}/whyUs?lan=${lan}`)
+	async getWhyUsList(lan: string) {
+		return await client
+			.get<IWhyUs[]>(`${DISCOVERY_URL}/whyUs?lan=${lan}`)
+			.then(res => res.data)
 	}
 
-	getFaqList(lan: string) {
-		return client.get<IFaq[]>(`${DISCOVERY_URL}/faq?lan=${lan}`)
+	async getFaqList(lan: string) {
+		return await client
+			.get<IFaq[]>(`${DISCOVERY_URL}/faq?lan=${lan}`)
+			.then(res => res.data)
 	}
 
-	setFaqList(userMessage: any) {
-		return client.post<IFaq[]>(`${DISCOVERY_URL}/contact`, userMessage)
+	async setFaqList(userMessage: z.infer<typeof formSchema>) {
+		return await client.post<IFaq[]>(`${DISCOVERY_URL}/contact`, userMessage)
 	}
 }
 

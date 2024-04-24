@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-	/*  218 43% 37% - #365486  */
-	/*  238 56% 13% - #0f1035  */
-	/*  177 46% 91% - #dcf2f1  */
-	/*  192, 54%, 67% - #7fc7d9  */
-	/*  40 27% 94% - bg */
-
 	:root {
 		--background: 40 27% 94%;
 		--foreground: 222.2 84% 4.9%;
@@ -31,16 +25,16 @@
 		--ring: 238 56% 13%;
 		--radius: 0.8rem;
 		--background-hero: #f0ebe4;
-		--background-dark-blue: #0E1036;
-		--background-light-blue: #80C7D9;
-		--background-pagination: #365486B5;
-		--background-bronze: #E3AC7F;
-		--background-silver: #365486B5;
-		--background-gold: #FFCD29;
-		--success: #0CB04EC7;
+		--background-dark-blue: #0e1036;
+		--background-light-blue: #80c7d9;
+		--background-pagination: #365486b5;
+		--background-bronze: #e3ac7f;
+		--background-silver: #365486b5;
+		--background-gold: #ffcd29;
+		--success: #0cb04ec7;
 		--gray-background: #303131;
 		--bells-color: #365486;
-		--booking-window: #97A4BA;
+		--booking-window: #97a4ba;
 	}
 
 	.dark {
@@ -78,4 +72,8 @@
 	.card__border__layer {
 		@apply before:absolute before:inset-0 before:-left-6 before:top-[10%] before:z-[-2] before:h-[80%] before:w-[calc(100%+3rem)] before:rounded-sm before:border-2 before:border-secondary before:bg-primary after:absolute after:inset-0 after:-left-3 after:top-[5%] after:z-[-1] after:h-[90%] after:w-[calc(100%+1.5rem)] after:rounded-sm after:border-2 after:border-secondary-foreground after:bg-secondary dark:before:border-foreground;
 	}
+}
+
+html {
+	zoom: 95%;
 }

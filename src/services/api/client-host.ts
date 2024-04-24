@@ -1,17 +1,16 @@
-import {client} from "@/src/services/axios";
+import { client } from '@/src/services/axios'
+import { IAirlineRating } from '@/src/shared/types/discovery'
 
 const CLIENT_URL = 'client/api'
 
-class Client_Service {
 
-    getAirlineRatingList(){
-        return client.get(`${CLIENT_URL}/airline/rating`)
-    }
-
-    getCustomersCommnets(lan:string) {
-        return client.get(`${CLIENT_URL}/comment?lan=${lan}`)
-    }
-
+class ClientService {
+	async getAirlineRatingList() {
+		return await client
+			.get<IAirlineRating[]>(`${CLIENT_URL}/airline/rating`)
+			.then(res => res.data)
+	}
 }
 
-export default new Client_Service()
+const clientService = new ClientService()
+export default clientService

@@ -1,43 +1,47 @@
 'use client'
 
-import { FlightData } from "@/src/shared/types/topFlightsTypes";
-import { LinkEnum } from "@/src/shared/utils/route";
-import {useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import {useEffect, useState } from "react";
-import { Button } from "../../ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../../ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/accordion";
-import { FlightInfo } from "./FlightInfo/FlightInfo";
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/src/components/ui/accordion'
+import { Button } from '@/src/components/ui/button'
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/src/components/ui/card'
 import FlightService from '@/src/services/api/flight-host'
+import { FlightData } from '@/src/shared/types/topFlightsTypes'
+import { LinkEnum } from '@/src/shared/utils/route'
+import { useQuery } from '@tanstack/react-query'
+import { FlightInfo } from './FlightInfo/FlightInfo'
 
 export default function TopFlights() {
-	const [selectedAccordionContent, setSelectedAccordionContent] = useState<FlightData | undefined>(undefined);
-	const [data, setData] = useState<FlightData[]>([])
-	const [isLoading, setIsLoading] = useState<boolean>(true)
-	const t = useTranslations('top-flights');
-	const locale = useLocale();
+	const locale = useLocale()
+	const { data: topFlights, isLoading } = useQuery<FlightData[]>({
+		queryKey: ['top-flights'],
+		queryFn: () => FlightService.getTopFlights(locale),
+	})
+	const [currentFlight, setCurrentFlight] = useState<FlightData | undefined>(
+		undefined
+	)
+	const t = useTranslations('top-flights')
 
 	useEffect(() => {
-		const fetchData = () => {
-			FlightService.getTopFlights(locale)
-				.then(response => {
-					setData(response.data);
-					setSelectedAccordionContent(response.data[0]);
-					setIsLoading(false);
-				})
-				.catch(error => {
-					console.error('You have an error with code', error.response?.status);
-					setIsLoading(false);
-				});
-		};
-
-		fetchData();
-	}, [locale]);
+		if (topFlights && topFlights.length > 0) setCurrentFlight(topFlights[0])
+	}, [topFlights])
 
 	return (
-		<section className={`relative`}>
-			<div className={`my-20`}>
+		<section className='relative'>
 			<div className='my-8 flex w-full flex-col items-center justify-between sm:flex-row'>
 				<h3 className='text-base md:text-lg lg:text-xl'>{t('title')}</h3>
 				<Link href={LinkEnum.Flights}>
@@ -49,24 +53,29 @@ export default function TopFlights() {
 					</Button>
 				</Link>
 			</div>
-			{isLoading ? <div className={`w-full text-center text-lg md:text-2xl`}>Loading...</div>
-				:
-					<div className='flex flex-col gap-8 lg:flex-row'>
+			{isLoading ? (
+				<div className={`w-full text-center text-lg md:text-2xl`}>
+					Loading...
+				</div>
+			) : (
+				<div className='flex flex-col gap-8 lg:flex-row'>
+					{currentFlight && (
 						<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 py-2'>
 							<CardHeader className='p-4'>
 								<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
-									{selectedAccordionContent &&
-										<p>{selectedAccordionContent.flight.from} - {selectedAccordionContent.flight.to}</p>}
+									<p>
+										{currentFlight.flight.from} - {currentFlight.flight.to}
+									</p>
 								</CardTitle>
 							</CardHeader>
 							<CardContent className='p-0 px-4'>
-								{selectedAccordionContent && selectedAccordionContent.imageUrl &&
-									<img
-										src={`${selectedAccordionContent.imageUrl}`}
-										alt={selectedAccordionContent.flight.to}
-										className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
-									/>
-								}
+								<Image
+									src={`${currentFlight.imageUrl}`}
+									alt={currentFlight.flight.to}
+									width={400}
+									height={450}
+									className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
+								/>
 							</CardContent>
 							<CardFooter className='p-0 px-4 pb-2'>
 								<Button className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
@@ -74,27 +83,40 @@ export default function TopFlights() {
 								</Button>
 							</CardFooter>
 						</Card>
-						<Accordion defaultValue={'item-1'} type='single' collapsible className='flex flex-1 flex-col gap-6'>
-							{data.slice(0, 5).map((item:FlightData, index: number) => (
-								<AccordionItem key={index} value={`item-${index + 1}`} className={`w-full`}>
-									<AccordionTrigger onClick={() => setSelectedAccordionContent(item)} className={`flex flex-col sm:flex-row`}>
-										<p>{item.flight.from} - {item.flight.to}</p>
-										<p className={`ml-0 mr-5  sm:ml-auto`}>{`${t('startPrice')} ${item.flight.currency==='EUR'? `€` :'$'}${item.flight.tariff.price}`}</p>
-										<span className="rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground">
-												{t('button')}
-										</span>
-									</AccordionTrigger>
-									<AccordionContent>
-										<FlightInfo item={item}/>
-									</AccordionContent>
-								</AccordionItem>
-							))}
-						</Accordion>
-					</div>
-			}
-
-			</div>
-
+					)}
+					<Accordion
+						defaultValue={'item-1'}
+						type='single'
+						className='flex flex-1 flex-col gap-6'
+					>
+						{topFlights?.slice(0, 5).map((item: FlightData, index: number) => (
+							<AccordionItem
+								key={index}
+								value={`item-${index + 1}`}
+								className={`w-full`}
+							>
+								<AccordionTrigger
+									onClick={() => setCurrentFlight(item)}
+									className={`flex flex-col sm:flex-row`}
+								>
+									<p>
+										{item.flight.from} - {item.flight.to}
+									</p>
+									<p
+										className={`ml-0 mr-5  sm:ml-auto`}
+									>{`${t('startPrice')} ${item.flight.currency === 'EUR' ? `€` : '$'}${item.flight.tariff.price}`}</p>
+									<span className='rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground'>
+										{t('button')}
+									</span>
+								</AccordionTrigger>
+								<AccordionContent>
+									<FlightInfo item={item} />
+								</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
+				</div>
+			)}
 		</section>
 	)
 }
