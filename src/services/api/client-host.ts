@@ -8,6 +8,10 @@ class Client_Service {
         return client.get(`${CLIENT_URL}/airline/rating`)
     }
 
+    getCustomersCommnets(lan:string) {
+        return client.get(`${CLIENT_URL}/comment?lan=${lan}`)
+    }
+
 }
 
 export default new Client_Service()

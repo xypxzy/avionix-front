@@ -21,6 +21,10 @@
 		"notificationSwitch": "Enable notification",
 		"notificationText": "Receive notifications about price changes for this route"
 	},
+	"comments": {
+		"title": "Our customers say",
+		"loading": "Loading..."
+	},
 	"FAQ": {
 		"title": "FAQ",
 		"link": "Browse all questions",
