@@ -25,8 +25,8 @@ export function SpecialDeals() {
 	}
 
 	return (
-		<section className='flex size-full h-[350px] flex-col items-center justify-start rounded antialiased sm:h-[550px] lg:h-[700px]'>
-			<div className='mt-5 flex w-full flex-col items-start justify-between sm:mt-10 sm:flex-row sm:items-center md:mt-16 lg:mt-24'>
+		<section className='flex size-full h-[350px] flex-col items-center justify-start rounded antialiased sm:h-[550px] lg:h-[650px]'>
+			<div className='mt-5 flex w-full flex-col items-start justify-between sm:mt-10 sm:flex-row sm:items-center'>
 				<h3 className='text-base font-bold md:text-lg lg:text-xl'>
 					{t('title')}
 				</h3>
@@ -38,9 +38,7 @@ export function SpecialDeals() {
 				</Link>
 			</div>
 			{specialDeals && (
-				<div
-					className={`absolute top-[5750px] mb-5 size-full max-h-[550px] sm:top-[5300px] sm:mb-10 sm:mt-2 md:top-[3500px] md:mb-16 md:mt-5 lg:top-[2600px] lg:mb-24 lg:mt-10`}
-				>
+				<div className={`absolute top-[47%] size-full max-h-[550px] lg:mt-16`}>
 					<InfiniteMovingCards
 						items={specialDeals}
 						direction='left'

@@ -57,7 +57,7 @@ const FaqForm = () => {
 
 	return (
 		<div
-			className={`mt-16 flex w-full max-w-screen-md flex-col items-center justify-between gap-6 rounded-xl border-2 border-dark_blue bg-primary p-4 text-background sm:flex-row md:p-12`}
+			className={`mt-5 flex w-full max-w-screen-md flex-col items-center justify-between gap-6 rounded-xl border-2 border-dark_blue bg-primary p-4 text-background sm:flex-row md:p-12`}
 		>
 			<p className={`w-full max-w-[300px] text-xs font-medium`}>
 				{t('right_card.text')}
