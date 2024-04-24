@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { IBM_Plex_Mono } from 'next/font/google'
-import { ReactNode } from 'react'
+import React from 'react'
 
 import { Toaster } from '@/src/components/ui/toaster'
-import { AuthProvider, ThemeProvider } from '@/src/providers'
-import { LanguagesProvider } from '@/src/providers/LanguagesProvider/LanguagesProvider'
+import { Provider } from '@/src/providers/Provider'
+import { Locale } from '@/src/shared/types/i18n'
 import { cn } from '@/src/shared/utils/classnames'
 import './globals.css'
-import {locales} from "@/src/shared/const/i18n";
-import { Locale } from '@/src/shared/types/i18n'
 
 const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ['latin'],
@@ -35,15 +33,12 @@ export const metadata: Metadata = {
 		],
 	},
 }
-export function generateStaticParams() {
-	return locales.map(locale => ({ locale }))
-}
 
 export default function RootLayout({
 	children,
 	params,
 }: Readonly<{
-	children: ReactNode
+	children: React.ReactNode
 	params: {
 		locale: Locale
 	}
@@ -53,19 +48,10 @@ export default function RootLayout({
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
 			<body className={cn(ibmPlexMono.className, 'relative')}>
-				<LanguagesProvider locale={params.locale}>
-					<ThemeProvider
-						attribute='class'
-						defaultTheme='system'
-						enableSystem
-						disableTransitionOnChange
-					>
-						<AuthProvider>
-							{children}
-							<Toaster />
-						</AuthProvider>
-					</ThemeProvider>
-				</LanguagesProvider>
+				<Provider locale={params.locale}>
+					{children}
+					<Toaster />
+				</Provider>
 			</body>
 		</html>
 	)
