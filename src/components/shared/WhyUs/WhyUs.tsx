@@ -68,10 +68,10 @@ const WhyUs: React.FC = () => {
 	}
 
 	return (
-		<section className='border-y border-primary py-4 sm:py-10 md:py-20 lg:py-32'>
+		<section className='border-y border-primary py-4 sm:py-10 md:py-16 lg:py-16'>
 			<div className={`mx-auto`}>
 				<div className={`mx-auto w-full px-10`}>
-					<h3 className={`mb-2 text-sm font-[600] sm:text-xl md:mb-6`}>
+					<h3 className={`mb-2 text-sm font-[600] sm:text-xl md:mb-10`}>
 						{t('title')}
 					</h3>
 					<div className='overflow-hidden' ref={emblaRef}>

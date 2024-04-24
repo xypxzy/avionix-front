@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AirlinesRatingSkeleton } from './AirlinesRating.skeleton'
 
 const AirlinesRating = () => {
 	const { data: airlineRatings, isLoading } = useQuery<IAirlineRating[]>({
@@ -25,11 +26,7 @@ const AirlinesRating = () => {
 	}
 
 	if (isLoading) {
-		return (
-			<div className={`w-full text-center text-lg text-white md:text-2xl`}>
-				Loading...
-			</div>
-		)
+		return <AirlinesRatingSkeleton />
 	}
 
 	return (

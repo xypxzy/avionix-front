@@ -24,6 +24,7 @@ import { FlightData } from '@/src/shared/types/topFlightsTypes'
 import { LinkEnum } from '@/src/shared/utils/route'
 import { useQuery } from '@tanstack/react-query'
 import { FlightInfo } from './FlightInfo/FlightInfo'
+import { TopFlightsSkeleton } from './TopFlights.skeleton'
 
 export default function TopFlights() {
 	const locale = useLocale()
@@ -40,6 +41,10 @@ export default function TopFlights() {
 		if (topFlights && topFlights.length > 0) setCurrentFlight(topFlights[0])
 	}, [topFlights])
 
+	if (isLoading) {
+		return <TopFlightsSkeleton />
+	}
+
 	return (
 		<section className='relative'>
 			<div className='my-8 flex w-full flex-col items-center justify-between sm:flex-row'>
@@ -53,70 +58,64 @@ export default function TopFlights() {
 					</Button>
 				</Link>
 			</div>
-			{isLoading ? (
-				<div className={`w-full text-center text-lg md:text-2xl`}>
-					Loading...
-				</div>
-			) : (
-				<div className='flex flex-col gap-8 lg:flex-row'>
-					{currentFlight && (
-						<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 py-2'>
-							<CardHeader className='p-4'>
-								<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
-									<p>
-										{currentFlight.flight.from} - {currentFlight.flight.to}
-									</p>
-								</CardTitle>
-							</CardHeader>
-							<CardContent className='p-0 px-4'>
-								<Image
-									src={`${currentFlight.imageUrl}`}
-									alt={currentFlight.flight.to}
-									width={400}
-									height={450}
-									className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
-								/>
-							</CardContent>
-							<CardFooter className='p-0 px-4 pb-2'>
-								<Button className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
-									{t('gotoBooking')}
-								</Button>
-							</CardFooter>
-						</Card>
-					)}
-					<Accordion
-						defaultValue={'item-1'}
-						type='single'
-						className='flex flex-1 flex-col gap-6'
-					>
-						{topFlights?.slice(0, 5).map((item: FlightData, index: number) => (
-							<AccordionItem
-								key={index}
-								value={`item-${index + 1}`}
-								className={`w-full`}
+			<div className='flex flex-col gap-8 lg:flex-row'>
+				{currentFlight && (
+					<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 py-2'>
+						<CardHeader className='p-4'>
+							<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
+								<p>
+									{currentFlight.flight.from} - {currentFlight.flight.to}
+								</p>
+							</CardTitle>
+						</CardHeader>
+						<CardContent className='p-0 px-4'>
+							<Image
+								src={`${currentFlight.imageUrl}`}
+								alt={currentFlight.flight.to}
+								width={400}
+								height={450}
+								className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
+							/>
+						</CardContent>
+						<CardFooter className='p-0 px-4 pb-2'>
+							<Button className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
+								{t('gotoBooking')}
+							</Button>
+						</CardFooter>
+					</Card>
+				)}
+				<Accordion
+					defaultValue={'item-1'}
+					type='single'
+					className='flex flex-1 flex-col gap-6'
+				>
+					{topFlights?.slice(0, 5).map((item: FlightData, index: number) => (
+						<AccordionItem
+							key={index}
+							value={`item-${index + 1}`}
+							className={`w-full`}
+						>
+							<AccordionTrigger
+								onClick={() => setCurrentFlight(item)}
+								className={`flex flex-col sm:flex-row`}
 							>
-								<AccordionTrigger
-									onClick={() => setCurrentFlight(item)}
-									className={`flex flex-col sm:flex-row`}
-								>
-									<p>
-										{item.flight.from} - {item.flight.to}
-									</p>
-									<p
-										className={`ml-0 mr-5  sm:ml-auto`}
-									>{`${t('startPrice')} ${item.flight.currency === 'EUR' ? `€` : '$'}${item.flight.tariff.price}`}</p>
-									<span className='rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground'>
-										{t('button')}
-									</span>
-								</AccordionTrigger>
-								<AccordionContent>
-									<FlightInfo item={item} />
-								</AccordionContent>
-							</AccordionItem>
-						))}
-					</Accordion>
-				</div>
-			)}
+								<p>
+									{item.flight.from} - {item.flight.to}
+								</p>
+								<p
+									className={`ml-0 mr-5  sm:ml-auto`}
+								>{`${t('startPrice')} ${item.flight.currency === 'EUR' ? `€` : '$'}${item.flight.tariff.price}`}</p>
+								<span className='rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground'>
+									{t('button')}
+								</span>
+							</AccordionTrigger>
+							<AccordionContent>
+								<FlightInfo item={item} />
+							</AccordionContent>
+						</AccordionItem>
+					))}
+				</Accordion>
+			</div>
 		</section>
 	)
 }
