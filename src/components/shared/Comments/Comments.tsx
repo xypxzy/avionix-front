@@ -32,7 +32,7 @@ export const Comments = () => {
                         ))}
                     </CarouselContent>
                     <div className={`absolute right-14 top-[-40px] max-w-2 w-full`}>
-                        <CarouselPrevious className={`rounded-[8px] bg-dark_blue size-12 text-background_hero`}/>
+                        <CarouselPrevious className={`size-12 rounded-[8px] bg-dark_blue text-background_hero`}/>
                         <CarouselNext className={`rounded-[8px] bg-dark_blue size-12 text-background_hero`}/>
                     </div>
                 </Carousel>
