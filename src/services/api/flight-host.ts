@@ -1,17 +1,23 @@
-import { client } from "@/src/services/axios";
+import { client } from '@/src/services/axios'
+import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
+import { FlightData } from '@/src/shared/types/topFlightsTypes'
 
-const FLIGHT_URL = 'flight/api';
+const FLIGHT_URL = 'flight/api'
 
 class FlightService {
-    getTopFlights(lan: string) {
-        return client.get(`${FLIGHT_URL}/article/topFlight?lan=${lan}`);
-    }
+	async getTopFlights(lan: string) {
+		return await client
+			.get<FlightData[]>(`${FLIGHT_URL}/article/topFlight?lan=${lan}`)
+			.then(res => res.data)
+	}
 
-    getSpecialDeals(lan: string) {
-        return client.get(`${FLIGHT_URL}/article/specialDeal?lan=${lan}`)
-    }
+	async getSpecialDeals(lan: string) {
+		return await client.get<ISpecialDealsDataType[]>(
+			`${FLIGHT_URL}/article/specialDeal?lan=${lan}`
+		)
+	}
 }
 
-const flightService = new FlightService();
+const flightService = new FlightService()
 
-export default flightService;
+export default flightService
