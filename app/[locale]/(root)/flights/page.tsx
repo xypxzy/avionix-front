@@ -1,6 +1,7 @@
 import Hero from '@/src/components/common/Hero/Hero'
 import { Filter } from '@/src/components/shared/FilterComponents/Filter'
 import { BestPrices } from '@/src/components/shared/FlightsComponents/BestPrices/BestPrices'
+import { FlightsTicket } from '@/src/components/shared/FlightsTicket/FlightsTicket'
 import { Skeleton } from '@/src/components/ui/skeleton'
 
 export default function Flights() {
@@ -13,6 +14,7 @@ export default function Flights() {
 				</div>
 				<div className={'flex-1'}>
 					<BestPrices />
+					<FlightsTicket />
 				</div>
 				<Skeleton className='h-[450px] w-2/12 rounded-xl bg-slate-400' />
 			</div>

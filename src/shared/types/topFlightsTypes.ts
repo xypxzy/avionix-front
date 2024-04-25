@@ -4,7 +4,7 @@ export interface Segments {
 	arrivalIata: string
 	arrivalAt: string
 }
-export interface tariff {
+export interface ITariff {
 	cabin: string
 	price: number
 	baggagePrice: number
@@ -12,18 +12,18 @@ export interface tariff {
 	checkedBaggageIncluded: boolean
 	cabinBaggageIncluded: boolean
 }
-export interface tripDetails {
+export interface ITripDetails {
 	flightDuration: number
 	transitDuration: number
 	segments: Segments[]
 }
 
-export interface trip {
-	departureTrip: tripDetails
-	returnTrip: tripDetails
+export interface ITrip {
+	departureTrip: ITripDetails
+	returnTrip: ITripDetails
 }
 
-export interface flight {
+export interface IFlight {
 	id: string
 	airline: string
 	number: string
@@ -32,24 +32,35 @@ export interface flight {
 	from: string
 	to: string
 	gate: string
-	departureTrip: tripDetails
-	returnTrip: tripDetails
+	departureTrip: ITripDetails
+	returnTrip: ITripDetails
 	currency: string
 	status: string
-	tariff: tariff
+	tariff: ITariff
 }
 export interface FlightData {
 	imageUrl: string
 	description: string
-	flight: flight
+	flight: IFlight
+}
+
+export interface IFlightDataResponse {
+	data: IFlight[]
+	meta: {
+		page: number
+		pageSize: number
+		next: string
+		prev: string
+		total: number
+	}
 }
 
 export interface BookingWindowProps {
 	closeBtn: (value: boolean) => void
-	data?: flight | undefined
+	data?: IFlight | undefined
 }
 
 export interface BookingDetailProps {
-	data?: flight
+	data?: IFlight
 	type: 'departure' | 'return'
 }

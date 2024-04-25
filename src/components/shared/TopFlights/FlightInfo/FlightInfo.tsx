@@ -1,10 +1,10 @@
-import { FlightData } from '@/src/shared/types/topFlightsTypes'
+import { IFlight } from '@/src/shared/types/topFlightsTypes'
 import { useLocale } from 'next-intl'
 import React from 'react'
 import { FlightDetails } from './FlightDetails'
 import { FlightSegment } from './FlightSegment'
 
-export const FlightInfo: React.FC<{ item: FlightData }> = ({ item }) => {
+export const FlightInfo: React.FC<{ item: IFlight }> = ({ item }) => {
 	const locale = useLocale()
 
 	const convertDate = (takeoffAt: string, arrivalAt: string) => {
@@ -21,7 +21,7 @@ export const FlightInfo: React.FC<{ item: FlightData }> = ({ item }) => {
 	return (
 		<div>
 			<div className='flex flex-col gap-5'>
-				{item.flight.departureTrip.segments.map((segment, index) => (
+				{item.departureTrip.segments.map((segment, index) => (
 					<div
 						key={index}
 						className={
@@ -29,28 +29,28 @@ export const FlightInfo: React.FC<{ item: FlightData }> = ({ item }) => {
 						}
 					>
 						<FlightSegment
-							flight={item.flight.from}
+							flight={item.from}
 							segment={segment.takeoffAt}
 							locale={locale}
 						/>
 						<FlightDetails
 							segment={segment}
 							duration={convertDate(segment.takeoffAt, segment.arrivalAt)}
-							airline={item.flight.airline}
+							airline={item.airline}
 						/>
 						<FlightSegment
-							flight={item.flight.to}
+							flight={item.to}
 							segment={segment.arrivalAt}
 							locale={locale}
 						/>
 					</div>
 				))}
 			</div>
-			{!item.flight.oneWay && (
+			{!item.oneWay && (
 				<>
 					<div className={`my-4 h-[1px] w-full bg-dark_blue`}></div>
 					<div className='flex flex-col gap-5'>
-						{item.flight.returnTrip.segments.map((segment, index) => (
+						{item.returnTrip.segments.map((segment, index) => (
 							<div
 								key={index}
 								className={
@@ -58,17 +58,17 @@ export const FlightInfo: React.FC<{ item: FlightData }> = ({ item }) => {
 								}
 							>
 								<FlightSegment
-									flight={item.flight.from}
+									flight={item.from}
 									segment={segment.takeoffAt}
 									locale={locale}
 								/>
 								<FlightDetails
 									segment={segment}
 									duration={convertDate(segment.takeoffAt, segment.arrivalAt)}
-									airline={item.flight.airline}
+									airline={item.airline}
 								/>
 								<FlightSegment
-									flight={item.flight.to}
+									flight={item.to}
 									segment={segment.arrivalAt}
 									locale={locale}
 								/>

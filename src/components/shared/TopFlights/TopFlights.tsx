@@ -89,7 +89,7 @@ export default function TopFlights() {
 					type='single'
 					className='flex flex-1 flex-col gap-6'
 				>
-					{topFlights?.slice(0, 5).map((item: FlightData, index: number) => (
+					{topFlights?.map((item: FlightData, index: number) => (
 						<AccordionItem
 							key={index}
 							value={`item-${index + 1}`}
@@ -110,7 +110,7 @@ export default function TopFlights() {
 								</span>
 							</AccordionTrigger>
 							<AccordionContent>
-								<FlightInfo item={item} />
+								<FlightInfo item={item.flight} />
 							</AccordionContent>
 						</AccordionItem>
 					))}

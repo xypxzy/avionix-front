@@ -21,15 +21,15 @@ import {
 	CardDescription,
 	CardTitle,
 } from '@/src/components/ui/card'
+import { useToast } from '@/src/components/ui/use-toast'
+import { loginFormSchema } from '@/src/shared/types/schemas/loginSchema'
+import { formatDate } from '@/src/shared/utils/formatDate'
+import { handleLoginError } from '@/src/shared/utils/handleAuthError'
+import { useUserStore } from '@/src/stores/user.store'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { LoginWithGoogle } from './LoginWithGoogle'
-import {handleLoginError} from "@/src/shared/utils/handleAuthError";
-import {loginFormSchema} from "@/src/shared/types/schemas/loginSchema";
-import { formatDate } from '@/src/shared/utils/formatDate'
 import { Checkbox } from '../../ui/checkbox'
-import {useToast} from "@/src/components/ui/use-toast";
-import {useUserStore} from "@/src/stores/user.store";
+import { LoginWithGoogle } from './LoginWithGoogle'
 
 export default function LoginForm() {
 	const session = useSession()
