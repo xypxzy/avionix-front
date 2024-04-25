@@ -1,12 +1,9 @@
 'use client'
 import Logo from '@/src/components/shared/Logo/Logo'
-import { Button } from '@/src/components/ui/button'
-import { Separator } from '@/src/components/ui/separator'
 import { Instagram} from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import styles from './Footer.module.css'
-import {StarRating} from "@/src/components/shared/StarRatingClick/StarRating";
 import {SendComment} from "@/src/components/shared/SendComment/SendComment";
 
 export default function Footer() {
