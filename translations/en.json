@@ -61,18 +61,20 @@
 			"title": "Company",
 			"contacts": "Contacts",
 			"support": "Support",
-			"faq": "FAQ"
+			"faq": "FAQ",
+			"help": "Help"
 		},
 		"quick_links": {
 			"title": "Quick links",
 			"flights": "Flights",
 			"hotels": "Hotels",
-			"services": "Services"
+			"services": "Services",
+			"airlines": "Airlines"
 		},
-		"newsletter": {
-			"title": "Newsletter",
-			"input_placeholder": "Email",
-			"subscribe": "Subscribe to get news & offers",
+		"comment": {
+			"title": "Review",
+			"input_placeholder": "Leave your comment",
+			"button": "Send",
 			"social_media": "Find us on social media"
 		}
 	}

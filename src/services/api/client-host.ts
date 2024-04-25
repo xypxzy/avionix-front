@@ -1,5 +1,6 @@
 import { client } from '@/src/services/axios'
-import { IAirlineRating } from '@/src/shared/types/discovery'
+import {IAirlineRating} from '@/src/shared/types/discovery'
+import {ICreateCommentType} from "@/src/shared/types/createCommentType";
 
 const CLIENT_URL = 'client/api'
 
@@ -8,6 +9,10 @@ class ClientService {
 		return await client
 			.get<IAirlineRating[]>(`${CLIENT_URL}/airline/rating`)
 			.then(res => res.data)
+	}
+
+	async createComment(data:ICreateCommentType, token:string) {
+		return await client.post(`${CLIENT_URL}/comment`, data, {headers:{Authorization:token}})
 	}
 }
 
