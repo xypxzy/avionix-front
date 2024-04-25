@@ -2,12 +2,10 @@ import { Button } from "@/src/components/ui/button";
 import { StarRating } from "@/src/components/shared/StarRatingClick/StarRating";
 import { useLocale, useTranslations } from "next-intl";
 import React, {useState} from "react";
-// import { useSession } from "next-auth/react";
 import clientService from "@/src/services/api/client-host";
 import {Skeleton} from "@/src/components/ui/skeleton";
 
 export const SendComment = () => {
-    // const session = useSession()
     const t = useTranslations('Footer')
     const locale:string = useLocale()
     const [grade, setGrade] = useState<number>(0);
