@@ -65,18 +65,20 @@
 			"title": "Şirket",
 			"contacts": "İletişim",
 			"support": "Destek",
-			"faq": "Çok sorulan sorular"
+			"faq": "Çok sorulan sorular",
+			"help": "Yardım"
 		},
 		"quick_links": {
 			"title": "Hızlı Linkler",
 			"flights": "Uçuşlar",
 			"hotels": "Oteller",
-			"services": "Hizmetler"
+			"services": "Hizmetler",
+			"airlines": "hava Yolları"
 		},
-		"newsletter": {
-			"title": "Bülten",
-			"input_placeholder": "E-posta",
-			"subscribe": "Haber ve teklifler almak için abone olun",
+		"comment": {
+			"title": "İnceleme",
+			"input_placeholder": "Yorumunuzu bırakın",
+			"button": "Gönder",
 			"social_media": "Bizi sosyal medyada bulun"
 		}
 	}
