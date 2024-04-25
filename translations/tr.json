@@ -21,6 +21,10 @@
 		"notificationSwitch": "Bildirimleri etkinleştir",
 		"notificationText": "Bu rotaya ilişkin fiyat değişiklikleriyle ilgili bildirimler alın"
 	},
+	"comments": {
+		"title": "Müşterilerimiz söylüyor",
+		"loading": "Yükleniyor..."
+	},
 	"FAQ": {
 		"title": "FAQ",
 		"link": "Tüm sorulara göz atın",

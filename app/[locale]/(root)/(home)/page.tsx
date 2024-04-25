@@ -7,6 +7,7 @@ import WhyUs from '@/src/components/shared/WhyUs/WhyUs'
 import { Locale } from '@/src/shared/types/i18n'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import {Comments} from "@/src/components/shared/Comments/Comments";
 
 export default function Home({ params }: { params: { locale: Locale } }) {
 	unstable_setRequestLocale(params.locale)
@@ -19,6 +20,7 @@ export default function Home({ params }: { params: { locale: Locale } }) {
 			<AirlinesRating />
 			<SpecialDeals />
 			<WhyUs />
+			<Comments/>
 			<FAQSection />
 		</>
 	)
