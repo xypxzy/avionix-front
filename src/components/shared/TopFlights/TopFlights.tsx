@@ -105,9 +105,11 @@ export default function TopFlights() {
 								<p
 									className={`ml-0 mr-5  sm:ml-auto`}
 								>{`${t('startPrice')} ${item.flight.currency === 'EUR' ? `€` : '$'}${item.flight.tariff.price}`}</p>
-								<span className='rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground'>
-									{t('button')}
-								</span>
+								<Link href={`flights/${item.flight.id}`}>
+									<span className='rounded-sm bg-dark_blue px-4 py-2 text-xs text-background hover:text-muted-foreground'>
+										{t('button')}
+									</span>
+								</Link>
 							</AccordionTrigger>
 							<AccordionContent>
 								<FlightInfo item={item.flight} />
