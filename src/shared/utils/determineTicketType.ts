@@ -1,5 +1,5 @@
-import {trip} from "@/src/shared/types/topFlightsTypes";
+import { ITrip } from '../types/topFlightsTypes'
 
-export const determineTicketType = (type: string, data:trip) => {
-    return type === 'departure' ? data?.departureTrip : data?.returnTrip;
+export const determineTicketType = (type: string, data: ITrip) => {
+	return type === 'departure' ? data?.departureTrip : data?.returnTrip
 }

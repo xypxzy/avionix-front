@@ -104,7 +104,7 @@ export default function Profile() {
 
                     <div className={`w-full`}>
                       <Label htmlFor="name">Passport or ID number</Label>
-                      <Input id="name" value={userInfo.pasportId}  onChange={()=>null}/>
+                      <Input id="name" value={userInfo.passportId}  onChange={()=>null}/>
                     </div>
 
                     <div>
@@ -161,7 +161,7 @@ export default function Profile() {
                     <img src={`/assets/icons/favicon.png`} className={`max-h-[130px] max-w-[130px]`} alt="profile image"/>
                   </div>
                   <div className={`flex w-1/2 items-center justify-center`}>
-                    <p className={`text-xl font-medium`}></p>
+                    <p className={`text-xl font-medium`}>{userInfo.firstName} {userInfo.lastName}</p>
                   </div>
                   <div className={`flex w-1/3 flex-col items-center justify-center gap-4`}>
                     <Button>Upload photo</Button>

@@ -1,10 +1,11 @@
 'use client'
-import FlightService from '@/src/services/api/flight-host'
-import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
-import { LinkEnum } from '@/src/shared/utils/route'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+
+import FlightService from '@/src/services/api/flight-host'
+import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
+import { LinkEnum } from '@/src/shared/utils/route'
 import { InfiniteMovingCards } from '../../ui/infinite-moving-cards'
 import { SpecialDealsSkeleton } from './SpecialDeals.skeleton'
 
@@ -34,7 +35,7 @@ export function SpecialDeals() {
 				</Link>
 			</div>
 			{specialDeals && (
-				<div className={`absolute top-[46%] size-full max-h-[450px]`}>
+				<div className={`absolute top-[50%] size-full max-h-[450px]`}>
 					<InfiniteMovingCards
 						items={specialDeals}
 						direction='left'

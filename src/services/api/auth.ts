@@ -20,7 +20,6 @@ class AuthService {
 					},
 				}
 			)
-
 			return response.data
 		} catch (error: unknown) {
 			if (axios.isAxiosError(error)) {
@@ -50,11 +49,10 @@ class AuthService {
 				code: otpPassword,
 			}
 
-			return  await client.patch(
+			return await client.patch(
 				AUTH_URL + 'account/confirmEmail',
 				JSON.stringify(confirmData)
 			)
-
 		} catch (error: unknown) {
 			if (axios.isAxiosError(error)) {
 				throw new Error(error.response?.data.status)

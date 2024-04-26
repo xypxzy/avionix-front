@@ -23,13 +23,17 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/src/components/ui/select'
+import FlightService from '@/src/services/api/flight-host'
+import { IFlightCity } from '@/src/shared/types/flights'
 import { cn } from '@/src/shared/utils/classnames'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { format } from 'date-fns'
+import { useQuery } from '@tanstack/react-query'
+import { format, formatDate } from 'date-fns'
 import { ArrowRightLeft, CalendarIcon, MoveRight } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { Input } from '../../ui/input'
 import styles from './FlightForm.module.css'
 
 const flightFormSchema = z.object({
@@ -46,6 +50,10 @@ const flightFormSchema = z.object({
 })
 
 export default function FlightForm() {
+	const { data: cities } = useQuery<IFlightCity[]>({
+		queryKey: ['flights-city'],
+		queryFn: () => FlightService.getCities({ lan: 'en' }),
+	})
 	const form = useForm<z.infer<typeof flightFormSchema>>({
 		resolver: zodResolver(flightFormSchema),
 		defaultValues: {
@@ -59,6 +67,7 @@ export default function FlightForm() {
 			passengers: '1',
 		},
 	})
+
 	const searchParams = useSearchParams()
 	const router = useRouter()
 
@@ -78,24 +87,33 @@ export default function FlightForm() {
 
 	function onSubmit(values: z.infer<typeof flightFormSchema>) {
 		const queryParams = new URLSearchParams(searchParams.toString())
+
 		if (values.departure) {
-			queryParams.set('departure', values.departure)
+			queryParams.set('origin', values.departure)
 		}
 		if (values.destination) {
 			queryParams.set('destination', values.destination)
 		}
 		if (values.tripType) {
-			queryParams.set('tripType', values.tripType)
+			queryParams.set(
+				'oneWay',
+				values.tripType === 'one way' ? 'true' : 'false'
+			)
 		}
 		if (values.date && values.date.from) {
-			queryParams.set('dateFrom', values.date.from.toISOString())
+			queryParams.set(
+				'departureDate',
+				formatDate(values.date.from, 'yyyy-mm-dd')
+			)
 		}
 		if (values.date && values.date.to) {
-			queryParams.set('dateTo', values.date.to.toISOString())
+			queryParams.set('returnDate', formatDate(values.date.to, 'yyyy-mm-dd'))
 		}
 		if (values.passengers) {
-			queryParams.set('passengers', values.passengers)
+			queryParams.set('adults', values.passengers)
 		}
+
+		console.log(queryParams)
 
 		router.push(`/flights/?${queryParams.toString()}`)
 	}
@@ -127,10 +145,11 @@ export default function FlightForm() {
 								</FormControl>
 								<SelectContent>
 									<SelectGroup>
-										<SelectItem value='almaty'>Almaty</SelectItem>
-										<SelectItem value='bishkek'>Bishkek</SelectItem>
-										<SelectItem value='moscow'>Moscow</SelectItem>
-										<SelectItem value='pekin'>Pekin</SelectItem>
+										{cities?.map(city => (
+											<SelectItem key={city.code} value={city.code}>
+												{city.name}
+											</SelectItem>
+										))}
 									</SelectGroup>
 								</SelectContent>
 							</Select>
@@ -175,10 +194,11 @@ export default function FlightForm() {
 								</FormControl>
 								<SelectContent>
 									<SelectGroup>
-										<SelectItem value='almaty'>Almaty</SelectItem>
-										<SelectItem value='bishkek'>Bishkek</SelectItem>
-										<SelectItem value='moscow'>Moscow</SelectItem>
-										<SelectItem value='pekin'>Pekin</SelectItem>
+										{cities?.map(city => (
+											<SelectItem key={city.code} value={city.code}>
+												{city.name}
+											</SelectItem>
+										))}
 									</SelectGroup>
 								</SelectContent>
 							</Select>
@@ -330,19 +350,15 @@ export default function FlightForm() {
 							<FormLabel className='block rounded-md bg-primary py-2 text-primary-foreground'>
 								Passengers
 							</FormLabel>
-							<Select onValueChange={field.onChange} defaultValue={field.value}>
-								<FormControl>
-									<SelectTrigger className='h-8 w-full border-none bg-inherit 2xl:w-[120px]'>
-										<SelectValue placeholder='Select a type' />
-									</SelectTrigger>
-								</FormControl>
-								<SelectContent>
-									<SelectGroup>
-										<SelectItem value={'1'}>1 adult</SelectItem>
-										<SelectItem value={'2'}>2 adults</SelectItem>
-									</SelectGroup>
-								</SelectContent>
-							</Select>
+
+							<FormControl>
+								<Input
+									type='number'
+									className=' bg-inherit shadow-none outline-none'
+									style={{ color: '#fff' }}
+									{...field}
+								/>
+							</FormControl>
 							<FormMessage />
 						</FormItem>
 					)}
