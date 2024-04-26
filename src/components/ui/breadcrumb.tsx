@@ -1,14 +1,14 @@
+import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { ChevronRight, MoreHorizontal } from 'lucide-react'
-import * as React from 'react'
 
 import { cn } from '@/src/shared/utils/classnames'
 
 const Breadcrumb = React.forwardRef<
 	HTMLElement,
 	React.ComponentPropsWithoutRef<'nav'> & {
-		separator?: React.ReactNode
-	}
+	separator?: React.ReactNode
+}
 >(({ ...props }, ref) => <nav ref={ref} aria-label='breadcrumb' {...props} />)
 Breadcrumb.displayName = 'Breadcrumb'
 
@@ -42,8 +42,8 @@ BreadcrumbItem.displayName = 'BreadcrumbItem'
 const BreadcrumbLink = React.forwardRef<
 	HTMLAnchorElement,
 	React.ComponentPropsWithoutRef<'a'> & {
-		asChild?: boolean
-	}
+	asChild?: boolean
+}
 >(({ asChild, className, ...props }, ref) => {
 	const Comp = asChild ? Slot : 'a'
 
@@ -73,10 +73,10 @@ const BreadcrumbPage = React.forwardRef<
 BreadcrumbPage.displayName = 'BreadcrumbPage'
 
 const BreadcrumbSeparator = ({
-	children,
-	className,
-	...props
-}: React.ComponentProps<'li'>) => (
+								 children,
+								 className,
+								 ...props
+							 }: React.ComponentProps<'li'>) => (
 	<li
 		role='presentation'
 		aria-hidden='true'
@@ -89,27 +89,27 @@ const BreadcrumbSeparator = ({
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator'
 
 const BreadcrumbEllipsis = ({
-	className,
-	...props
-}: React.ComponentProps<'span'>) => (
+								className,
+								...props
+							}: React.ComponentProps<'span'>) => (
 	<span
 		role='presentation'
 		aria-hidden='true'
 		className={cn('flex h-9 w-9 items-center justify-center', className)}
 		{...props}
 	>
-		<MoreHorizontal className='h-4 w-4' />
-		<span className='sr-only'>More</span>
-	</span>
+    <MoreHorizontal className='h-4 w-4' />
+    <span className='sr-only'>More</span>
+  </span>
 )
-BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis'
+BreadcrumbEllipsis.displayName = 'BreadcrumbEllipsis'
 
 export {
 	Breadcrumb,
-	BreadcrumbEllipsis,
+	BreadcrumbList,
 	BreadcrumbItem,
 	BreadcrumbLink,
-	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
+	BreadcrumbEllipsis,
 }
