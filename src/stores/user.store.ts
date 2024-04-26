@@ -12,7 +12,7 @@ export const useUserStore = create<UserStore>(set => ({
 	user: null,
 	setUser: user => set({ user }),
 	fetchUser: async (accessToken: string) => {
-		const user = await UserService.getUser(accessToken)
+		const user = await UserService.getUserInfo()
 		set({ user })
 	},
 }))
