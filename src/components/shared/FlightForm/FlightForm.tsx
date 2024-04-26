@@ -110,8 +110,6 @@ export default function FlightForm() {
 			queryParams.set('adults', values.passengers)
 		}
 
-		console.log(values)
-
 		router.push(`/flights/?${queryParams.toString()}`)
 	}
 
