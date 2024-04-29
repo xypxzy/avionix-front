@@ -28,7 +28,7 @@ import { IFlightCity } from '@/src/shared/types/flights'
 import { cn } from '@/src/shared/utils/classnames'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useQuery } from '@tanstack/react-query'
-import { format, formatDate } from 'date-fns'
+import { format } from 'date-fns'
 import { ArrowRightLeft, CalendarIcon, MoveRight } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
@@ -101,19 +101,14 @@ export default function FlightForm() {
 			)
 		}
 		if (values.date && values.date.from) {
-			queryParams.set(
-				'departureDate',
-				formatDate(values.date.from, 'yyyy-mm-dd')
-			)
+			queryParams.set('departureDate', format(values.date.from, 'yyyy-MM-dd'))
 		}
 		if (values.date && values.date.to) {
-			queryParams.set('returnDate', formatDate(values.date.to, 'yyyy-mm-dd'))
+			queryParams.set('returnDate', format(values.date.to, 'yyyy-MM-dd'))
 		}
 		if (values.passengers) {
 			queryParams.set('adults', values.passengers)
 		}
-
-		console.log(queryParams)
 
 		router.push(`/flights/?${queryParams.toString()}`)
 	}

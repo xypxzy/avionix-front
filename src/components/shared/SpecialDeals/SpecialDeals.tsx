@@ -35,7 +35,7 @@ export function SpecialDeals() {
 				</Link>
 			</div>
 			{specialDeals && (
-				<div className={`absolute top-[50%] size-full max-h-[450px]`}>
+				<div className={`absolute top-[44.5%] size-full max-h-[450px]`}>
 					<InfiniteMovingCards
 						items={specialDeals}
 						direction='left'
