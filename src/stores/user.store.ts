@@ -7,7 +7,7 @@ type UserStore = {
 	isLoading: boolean // Добавляем isLoading
 	setUser: (user: IUser) => void
 	setLoading: (isLoading: boolean) => void // Добавляем setLoading
-	fetchUser: () => Promise<void>
+	fetchUser: (accessToken: string) => Promise<void>
 }
 
 export const useUserStore = create<UserStore>(set => ({
@@ -15,9 +15,9 @@ export const useUserStore = create<UserStore>(set => ({
 	isLoading: false,
 	setUser: user => set({ user }),
 	setLoading: isLoading => set({ isLoading }),
-	fetchUser: async () => {
+	fetchUser: async (accessToken) => {
 		set({ isLoading: true })
-		const user = await UserService.getUserInfo()
+		const user = await UserService.getUserInfo(accessToken)
 		set({ user, isLoading: false })
 	},
 }))

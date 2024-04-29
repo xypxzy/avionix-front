@@ -1,5 +1,5 @@
 'use client'
-import {Plane, Slash, Trash2} from "lucide-react"
+import {Slash} from "lucide-react"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -19,9 +19,9 @@ import {useTranslations} from "next-intl";
 export default function Profile() {
   const { fetchUser, isLoading, user} = useUserStore()
   const t = useTranslations('userProfile')
-
+  const access = 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBdmlvbml4Iiwic3ViIjoiQUNDRVNTX1RPS0VOIiwidXNlcm5hbWUiOiIyMDA0LjAxMDM1QG1hbmFzLmVkdS5rZyIsImF1dGhvcml0aWVzIjoiUk9MRV9DTElFTlQiLCJpYXQiOjE3MTQ0MDkxNzIsImV4cCI6MTcxNDQxMjc3Mn0.yg0stjP2RIQ0QXR4yy-el-LPuL14BNgiVlqrVhF5Q4A'
   useEffect(() => {
-    fetchUser()
+    fetchUser(access)
   }, []);
 
   if(isLoading) {
