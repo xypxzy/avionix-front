@@ -4,6 +4,45 @@
 			"message": "Выберите язык"
 		}
 	},
+	"userProfile": {
+		"generalInfo": {
+			"personalDetails": {
+				"title": "Личные данные",
+				"firstName": "Имя",
+				"lastName": "Фамилия",
+				"nationality": {
+					"title": "Национальность",
+					"kyrgyz": "кыргыз",
+					"russian": "русский",
+					"turkish": "турк",
+					"english": "англичанин"
+				},
+				"gender": {
+					"title": "Пол",
+					"male": "Мужской",
+					"female": "Женский"
+				},
+				"dateOfBirth": "Дата рождения",
+				"passport": "Паспорт или ID номер",
+				"passportExpirationDate": "Срока действия паспорта или ID",
+				"phone": "Телефон",
+				"email": "Электронная почта",
+				"button": "Сохранить изменения"
+			},
+			"profile": {
+				"title": "Профиль",
+				"upload": "Загрузить фото",
+				"remove": "Удалить фото",
+				"delete": "Удалить аккаунт"
+			},
+			"currencyAndLanguage": {
+				"title": "Валюта и язык",
+				"currency": "Валюта",
+				"language": "Язык",
+				"button": "Сохранить изменения"
+			}
+		}
+	},
 	"hero": {
 		"home-title": "Откройте для себя мир",
 		"home-desc": "Путешествуйте с нами"

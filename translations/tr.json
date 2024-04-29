@@ -4,6 +4,45 @@
 			"message": "Bir dil seçin"
 		}
 	},
+	"userProfile": {
+		"generalInfo": {
+			"personalDetails": {
+				"title": "Kişisel Bilgiler",
+				"firstName": "Ad",
+				"lastName": "Soyadı",
+				"nationality": {
+					"title": "Milliyet",
+					"kyrgyz": "kırgız",
+					"russian": "rusça",
+					"turkish": "türkçe",
+					"english": "ingilizce"
+				},
+				"gender": {
+					"title": "Cinsiyet",
+					"male": "Erkek",
+					"female": "Kadın"
+				},
+				"dateOfBirth": "Doğum Tarihi",
+				"passport": "Pasaport veya kimlik numarası",
+				"passportExpirationDate": "Pasaport veya kimlik son kullanma tarihi",
+				"phone": "Telefon",
+				"email": "E-posta",
+				"button": "Değişiklikleri Kaydet"
+			},
+			"profile": {
+				"title": "Profil",
+				"upload": "Fotoğraf yükle",
+				"remove": "Fotoğrafı kaldır",
+				"delete": "Accountu sil"
+			},
+			"currencyAndLanguage": {
+				"title": "Para Birimi ve Dil",
+				"currency": "Para birimi",
+				"language": "Dil",
+				"button": "Değişiklikleri Kaydet"
+			}
+		}
+	},
 	"hero": {
 		"home-title": "Dünyayı Keşfedin",
 		"home-desc": "Bizimle seyahat edin"
