@@ -4,6 +4,13 @@
 			"message": "Выберите язык"
 		}
 	},
+	"authBtn": {
+		"login": "Войти",
+		"signup": "Зарегистрироваться",
+		"myaccount": "Мой аккаунт",
+		"profile": "Профиль",
+		"signout": "Выйти"
+	},
 	"userProfile": {
 		"breadCamp": {
 			"home": "Главная",

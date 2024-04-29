@@ -4,6 +4,13 @@
 			"message": "Bir dil seçin"
 		}
 	},
+	"authBtn": {
+		"login": "Giriş",
+		"signup": "Kayıt Ol",
+		"myaccount": "Hesabım",
+		"profile": "Profil",
+		"signout": "Oturumu Kapat"
+	},
 	"userProfile": {
 		"breadCamp": {
 			"home": "Ana",

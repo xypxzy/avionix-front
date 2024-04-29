@@ -4,6 +4,13 @@
 			"message": "Choose a language."
 		}
 	},
+	"authBtn": {
+		"login": "Log In",
+		"signup": "Sign Up",
+		"myaccount": "My Account",
+		"profile": "Profile",
+		"signout": "Sign Out"
+	},
 	"userProfile": {
 		"breadCamp": {
 			"home": "Home",

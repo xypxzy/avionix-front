@@ -1,11 +1,4 @@
 'use client'
-
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTrigger,
-} from '@/src/components/ui/dialog'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -14,43 +7,35 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/src/components/ui/dropdown-menu'
-
-import { Button } from '@/src/components/ui/button'
-import { Card, CardContent } from '@/src/components/ui/card'
 import { LinkEnum } from '@/src/shared/utils/route'
-import { User } from 'lucide-react'
+import {LogIn, User} from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import {useTranslations} from "next-intl";
 
 export default function UserMenu() {
+	const t = useTranslations('authBtn')
 	const session = useSession()
 
 	if (session.status === 'unauthenticated') {
 		return (
-			<Dialog>
-				<DialogTrigger>Login</DialogTrigger>
-				<DialogContent className='p-16'>
-					<DialogHeader className='items-center text-lg'>
-						Who are you?
-					</DialogHeader>
-					<div className='flex gap-10'>
-						<Card className='w-1/2 pt-6 text-center'>
-							<CardContent>
-								<Button variant='link' className='text-foreground'>
-									<Link href={LinkEnum.Login}>Login</Link>
-								</Button>
-							</CardContent>
-						</Card>
-						<Card className='w-1/2 pt-6 text-center'>
-							<CardContent>
-								<Button variant='link' className='text-foreground'>
-									<Link href={LinkEnum.SignUp}>Sign Up</Link>
-								</Button>
-							</CardContent>
-						</Card>
-					</div>
-				</DialogContent>
-			</Dialog>
+			<DropdownMenu>
+				<DropdownMenuTrigger aria-label='account info'>
+					<LogIn />
+				</DropdownMenuTrigger>
+				<DropdownMenuContent>
+					<DropdownMenuItem>
+						<Link href={LinkEnum.Login}>
+							{t('login')}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuItem>
+						<Link href={LinkEnum.SignUp}>
+							{t('signup')}
+						</Link>
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
 		)
 	}
 
@@ -60,22 +45,20 @@ export default function UserMenu() {
 				<User />
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
-				<DropdownMenuLabel>My Account</DropdownMenuLabel>
+				<DropdownMenuLabel>{t('myaccount')}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
 					<Link href={'/profile'}>
-						Profile
+						{t('profile')}
 					</Link>
 				</DropdownMenuItem>
-				<DropdownMenuItem>Billing</DropdownMenuItem>
-				<DropdownMenuItem>Team</DropdownMenuItem>
 				{session.status === 'authenticated' ? (
 					<DropdownMenuItem onClick={() => signOut()}>
-						Sign Out
+						{t('signout')}
 					</DropdownMenuItem>
 				) : (
 					<DropdownMenuItem>
-						<Link href={'/login'}>Sign In</Link>
+						<Link href={'/login'}>{t('login')}</Link>
 					</DropdownMenuItem>
 				)}
 			</DropdownMenuContent>

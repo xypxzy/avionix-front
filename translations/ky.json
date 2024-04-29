@@ -4,6 +4,13 @@
 			"message": "Тилди тандаңыз"
 		}
 	},
+	"authBtn": {
+		"login": "Кирүү",
+		"signup": "Катталуу",
+		"myaccount": "Менин аккаунтум",
+		"profile": "Профиль",
+		"signout": "Чыгуу"
+	},
 	"userProfile": {
 		"breadCamp": {
 			"home": "Башкы бет",
