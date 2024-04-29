@@ -5,6 +5,15 @@
 		}
 	},
 	"userProfile": {
+		"breadCamp": {
+			"home": "Ana",
+			"account": "Hesap"
+		},
+		"nav": {
+			"generalInfo": "Genel bilgi",
+			"booking": "Rezervasyon",
+			"flightHistory": "Uçuş geçmişi"
+		},
 		"generalInfo": {
 			"personalDetails": {
 				"title": "Kişisel Bilgiler",

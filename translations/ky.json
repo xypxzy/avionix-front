@@ -5,6 +5,15 @@
 		}
 	},
 	"userProfile": {
+		"breadCamp": {
+			"home": "Башкы бет",
+			"account": "Аккаунт"
+		},
+		"nav": {
+			"generalInfo": "Жалпы маалымат",
+			"booking": "Брондоо",
+			"flightHistory": "Учуу тарыхы"
+		},
 		"generalInfo": {
 			"personalDetails": {
 				"title": "Жеке маалыматтар",

@@ -5,6 +5,15 @@
 		}
 	},
 	"userProfile": {
+		"breadCamp": {
+			"home": "Home",
+			"account": "Account"
+		},
+		"nav": {
+			"generalInfo": "General info",
+			"booking": "Booking",
+			"flightHistory": "Flight history"
+		},
 		"generalInfo": {
 			"personalDetails": {
 				"title": "Personal Details",

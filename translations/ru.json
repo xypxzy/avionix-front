@@ -5,6 +5,15 @@
 		}
 	},
 	"userProfile": {
+		"breadCamp": {
+			"home": "Главная",
+			"account": "Аккаунт"
+		},
+		"nav": {
+			"generalInfo": "Общая информация",
+			"booking": "Бронирование",
+			"flightHistory": "История полётов"
+		},
 		"generalInfo": {
 			"personalDetails": {
 				"title": "Личные данные",
