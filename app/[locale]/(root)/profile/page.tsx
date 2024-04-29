@@ -19,17 +19,36 @@ import { Separator } from '@/src/components/ui/separator'
 import {useQuery} from "@tanstack/react-query";
 import userService from "@/src/services/api/user";
 import {Skeleton} from "@/src/components/ui/skeleton";
+import { format, parseISO } from "date-fns"
+import {useLocale} from "next-intl";
+import {enGB, ru, tr} from "date-fns/locale";
+import {useEffect, useState} from "react";
 export default function Profile() {
   const { data: userInfo, isLoading } = useQuery({
     queryKey: ['customer'],
     queryFn: () => userService.getUserInfo(),
   })
+  const locale = useLocale()
+  const [date, setDate] = useState({})
+  const [passportEx, setPassportEx] = useState({})
 
+  function formatDateOfBirth(dateOfBirth:string) {
+    const date = parseISO(dateOfBirth);
+    const day = format(date, 'd');
+    const year = format(date, 'yyyy');
+    const month = format(date, 'LLL', { locale: locale === 'ru' ? ru : locale === 'en' ? enGB : locale === 'tr' ? tr : ru });
+    return { day, month, year };
+  }
 
+  useEffect(() => {
+    if (!isLoading && userInfo){
+      setDate(formatDateOfBirth(userInfo.dateOfBirth))
+      setPassportEx(formatDateOfBirth(userInfo.passportExpiryDate))
+    }
+  }, [isLoading, userInfo]);
   if(isLoading) {
     return <Skeleton className='h-10 w-60'></Skeleton>
   }
-
   return (
     <div>
       <div>
@@ -113,7 +132,7 @@ export default function Profile() {
                     </div>
                   </div>
 
-                  <div className={`w-full space-y-3 pt-5`}>
+                  <div className={`w-full space-y-3 pt-5 container`}>
                     <div>
                       <Label htmlFor="name">Last name</Label>
                       <Input id="name" value={userInfo.lastName} onChange={()=>null}/>
@@ -122,22 +141,22 @@ export default function Profile() {
                     <div>
                       <Label htmlFor="name">Date of Birth</Label>
                       <div className={`flex`}>
-                        <Input className={`rounded-r-none border-r-0 focus:border-none`} id="name" value="1" onChange={()=>null}/>
+                        <Input className={`rounded-r-none border-r-0 focus:border-none`} id="name" value={date.day} onChange={()=>null}/>
                         <Separator orientation={'vertical'} className={`h-[40px]`}/>
-                        <Input className={`rounded-none border-x-0 focus:border-none`} id="name" value="Jun" onChange={()=>null}/>
+                        <Input className={`rounded-none border-x-0 focus:border-none`} id="name" value={date.month} onChange={()=>null}/>
                         <Separator orientation={'vertical'} className={`h-[40px]`}/>
-                        <Input className={`rounded-l-none border-l-0 focus:border-none`} id="name" value={'1990'} onChange={()=>null}/>
+                        <Input className={`rounded-l-none border-l-0 focus:border-none`} id="name" value={date.year} onChange={()=>null}/>
                       </div>
                     </div>
 
                     <div className={`w-full`}>
                       <Label htmlFor="name">Passport or ID expiration date</Label>
                       <div className={`flex`}>
-                        <Input className={`rounded-r-none border-r-0 focus:border-none`} id="name" value="14" onChange={()=>null}/>
+                        <Input className={`rounded-r-none border-r-0 focus:border-none`} id="name" value={passportEx.day} onChange={()=>null}/>
                         <Separator orientation={'vertical'} className={`h-[40px]`}/>
-                        <Input className={`rounded-none border-x-0 focus:border-none`} id="name" value="Feb" onChange={()=>null}/>
+                        <Input className={`rounded-none border-x-0 focus:border-none`} id="name" value={passportEx.month} onChange={()=>null}/>
                         <Separator orientation={'vertical'} className={`h-[40px]`}/>
-                        <Input className={`rounded-l-none border-l-0 focus:border-none`} id="name" value={'2024'} onChange={()=>null}/>
+                        <Input className={`rounded-l-none border-l-0 focus:border-none`} id="name" value={passportEx.year} onChange={()=>null}/>
                       </div>
                     </div>
 
