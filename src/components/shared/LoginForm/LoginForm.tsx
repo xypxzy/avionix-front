@@ -84,6 +84,7 @@ export default function LoginForm() {
 	useEffect(() => {
 		// Получения данных о пользователе
 		if (session.data?.user.accessToken) {
+			console.log(session.data?.user.accessToken)
 			fetchUser(session.data.user.accessToken)
 		}
 	}, [fetchUser, session?.data?.user.accessToken])
