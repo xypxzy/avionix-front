@@ -11,32 +11,20 @@ import {
 import {Tabs, TabsContent, TabsTrigger, TabsList } from "@/src/components/ui/tabs"
 import {Skeleton} from "@/src/components/ui/skeleton";
 import {useUserStore} from "@/src/stores/user.store";
-import {useEffect} from "react";
 import {GeneralInfo} from "@/src/components/shared/UserAccount/GeneralInfo/GeneralInfo";
 import {Booking} from "@/src/components/shared/UserAccount/Booking/Booking";
 import {FlightHistory} from "@/src/components/shared/UserAccount/FlightHistory/FlightHistory";
 import {useTranslations} from "next-intl";
-import {useSession} from "next-auth/react";
 export default function Profile() {
-	const { isLoading, user} = useUserStore()
+	const { isLoading} = useUserStore()
 	const t = useTranslations('userProfile')
-	const session = useSession()
-	console.log(session)
-	useEffect(() => {
-		if (session.data?.user.accessToken) {
-			console.log(session.data.user.accessToken)
-		}else{
-			console.log("no data")
-		}
-	}, []);
 
 
 		if (isLoading) {
 			return <Skeleton className='h-10 w-60'></Skeleton>
 		}
 
-		if (user) {
-			return (
+		return (
 				<div>
 					<div className={`my-4`}>
 						<Breadcrumb>
@@ -74,6 +62,5 @@ export default function Profile() {
 				</div>
 			)
 		}
-	}
 
 
