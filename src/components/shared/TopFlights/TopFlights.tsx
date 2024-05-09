@@ -60,7 +60,7 @@ export default function TopFlights() {
 			</div>
 			<div className='flex flex-col gap-8 lg:flex-row'>
 				{currentFlight && (
-					<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 py-2'>
+					<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 pt-2 pb-0'>
 						<CardHeader className='p-4'>
 							<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
 								<p>
@@ -68,7 +68,7 @@ export default function TopFlights() {
 								</p>
 							</CardTitle>
 						</CardHeader>
-						<CardContent className='p-0 px-4'>
+						<CardContent className='p-0 px-4 space-y-5'>
 							<Image
 								src={`${currentFlight.imageUrl}`}
 								alt={currentFlight.flight.to}
@@ -76,8 +76,9 @@ export default function TopFlights() {
 								height={450}
 								className='size-full max-h-[444px] max-w-[384px] rounded-[3px] p-0 text-black'
 							/>
+							<p>{currentFlight.description}</p>
 						</CardContent>
-						<CardFooter className='p-0 px-4 pb-2'>
+						<CardFooter className='p-0 px-4'>
 							<Button className='items-start bg-transparent px-0 text-caption text-foreground hover:bg-transparent hover:text-muted-foreground  hover:underline  md:text-xs'>
 								{t('gotoBooking')}
 							</Button>
