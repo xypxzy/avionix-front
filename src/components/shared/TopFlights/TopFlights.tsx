@@ -60,7 +60,7 @@ export default function TopFlights() {
 			</div>
 			<div className='flex flex-col gap-8 lg:flex-row'>
 				{currentFlight && (
-					<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 pt-2 pb-0'>
+					<Card className='flex w-full max-w-[420px] flex-col justify-between rounded-sm border-2 pb-0 pt-2'>
 						<CardHeader className='p-4'>
 							<CardTitle className='text-sm font-medium text-black md:text-base lg:text-lg'>
 								<p>
@@ -68,7 +68,7 @@ export default function TopFlights() {
 								</p>
 							</CardTitle>
 						</CardHeader>
-						<CardContent className='p-0 px-4 space-y-5'>
+						<CardContent className='space-y-5 p-0 px-4'>
 							<Image
 								src={`${currentFlight.imageUrl}`}
 								alt={currentFlight.flight.to}
