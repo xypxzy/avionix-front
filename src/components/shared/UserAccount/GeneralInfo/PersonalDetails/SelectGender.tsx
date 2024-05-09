@@ -10,19 +10,21 @@ export const SelectGender = () => {
         return null
     }
     return (
-        <div className={`w-full space-y-2`}>
-            <Label>{t('gender.title')}</Label>
-            <Select>
-                <SelectTrigger className="w-full max-w-[170px] text-dark_blue">
-                    <SelectValue className={`w-full`} placeholder={user.gender}/>
-                </SelectTrigger>
-                <SelectContent className={`w-full`}>
-                    <SelectGroup>
-                        <SelectItem value="male">{t('gender.male')}</SelectItem>
-                        <SelectItem value="female">{t('gender.female')}</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
-        </div>
+        <>
+            <div className={`w-full space-y-2`}>
+                <Label>{t('gender.title')}</Label>
+                <Select>
+                    <SelectTrigger className="w-full max-w-[170px] text-dark_blue">
+                        <SelectValue className={`w-full`} placeholder={user.gender}/>
+                    </SelectTrigger>
+                    <SelectContent className={`w-full`}>
+                        <SelectGroup>
+                            <SelectItem value="male">{t('gender.male')}</SelectItem>
+                            <SelectItem value="female">{t('gender.female')}</SelectItem>
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
+            </div>
+        </>
     )
 }

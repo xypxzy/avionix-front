@@ -2,6 +2,7 @@ import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/src/compon
 import {Button} from "@/src/components/ui/button";
 import {useUserStore} from "@/src/stores/user.store";
 import {useTranslations} from "next-intl";
+import Image from "next/image";
 
 export const ProfileInfo = () => {
     const t = useTranslations('userProfile.generalInfo.profile')
@@ -16,7 +17,7 @@ export const ProfileInfo = () => {
             </CardHeader>
             <CardContent className="flex py-6">
                 <div className={`w-1/4`}>
-                    <img src={`/assets/icons/favicon.png`} className={`max-h-[130px] max-w-[130px]`}
+                    <Image width={130} height={130} src={`/assets/icons/favicon.png`} className={`max-h-[130px] max-w-[130px]`}
                          alt="profile image"/>
                 </div>
                 <div className={`flex w-1/2 items-center justify-center`}>

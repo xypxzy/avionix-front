@@ -6,7 +6,7 @@ import {
 
 export const GeneralInfo = () => {
     return (
-        <div>
+        <>
             <div className={`flex gap-10`}>
                 <PersonalDetails/>
                 <ProfileInfo/>
@@ -14,6 +14,6 @@ export const GeneralInfo = () => {
             <div className={`mt-10`}>
                 <CurrencyAndLanguage/>
             </div>
-        </div>
+        </>
     )
 }

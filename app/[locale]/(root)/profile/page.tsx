@@ -15,19 +15,31 @@ import {GeneralInfo} from "@/src/components/shared/UserAccount/GeneralInfo/Gener
 import {Booking} from "@/src/components/shared/UserAccount/Booking/Booking";
 import {FlightHistory} from "@/src/components/shared/UserAccount/FlightHistory/FlightHistory";
 import {useTranslations} from "next-intl";
+import Link from "next/link";
 export default function Profile() {
-	const { isLoading} = useUserStore()
+	const {isLoading, user} = useUserStore()
 	const t = useTranslations('userProfile')
 
+	if (isLoading) {
+		return <Skeleton className='h-10 w-60'></Skeleton>
+	}
 
-		if (isLoading) {
-			return <Skeleton className='h-10 w-60'></Skeleton>
-		}
-
+	if (!user) {
 		return (
+			<div className={`my-[30%] flex flex-col items-center justify-center gap-5`}>
+				<div className={` text-center text-3xl`}>Отказано в доступе!</div>
 				<div>
-					<div className={`my-4`}>
-						<Breadcrumb>
+					<Link href={'/'} className={`rounded-xl bg-primary px-5 py-2 text-xl text-primary-foreground`}>На главную</Link>
+				</div>
+			</div>
+		);
+	}
+
+
+	return (
+		<>
+			<div className={`my-4`}>
+				<Breadcrumb>
 							<BreadcrumbList>
 								<BreadcrumbItem>
 									<BreadcrumbLink href="/">{t('breadCamp.home')}</BreadcrumbLink>
@@ -59,7 +71,7 @@ export default function Profile() {
 							</TabsContent>
 						</Tabs>
 					</div>
-				</div>
+				</>
 			)
 		}
 

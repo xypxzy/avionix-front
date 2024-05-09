@@ -1,12 +1,12 @@
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/src/components/ui/card";
 import {Button} from "@/src/components/ui/button";
 import {useTranslations} from "next-intl";
-import {SelectNationality} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectNationality";
-import {SelectGender} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectGender";
-import {SelectFullName} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectFullName";
-import {SelectDateOfBirth} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectDateOfBirth";
-import {SelectPassportInfo} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectPassportInfo";
-import {SelectPhoneEmail} from "@/src/components/shared/UserAccount/GeneralInfo/PersonalDetails/SelectPhoneEmail";
+import {SelectNationality} from "./SelectNationality";
+import {SelectGender} from "./SelectGender";
+import {SelectFullName} from "./SelectFullName";
+import {SelectDateOfBirth} from "./SelectDateOfBirth";
+import {SelectPassportInfo} from "./SelectPassportInfo";
+import {SelectPhoneEmail} from "./SelectPhoneEmail";
 import React from "react";
 
 export const PersonalDetails = () => {
@@ -20,7 +20,7 @@ export const PersonalDetails = () => {
                 <div className="w-full space-y-3 pt-5">
                     <SelectFullName/>
                     <div className={`flex gap-10`}>
-                        <div className={`flex gap-3 max-w-[352px] w-full`}>
+                        <div className={`flex w-full max-w-[352px] gap-3`}>
                             <SelectNationality/>
                             <SelectGender/>
                         </div>

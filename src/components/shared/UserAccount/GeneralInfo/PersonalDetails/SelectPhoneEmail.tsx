@@ -11,15 +11,17 @@ export const SelectPhoneEmail = () => {
         return null
     }
     return (
-        <div className={`flex gap-10`}>
-            <div className={`w-full space-y-2`}>
-                <Label htmlFor="name">{t('phone')}</Label>
-                <Input id="phone" value={user.phone} onChange={() => null}/>
+        <>
+            <div className={`flex gap-10`}>
+                <div className={`w-full space-y-2`}>
+                    <Label htmlFor="name">{t('phone')}</Label>
+                    <Input id="phone" value={user.phone} onChange={() => null}/>
+                </div>
+                <div className={`w-full space-y-2`}>
+                    <Label htmlFor="name">{t('email')}</Label>
+                    <Input id="email" value={user.email} onChange={() => null}/>
+                </div>
             </div>
-            <div className={`w-full space-y-2`}>
-                <Label htmlFor="name">{t('email')}</Label>
-                <Input id="email" value={user.email} onChange={() => null}/>
-            </div>
-        </div>
+        </>
     )
 }

@@ -1,3 +1,4 @@
+'use client'
 import {Label} from "@/src/components/ui/label";
 import {Input} from "@/src/components/ui/input";
 import {useUserStore} from "@/src/stores/user.store";
@@ -10,15 +11,17 @@ export const SelectFullName = () => {
         return null
     }
     return (
-        <div className={`flex w-full gap-10`}>
-            <div className={`w-full space-y-2`}>
-                <Label htmlFor="name">{t('firstName')}</Label>
-                <Input id="firstName" value={user.firstName} onChange={() => null}/>
+        <>
+            <div className={`flex w-full gap-10`}>
+                <div className={`w-full space-y-2`}>
+                    <Label htmlFor="name">{t('firstName')}</Label>
+                    <Input id="firstName" value={user.firstName} onChange={() => null}/>
+                </div>
+                <div className={`w-full space-y-2`}>
+                    <Label htmlFor="name">{t('lastName')}</Label>
+                    <Input id="lastName" value={user.lastName} onChange={() => null}/>
+                </div>
             </div>
-            <div className={`w-full space-y-2`}>
-                <Label htmlFor="name">{t('lastName')}</Label>
-                <Input id="lastName" value={user.lastName} onChange={() => null}/>
-            </div>
-        </div>
+        </>
     )
 }
