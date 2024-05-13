@@ -14,8 +14,7 @@ import {GeneralInfo} from "@/src/components/shared/UserAccount/GeneralInfo/Gener
 import {Booking} from "@/src/components/shared/UserAccount/Booking/Booking";
 import {FlightHistory} from "@/src/components/shared/UserAccount/FlightHistory/FlightHistory";
 import {useTranslations} from "next-intl";
-import Link from "next/link";
-import {useEffect, useLayoutEffect} from "react";
+import {useLayoutEffect} from "react";
 import {useSession} from "next-auth/react";
 import {ProfileSkeleton} from "@/src/components/shared/UserAccount/UserAccountSkeleton/Profile.skeleton";
 import {redirect} from "next/navigation";
