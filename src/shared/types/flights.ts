@@ -12,3 +12,8 @@ export interface IFlightQueryParams {
 	returnDate?: string
 	adults?: string
 }
+
+export interface IFlightPaymentLink {
+	paymentLink: string
+	paymentLinkId: string
+}
