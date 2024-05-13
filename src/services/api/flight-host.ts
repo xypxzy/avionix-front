@@ -1,5 +1,10 @@
 import { client } from '@/src/services/axios'
-import { IFlightCity, IFlightQueryParams } from '@/src/shared/types/flights'
+import {
+	IFlightCity,
+	IFlightPaymentLink,
+	IFlightQueryParams,
+	ISearchFlight,
+} from '@/src/shared/types/flights'
 import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
 import {
 	FlightData,
@@ -26,6 +31,17 @@ class FlightService {
 			.then(res => res.data)
 	}
 
+	async getFlightLink(id: string, checkedBaggageIncluded: boolean) {
+		return await client
+			.get<IFlightPaymentLink>(`${FLIGHT_URL}/ticket/paymentLink`, {
+				params: {
+					flightId: id,
+					checkedBaggageIncluded,
+				},
+			})
+			.then(res => res.data)
+	}
+
 	async getCities(params: IFlightQueryParams) {
 		return await client
 			.get<IFlightCity[]>(`${FLIGHT_URL}/city`, {
@@ -44,6 +60,12 @@ class FlightService {
 		return await client.get<ISpecialDealsDataType[]>(
 			`${FLIGHT_URL}/article/specialDeal?lan=${lan}`
 		)
+	}
+
+	async getFlightsSearch(params: IFlightQueryParams) {
+		return await client.get<ISearchFlight>(`${FLIGHT_URL}/trip/global`, {
+			params,
+		})
 	}
 }
 

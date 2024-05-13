@@ -1,9 +1,5 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
-import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
-
 import {
 	Accordion,
 	AccordionContent,
@@ -11,17 +7,25 @@ import {
 	AccordionTrigger,
 } from '@/src/components/ui/accordion'
 import { Button } from '@/src/components/ui/button'
-import DiscoveryService from '@/src/services/api/discovery'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+
 import { IFaq } from '@/src/shared/types/discovery'
 import { LinkEnum } from '@/src/shared/utils/route'
+import { FC } from 'react'
 
-export const FaqAccordion = () => {
+interface FaqAccordionProps {
+	faqList?: IFaq[]
+	isLoading?: boolean
+	isSearchPage?: boolean
+}
+
+export const FaqAccordion: FC<FaqAccordionProps> = ({
+	faqList,
+	isLoading,
+	isSearchPage,
+}) => {
 	const t = useTranslations('FAQ')
-	const locale = useLocale()
-	const { data: faqList, isLoading } = useQuery<IFaq[]>({
-		queryKey: ['faq-list'],
-		queryFn: () => DiscoveryService.getFaqList(locale),
-	})
 
 	if (isLoading) {
 		return (
@@ -32,7 +36,9 @@ export const FaqAccordion = () => {
 	}
 
 	return (
-		<div className={`w-full max-w-screen-md md:max-w-screen-sm`}>
+		<div
+			className={`${isSearchPage ? 'w-full max-w-screen-md md:max-w-screen-sm' : 'w-full'}`}
+		>
 			<div className={`mb-7 flex items-center justify-between`}>
 				<h3 className='text-xl font-medium'>{t('title')}</h3>
 				<Link href={LinkEnum.Flights}>
