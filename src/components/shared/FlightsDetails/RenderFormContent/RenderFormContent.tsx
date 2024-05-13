@@ -34,7 +34,7 @@ export const RenderFormContent = (
 		case 3:
 			return (
 				<TabsContent value='summary'>
-					<FlightsSummary />
+					<FlightsSummary flight={flight} form={form} />
 				</TabsContent>
 			)
 		default:

@@ -128,7 +128,7 @@ export function FlightsInformation({ flight }: FlightsInformationProps) {
 					Price Details
 				</div>
 				<div className='flex items-center justify-between p-4 px-8'>
-					<span>1 x Passenger</span>
+					<span>1 x Пассажир</span>
 					<span>
 						{flight.currency} {flight.tariff.price}
 					</span>

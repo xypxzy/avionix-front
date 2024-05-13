@@ -12,6 +12,7 @@ import {
 	ticketBookSchema,
 } from '@/src/shared/types/schemas/ticketBook'
 import { IFlight } from '@/src/shared/types/topFlightsTypes'
+import { IFlightResponse, useFlightStore } from '@/src/stores/ticket.store'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { MoveRight } from 'lucide-react'
 import { useSession } from 'next-auth/react'
@@ -39,7 +40,8 @@ export function FlightsDetails({ id }: { id: string }) {
 	})
 	const [currentStep, setCurrentStep] = useState(0)
 	const [currentTab, setCurrentTab] = useState('details')
-	const { data } = useSession()
+	const session = useSession()
+	const { setFlightResult } = useFlightStore()
 
 	const form = useForm<ITicketBook>({
 		resolver: zodResolver(ticketBookSchema),
@@ -66,9 +68,14 @@ export function FlightsDetails({ id }: { id: string }) {
 		}
 	}
 
-	// TODO: add post request to ticket
-	const onSubmit = (formData: ITicketBook) => {
-		console.log(formData)
+	const onSubmit = async (formData: ITicketBook) => {
+		if (session.data?.user.accessToken) {
+			const response = await FlightService.addTicketBook(
+				session.data.user.accessToken,
+				formData
+			)
+			setFlightResult(response as IFlightResponse)
+		}
 	}
 
 	useEffect(() => {

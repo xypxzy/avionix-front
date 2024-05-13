@@ -34,7 +34,7 @@ export function FlightsBaggage({ flight, form }: FlightsBaggageProps) {
 				<Separator className='w-full' />
 				<div className='flex items-center justify-between p-4 px-8'>
 					<span>Зарегистрированный багаж</span>
-					<span>100$</span>
+					<span>100 {flight.currency}</span>
 					<span>до 20кг</span>
 					<Checkbox
 						checked={value}
@@ -48,9 +48,23 @@ export function FlightsBaggage({ flight, form }: FlightsBaggageProps) {
 					Price Details
 				</div>
 				<div className='flex items-center justify-between p-4 px-8'>
-					<span>1 x Passenger</span>
+					<span>1 x Пассажир</span>
 					<span>
 						{flight.currency} {flight.tariff.price}
+					</span>
+				</div>
+				{value && (
+					<div className='flex items-center justify-between p-4 px-8'>
+						<span>Зарегистрированный багаж</span>
+						<span>{flight.currency} 100</span>
+					</div>
+				)}
+				<Separator className='w-full px-8' />
+				<div className='flex items-center justify-between p-4 px-8'>
+					<span>Итого</span>
+					<span>
+						{flight.currency}{' '}
+						{value ? flight.tariff.price + 100 : flight.tariff.price}
 					</span>
 				</div>
 			</div>
