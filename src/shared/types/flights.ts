@@ -32,3 +32,14 @@ export interface ISearchFlight {
 	flights: FlightData[]
 	whyUS: IWhyUs[]
 }
+
+export interface ISeatDetails {
+	reservedSeats: string[]
+	airplane: {
+		make: string
+		model: string
+		cabin: string
+		seatRow: number
+		seatColumn: number
+	}
+}

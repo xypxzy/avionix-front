@@ -4,13 +4,16 @@ import {
 	IFlightPaymentLink,
 	IFlightQueryParams,
 	ISearchFlight,
+	ISeatDetails,
 } from '@/src/shared/types/flights'
+import { ITicketBook } from '@/src/shared/types/schemas/ticketBook'
 import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
 import {
 	FlightData,
 	IFlight,
 	IFlightDataResponse,
 } from '@/src/shared/types/topFlightsTypes'
+import axios from 'axios'
 
 const FLIGHT_URL = 'flight/api'
 
@@ -66,6 +69,32 @@ class FlightService {
 		return await client.get<ISearchFlight>(`${FLIGHT_URL}/trip/global`, {
 			params,
 		})
+	}
+
+	async getSeatDetails(id: string) {
+		return await client
+			.get<ISeatDetails>(`${FLIGHT_URL}/trip/seatDetails/${id}`)
+			.then(res => res.data)
+	}
+
+	async addTicketBook(accessToken: string, formData: ITicketBook) {
+		try {
+			const response = await client.post(
+				`${FLIGHT_URL}/ticket/book`,
+				JSON.stringify(formData),
+				{
+					headers: {
+						Authorization: accessToken,
+					},
+				}
+			)
+
+			return response.data
+		} catch (error: unknown) {
+			if (axios.isAxiosError(error)) {
+				throw new Error(error.response?.data.status)
+			}
+		}
 	}
 }
 
