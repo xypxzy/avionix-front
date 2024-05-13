@@ -7,7 +7,7 @@ export default function FlightDetailsPage({
 	params: { id: string }
 }) {
 	return (
-		<div className='min-h-svh'>
+		<div className='min-h-dvh'>
 			<FlightsBreadcrumbs />
 			<FlightsDetails id={params.id} />
 		</div>

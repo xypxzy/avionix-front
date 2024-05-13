@@ -1,17 +1,26 @@
 'use client'
-
-import FlightService from '@/src/services/api/flight-host'
-import { IFlight } from '@/src/shared/types/topFlightsTypes'
 import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import { format } from 'date-fns'
-import { CalendarDays } from 'lucide-react'
-import { useLocale } from 'next-intl'
-import Image from 'next/image'
+
 import Link from 'next/link'
-import { Button } from '../../ui/button'
-import { Separator } from '../../ui/separator'
-import { Skeleton } from '../../ui/skeleton'
+
+import { Button } from '@/src/components/ui/button'
+import { Skeleton } from '@/src/components/ui/skeleton'
+import FlightService from '@/src/services/api/flight-host'
+import {
+	ITicketBook,
+	TicketStep,
+	ticketBookSchema,
+} from '@/src/shared/types/schemas/ticketBook'
+import { IFlight } from '@/src/shared/types/topFlightsTypes'
+import { IFlightResponse, useFlightStore } from '@/src/stores/ticket.store'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { MoveRight } from 'lucide-react'
+import { useSession } from 'next-auth/react'
+import { useLocale } from 'next-intl'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { Tabs, TabsList, TabsTrigger } from '../../ui/tabs'
+import { RenderFormContent } from './RenderFormContent/RenderFormContent'
 
 export function FlightsDetails({ id }: { id: string }) {
 	const locale = useLocale()
@@ -22,165 +31,144 @@ export function FlightsDetails({ id }: { id: string }) {
 				lan: locale,
 			}),
 	})
-
-	const { data: paymentLink } = useQuery<{
+	const { data: payment } = useQuery<{
 		paymentLinkId: string
 		paymentLink: string
 	}>({
 		queryKey: ['flight-link'],
-		queryFn: async () => {
-			try {
-				const response = await axios.get(
-					`http://35.232.168.91:8072/avionix/flight/api/ticket/paymentLink?flightId=${flight?.id}&checkedBaggageIncluded=true`
-				)
-				return response.data
-			} catch (error) {
-				throw new Error(`Failed to fetch flight details: ${error}`)
-			}
+		queryFn: () => FlightService.getFlightLink(id, true),
+	})
+	const [currentStep, setCurrentStep] = useState(0)
+	const [currentTab, setCurrentTab] = useState('details')
+	const session = useSession()
+	const { setFlightResult } = useFlightStore()
+
+	const form = useForm<ITicketBook>({
+		resolver: zodResolver(ticketBookSchema),
+		defaultValues: {
+			flightId: id,
+			paymentLinkId: payment?.paymentLinkId,
+			checkedBaggageIncluded: false,
+			seat: '1C',
 		},
 	})
+
+	const next = () => {
+		if (currentStep < TicketStep.length - 1) {
+			setCurrentStep(step => step + 1)
+			if (currentStep === 0) {
+				setCurrentTab('seating')
+			}
+			if (currentStep === 1) {
+				setCurrentTab('baggage')
+			}
+			if (currentStep === 2) {
+				setCurrentTab('summary')
+			}
+		}
+	}
+
+	const onSubmit = async (formData: ITicketBook) => {
+		if (session.data?.user.accessToken) {
+			const response = await FlightService.addTicketBook(
+				session.data.user.accessToken,
+				formData
+			)
+			setFlightResult(response as IFlightResponse)
+		}
+	}
+
+	useEffect(() => {
+		if (payment?.paymentLinkId) {
+			form.setValue('paymentLinkId', payment?.paymentLinkId)
+		}
+	}, [payment?.paymentLinkId, form])
 
 	if (isLoading || !flight) {
 		return (
 			<div className='mt-5 flex gap-10 '>
-				<Skeleton className='h-96 w-3/5' />
+				<Skeleton className='h-[500px] w-3/5' />
 				<Skeleton className='h-64 w-2/5' />
 			</div>
 		)
 	}
 
 	return (
-		<div className='mt-5 flex w-full gap-10'>
-			<div className='w-3/5 rounded-md border-2'>
-				<div className='flex flex-1 gap-4 rounded-t-sm bg-primary p-4 px-8 text-base font-normal text-primary-foreground transition-all  sm:items-center'>
-					Ticket
+		<form onSubmit={form.handleSubmit(onSubmit)}>
+			<Tabs defaultValue={'details'} value={currentTab} className='w-full'>
+				<div className='mt-6 flex items-center justify-between'>
+					<TabsList className='h-12 sm:h-14'>
+						<TabsTrigger
+							value='details'
+							onClick={() => {
+								setCurrentStep(0)
+								setCurrentTab('details')
+							}}
+							className='text-xs sm:text-sm'
+						>
+							Ticket Details
+						</TabsTrigger>
+						<TabsTrigger
+							value='seating'
+							onClick={() => {
+								setCurrentStep(1)
+								setCurrentTab('seating')
+							}}
+							className='text-xs sm:text-sm'
+							disabled={currentStep < 1}
+						>
+							Seating
+						</TabsTrigger>
+						<TabsTrigger
+							value='baggage'
+							onClick={() => {
+								setCurrentStep(2)
+								setCurrentTab('baggage')
+							}}
+							className='text-xs sm:text-sm'
+							disabled={currentStep < 2}
+						>
+							Baggage
+						</TabsTrigger>
+						<TabsTrigger
+							value='summary'
+							onClick={() => {
+								setCurrentStep(3)
+								setCurrentTab('summary')
+							}}
+							className='text-xs sm:text-sm'
+							disabled={currentStep < 3}
+						>
+							Summary & Payment
+						</TabsTrigger>
+					</TabsList>
+					{currentStep === TicketStep.length - 1 ? (
+						<Link href={payment?.paymentLink || '#'}>
+							<Button
+								variant='default'
+								className='mt-5 flex w-fit gap-5 text-xs sm:text-sm'
+								disabled={!payment?.paymentLink}
+							>
+								Submit
+							</Button>
+						</Link>
+					) : (
+						<Button
+							variant='default'
+							className='mt-5 flex w-fit gap-5 text-xs sm:text-sm'
+							onClick={next}
+							type={currentStep === TicketStep.length - 2 ? 'submit' : 'button'}
+						>
+							Next
+							<MoveRight />
+						</Button>
+					)}
 				</div>
-				<div>
-					<div className='space-y-2 p-4 px-8'>
-						<p>В {flight?.to}</p>
-						<p className='flex items-center gap-3'>
-							<CalendarDays className='size-5' />
-							{format(
-								new Date(flight?.departureTrip.segments[0].takeoffAt || ''),
-								'MMMM dd yyyy'
-							)}
-						</p>
-						<div className='ml-6 flex flex-col gap-4'>
-							<span className='w-fit rounded-md border p-2 text-xs font-semibold'>
-								{flight?.tariff.cabin}
-							</span>
-							<span className='flex items-center gap-2'>
-								<span>
-									{format(
-										new Date(flight?.departureTrip.segments[0].takeoffAt || ''),
-										'hh:mm'
-									)}
-								</span>
-								<span className='flex flex-col'>
-									<span>{flight?.from}</span>
-									<span>
-										Airport {flight?.departureTrip.segments[0].takeoffIata}
-									</span>
-								</span>
-							</span>
-							<span className='flex items-end gap-5'>
-								<Image
-									src={flight?.airlineImageUrl!}
-									alt={'airline logo'}
-									width={80}
-									height={80}
-								/>
-								<p>{flight?.airline}</p>
-							</span>
-							<span className='flex items-center gap-2'>
-								<span>
-									{format(
-										new Date(flight?.returnTrip.segments[0].takeoffAt || ''),
-										'hh:mm'
-									)}
-								</span>
-								<span className='flex flex-col'>
-									<span>{flight?.to}</span>
-									<span>
-										Airport {flight?.returnTrip.segments[0].takeoffIata}
-									</span>
-								</span>
-							</span>
-						</div>
-					</div>
-					<Separator />
-					<div className='space-y-2 p-4 px-8'>
-						<p>В {flight?.from}</p>
-						<p className='flex items-center gap-3'>
-							<CalendarDays className='size-5' />
-							{format(
-								new Date(flight?.departureTrip.segments[0].arrivalAt || ''),
-								'MMMM dd yyyy'
-							)}
-						</p>
-						<div className='ml-6 flex flex-col gap-4'>
-							<span className='w-fit rounded-md border p-2 text-xs font-semibold'>
-								{flight?.tariff.cabin}
-							</span>
-							<span className='flex items-center gap-2'>
-								<span>
-									{format(
-										new Date(flight?.departureTrip.segments[0].arrivalAt || ''),
-										'hh:mm'
-									)}
-								</span>
-								<span className='flex flex-col'>
-									<span>{flight?.from}</span>
-									<span>
-										Airport {flight?.departureTrip.segments[0].arrivalIata}
-									</span>
-								</span>
-							</span>
-							<span className='flex items-end gap-5'>
-								<Image
-									src={flight?.airlineImageUrl!}
-									alt={'airline logo'}
-									width={80}
-									height={80}
-								/>
-								<p>{flight?.airline}</p>
-							</span>
-							<span className='flex items-center gap-2'>
-								<span>
-									{format(
-										new Date(flight?.returnTrip.segments[0].arrivalAt || ''),
-										'hh:mm'
-									)}
-								</span>
-								<span className='flex flex-col'>
-									<span>{flight?.to}</span>
-									<span>
-										Airport {flight?.returnTrip.segments[0].arrivalIata}
-									</span>
-								</span>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div className='h-fit w-2/5'>
-				<div className='rounded-md border-2'>
-					<div className='flex flex-1 gap-4 rounded-t-sm bg-primary p-4 px-8 text-base font-normal text-primary-foreground transition-all sm:items-center'>
-						Price Details
-					</div>
-					<div className='flex items-center justify-between p-4 px-8'>
-						<span>1 x Passenger</span>
-						<span>
-							{flight.currency} {flight.tariff.price}
-						</span>
-					</div>
-				</div>
-				<Link href={paymentLink?.paymentLink || '#'}>
-					<Button variant='default' className='mt-5 w-full'>
-						Купить
-					</Button>
-				</Link>
-			</div>
-		</div>
+				{currentStep === 0 && RenderFormContent(0, flight, form)}
+				{currentStep === 1 && RenderFormContent(1, flight, form)}
+				{currentStep === 2 && RenderFormContent(2, flight, form)}
+				{currentStep === 3 && RenderFormContent(3, flight, form)}
+			</Tabs>
+		</form>
 	)
 }
