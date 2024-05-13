@@ -3,6 +3,7 @@ import {
 	IFlightCity,
 	IFlightPaymentLink,
 	IFlightQueryParams,
+	ISearchFlight,
 } from '@/src/shared/types/flights'
 import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
 import {
@@ -59,6 +60,12 @@ class FlightService {
 		return await client.get<ISpecialDealsDataType[]>(
 			`${FLIGHT_URL}/article/specialDeal?lan=${lan}`
 		)
+	}
+
+	async getFlightsSearch(params: IFlightQueryParams) {
+		return await client.get<ISearchFlight>(`${FLIGHT_URL}/trip/global`, {
+			params,
+		})
 	}
 }
 

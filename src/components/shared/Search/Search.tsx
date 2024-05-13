@@ -2,16 +2,30 @@
 
 import { Button } from '@/src/components/ui/button'
 import { Input } from '@/src/components/ui/input'
+import { IFlightQueryParams } from '@/src/shared/types/flights'
+import { Locale } from '@/src/shared/types/i18n'
+import { useSearchStore } from '@/src/stores/search.store'
 import { SearchIcon } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 
 const Search = () => {
-	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+	const { locale } = useParams()
+	const { fetchSearchResult } = useSearchStore()
+
+	const router = useRouter()
+	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 
 		const formData = new FormData(e.currentTarget)
-		const searchInput = formData.get('search')
-		console.log(searchInput)
+		const searchInput = formData.get('search') as string
+		const queryParams = new URLSearchParams({
+			lan: (locale as Locale) || 'en',
+			text: searchInput,
+		}) as IFlightQueryParams
+		await fetchSearchResult(queryParams).then(() => {
+			router.push('/search')
+		})
 	}
 
 	return (
