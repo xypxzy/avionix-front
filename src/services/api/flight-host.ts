@@ -4,6 +4,7 @@ import {
 	IFlightPaymentLink,
 	IFlightQueryParams,
 	ISearchFlight,
+	ISeatDetails,
 } from '@/src/shared/types/flights'
 import { ISpecialDealsDataType } from '@/src/shared/types/specialDealsTypes'
 import {
@@ -66,6 +67,12 @@ class FlightService {
 		return await client.get<ISearchFlight>(`${FLIGHT_URL}/trip/global`, {
 			params,
 		})
+	}
+
+	async getSeatDetails(id: string) {
+		return await client
+			.get<ISeatDetails>(`${FLIGHT_URL}/trip/seatDetails/${id}`)
+			.then(res => res.data)
 	}
 }
 
