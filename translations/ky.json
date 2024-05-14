@@ -4,6 +4,61 @@
 			"message": "Тилди тандаңыз"
 		}
 	},
+	"authBtn": {
+		"login": "Кирүү",
+		"signup": "Катталуу",
+		"myaccount": "Менин аккаунтум",
+		"profile": "Профиль",
+		"signout": "Чыгуу"
+	},
+	"userProfile": {
+		"breadCamp": {
+			"home": "Башкы бет",
+			"account": "Аккаунт"
+		},
+		"nav": {
+			"generalInfo": "Жалпы маалымат",
+			"booking": "Брондоо",
+			"flightHistory": "Учуу тарыхы"
+		},
+		"generalInfo": {
+			"personalDetails": {
+				"title": "Жеке маалыматтар",
+				"firstName": "Аты",
+				"lastName": "Фамилиясы",
+				"nationality": {
+					"title": "Улуту",
+					"kyrgyz": "кыргыз",
+					"russian": "орус",
+					"turkish": "түрк",
+					"english": "англис"
+				},
+				"gender": {
+					"title": "Жынысы",
+					"male": "Эркек",
+					"female": "Аял"
+				},
+				"dateOfBirth": "Туулган күнү",
+				"passport": "Паспорт же ID номери",
+				"passportExpirationDate": "Паспорт же ID жарактуулук мөөнөтү",
+				"phone": "Телефон",
+				"email": "Электрондук почта",
+				"button": "Өзгөрүүлөрдү сактоо"
+			},
+			"profile": {
+				"title": "Профиль",
+				"upload": "Сүрөттү жүктөө",
+				"remove": "Сүрөттү өчүрүү",
+				"delete": "Аккаунтту жок кылуу"
+			},
+			"currencyAndLanguage": {
+				"title": "Валюта жана тил",
+				"currency": "Валюта",
+				"language": "Тил",
+				"button": "Өзгөрүүлөрдү сактоо"
+			}
+		}
+	},
 	"hero": {
 		"home-title": "Дүйнөнү ачыңыз",
 		"home-desc": "Биз менен саякаттаңыз"

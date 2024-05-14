@@ -4,6 +4,61 @@
 			"message": "Choose a language."
 		}
 	},
+	"authBtn": {
+		"login": "Log In",
+		"signup": "Sign Up",
+		"myaccount": "My Account",
+		"profile": "Profile",
+		"signout": "Sign Out"
+	},
+	"userProfile": {
+		"breadCamp": {
+			"home": "Home",
+			"account": "Account"
+		},
+		"nav": {
+			"generalInfo": "General info",
+			"booking": "Booking",
+			"flightHistory": "Flight history"
+		},
+		"generalInfo": {
+			"personalDetails": {
+				"title": "Personal Details",
+				"firstName": "First name",
+				"lastName": "Last name",
+				"nationality": {
+					"title": "Nationality",
+					"kyrgyz": "kyrgyz",
+					"russian": "russian",
+					"turkish": "turkish",
+					"english": "english"
+				},
+				"gender": {
+					"title": "Gender",
+					"male": "Male",
+					"female": "Female"
+				},
+				"dateOfBirth": "Date of Birth",
+				"passport": "Passport or ID number",
+				"passportExpirationDate": "Passport or ID expiration date",
+				"phone": "Phone",
+				"email": "Email",
+				"button": "Save changes"
+			},
+			"profile": {
+				"title": "Profile",
+				"upload": "Upload photo",
+				"remove": "Remove photo",
+				"delete": "Delete account"
+			},
+			"currencyAndLanguage": {
+				"title": "Currency & Language",
+				"currency": "Currency",
+				"language": "Language",
+				"button": "Save changes"
+			}
+		}
+	},
 	"hero": {
 		"home-title": "Discover The World",
 		"home-desc": "Travel with us"
