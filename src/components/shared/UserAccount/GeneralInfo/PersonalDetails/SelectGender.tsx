@@ -10,7 +10,6 @@ export const SelectGender = () => {
         return null
     }
     return (
-        <>
             <div className={`w-full space-y-2`}>
                 <Label>{t('gender.title')}</Label>
                 <Select>
@@ -25,6 +24,5 @@ export const SelectGender = () => {
                     </SelectContent>
                 </Select>
             </div>
-        </>
     )
 }
