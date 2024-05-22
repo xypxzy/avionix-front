@@ -19,6 +19,7 @@ const Search = () => {
 
 		const formData = new FormData(e.currentTarget)
 		const searchInput = formData.get('search') as string
+		console.log('formdata: ', formData)
 		const queryParams = new URLSearchParams({
 			lan: (locale as Locale) || 'en',
 			text: searchInput,

@@ -61,7 +61,7 @@ export default function FlightForm() {
 			destination: '',
 			tripType: 'one way',
 			date: {
-				from: new Date(),
+				from: undefined,
 				to: undefined,
 			},
 			passengers: '1',
@@ -87,7 +87,6 @@ export default function FlightForm() {
 
 	function onSubmit(values: z.infer<typeof flightFormSchema>) {
 		const queryParams = new URLSearchParams(searchParams.toString())
-
 		if (values.departure) {
 			queryParams.set('origin', values.departure)
 		}
@@ -101,7 +100,7 @@ export default function FlightForm() {
 			)
 		}
 		if (values.date && values.date.from) {
-			queryParams.set('departureDate', format(values.date.from, 'yyyy-MM-dd'))
+			queryParams.set('departureDate', '2024-04-20')
 		}
 		if (values.date && values.date.to) {
 			queryParams.set('returnDate', format(values.date.to, 'yyyy-MM-dd'))
@@ -109,7 +108,7 @@ export default function FlightForm() {
 		if (values.passengers) {
 			queryParams.set('adults', values.passengers)
 		}
-
+		console.log('quey: ', queryParams.toString())
 		router.push(`/flights/?${queryParams.toString()}`)
 	}
 
@@ -256,9 +255,7 @@ export default function FlightForm() {
 												!field.value && 'text-muted-foreground'
 											)}
 										>
-											{field.value ? (
-												format(field.value, 'dd MMM yyyy')
-											) : (
+											{field.value ? ('2024-04-20') : (
 												<span>Pick a date</span>
 											)}
 											<CalendarIcon className='ml-auto size-4 opacity-50' />

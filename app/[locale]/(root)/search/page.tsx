@@ -2,11 +2,14 @@
 
 import { FaqAccordion } from '@/src/components/shared/FAQ-section/FaqAccordion/FaqAccrodion'
 import { useSearchStore } from '@/src/stores/search.store'
+import {useEffect} from "react";
 
 export default function SearchPage() {
 	const { searchResult } = useSearchStore()
 
-	console.log(searchResult)
+	useEffect(() => {
+		console.log('search res: ', searchResult)
+	}, []);
 
 	return (
 		searchResult?.faqs && (
