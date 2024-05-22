@@ -14,29 +14,35 @@ import {GeneralInfo} from "@/src/components/shared/UserAccount/GeneralInfo/Gener
 import {Booking} from "@/src/components/shared/UserAccount/Booking/Booking";
 import {FlightHistory} from "@/src/components/shared/UserAccount/FlightHistory/FlightHistory";
 import {useTranslations} from "next-intl";
-import {useLayoutEffect} from "react";
+import {useEffect, useLayoutEffect} from "react";
 import {useSession} from "next-auth/react";
 import {ProfileSkeleton} from "@/src/components/shared/UserAccount/UserAccountSkeleton/Profile.skeleton";
 import {redirect} from "next/navigation";
 
 export default function Profile() {
-    const {isLoading} = useUserStore()
-    const session = useSession()
+    const {isLoading, user, fetchUser} = useUserStore()
+    const {data: session, status} = useSession()
     const t = useTranslations('userProfile')
 
     useLayoutEffect(() => {
-        if(!session.data?.user.accessToken){
+        if (status === 'unauthenticated') {
             redirect("/")
         }
-    }, [])
+    }, [status])
 
-    if (isLoading) {
+    useEffect(() => {
+        if (status === 'authenticated' && !user) {
+            fetchUser(session.user.accessToken || '')
+        }
+    }, [status, session, user, fetchUser]);
+
+    if (isLoading || status === 'loading') {
         return <ProfileSkeleton/>
     }
 
     return (
         <>
-            <div className={`my-4`}>
+            <div className="my-4">
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -51,14 +57,14 @@ export default function Profile() {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <div className={`w-full`}>
+            <div className="w-full">
                 <Tabs defaultValue="g-info" className="w-full">
                     <TabsList className="grid max-w-[500px] grid-cols-3">
                         <TabsTrigger value="g-info">{t('nav.generalInfo')}</TabsTrigger>
                         <TabsTrigger value="booking">{t('nav.booking')}</TabsTrigger>
                         <TabsTrigger value="flights">{t('nav.flightHistory')}</TabsTrigger>
                     </TabsList>
-                    <TabsContent value="g-info" className={`w-full`}>
+                    <TabsContent value="g-info" className="w-full">
                         <GeneralInfo/>
                     </TabsContent>
                     <TabsContent value="booking">
@@ -72,5 +78,3 @@ export default function Profile() {
         </>
     )
 }
-
-
