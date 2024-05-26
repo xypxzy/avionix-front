@@ -23,17 +23,14 @@ export default function Profile() {
     const {isLoading} = useUserStore()
     const session = useSession()
     const t = useTranslations('userProfile')
-
     useLayoutEffect(() => {
         if(!session.data?.user.accessToken){
             redirect("/")
         }
     }, [])
-
     if (isLoading) {
         return <ProfileSkeleton/>
     }
-
     return (
         <>
             <div className={`my-4`}>
