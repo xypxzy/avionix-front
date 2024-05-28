@@ -11,7 +11,6 @@ export const SelectPhoneEmail = () => {
         return null
     }
     return (
-        <>
             <div className={`flex gap-10`}>
                 <div className={`w-full space-y-2`}>
                     <Label htmlFor="name">{t('phone')}</Label>
@@ -22,6 +21,5 @@ export const SelectPhoneEmail = () => {
                     <Input id="email" value={user.email} onChange={() => null}/>
                 </div>
             </div>
-        </>
     )
 }
