@@ -50,7 +50,7 @@ const flightFormSchema = z.object({
 })
 
 export default function FlightForm() {
-	const { data: cities } = useQuery<IFlightCity[]>({
+	const { data: cities , refetch } = useQuery<IFlightCity[]>({
 		queryKey: ['flights-city'],
 		queryFn: () => FlightService.getCities({ lan: 'en' }),
 	})
@@ -85,7 +85,7 @@ export default function FlightForm() {
 		form.reset(form.getValues())
 	}
 
-	function onSubmit(values: z.infer<typeof flightFormSchema>) {
+	async function onSubmit(values: z.infer<typeof flightFormSchema>) {
 		const queryParams = new URLSearchParams(searchParams.toString())
 
 		if (values.departure) {
@@ -111,6 +111,7 @@ export default function FlightForm() {
 		}
 
 		router.push(`/flights/?${queryParams.toString()}`)
+		await refetch()
 	}
 
 	return (
