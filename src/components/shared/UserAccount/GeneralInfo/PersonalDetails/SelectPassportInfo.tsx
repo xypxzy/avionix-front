@@ -16,7 +16,6 @@ export const SelectPassportInfo = () => {
     }
 
     return (
-        <>
             <div className={`flex gap-10`}>
                 <div className={`w-full space-y-2`}>
                     <Label htmlFor="passportId">{t('passport')}</Label>
@@ -37,6 +36,5 @@ export const SelectPassportInfo = () => {
                     </div>
                 </div>
             </div>
-        </>
     );
 };

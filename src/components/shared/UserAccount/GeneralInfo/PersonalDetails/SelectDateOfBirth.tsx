@@ -15,7 +15,6 @@ export const SelectDateOfBirth = () => {
         return null
     }
     return (
-        <>
             <div className={`w-full max-w-[353px] space-y-2`}>
                 <Label htmlFor="name">{t('dateOfBirth')}</Label>
                 <div className={`flex`}>
@@ -29,6 +28,5 @@ export const SelectDateOfBirth = () => {
                            onChange={() => null}/>
                 </div>
             </div>
-        </>
     )
 }
