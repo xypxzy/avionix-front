@@ -9,6 +9,7 @@ import { RegisterFieldName, RegisterInputs } from '@/src/shared/types/auth'
 import { registerFormSchema } from '@/src/shared/types/schemas/registerSchema'
 import { cn } from '@/src/shared/utils/classnames'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { RegisterFormStep } from './RegisterFormStep'
@@ -40,7 +41,9 @@ export default function RegisterForm() {
 				return
 			}
 
-			await AuthService.register(formData)
+			await AuthService.register(formData).then(() => {
+				redirect('/login')
+			})
 		} catch (error) {
 			console.error('Error registering customer:', error)
 		}

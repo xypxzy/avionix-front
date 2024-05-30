@@ -57,7 +57,7 @@ class AdminService {
 	public async postUnblockAccount(id: string, accessToken: string) {
 		try {
 			const response = await client.patch(
-				`${ADMIN_URL}unblock/${id}`,
+				`${ADMIN_URL}unlock/${id}`,
 				{},
 				{
 					headers: { Authorization: accessToken },
