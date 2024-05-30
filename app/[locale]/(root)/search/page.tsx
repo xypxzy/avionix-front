@@ -1,20 +1,21 @@
 'use client'
-
-import { FaqAccordion } from '@/src/components/shared/FAQ-section/FaqAccordion/FaqAccrodion'
 import { useSearchStore } from '@/src/stores/search.store'
+import FlightsCard from "@/src/components/shared/FlightsTicket/FlightsCard";
 
 export default function SearchPage() {
 	const { searchResult } = useSearchStore()
 
-	console.log(searchResult)
-
 	return (
-		searchResult?.faqs && (
-			<div>
-				{searchResult?.faqs.length > 0 && (
-					<FaqAccordion faqList={searchResult?.faqs} />
-				)}
-			</div>
-		)
+		<div className='mt-6 flex flex-col gap-5'>
+			{searchResult?.flights &&
+				searchResult.flights.map((flight, index:number) => (
+					<div
+						key={index}
+						className='rounded-md border border-primary bg-white p-5'
+					>
+						<FlightsCard flight={flight} />
+					</div>
+				))}
+		</div>
 	)
 }
