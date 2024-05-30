@@ -8,16 +8,26 @@ import {
 	DropdownMenuTrigger,
 } from '@/src/components/ui/dropdown-menu'
 import { LinkEnum } from '@/src/shared/utils/route'
-import {LogIn, User} from 'lucide-react'
+import { LogIn, User } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import {useTranslations} from "next-intl";
+import { useEffect, useState } from 'react'
 
 export default function UserMenu() {
 	const t = useTranslations('authBtn')
-	const session = useSession()
+	const { data: session, status } = useSession()
+	const [link, setLink] = useState('')
 
-	if (session.status === 'unauthenticated') {
+	useEffect(() => {
+		if (session?.user && session.user.roles.split(',').includes('ROLE_ADMIN')) {
+			setLink('admin')
+		} else {
+			setLink('profile')
+		}
+	}, [session])
+
+	if (status === 'unauthenticated') {
 		return (
 			<DropdownMenu>
 				<DropdownMenuTrigger aria-label='account info'>
@@ -25,14 +35,10 @@ export default function UserMenu() {
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem>
-						<Link href={LinkEnum.Login}>
-							{t('login')}
-						</Link>
+						<Link href={LinkEnum.Login}>{t('login')}</Link>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						<Link href={LinkEnum.SignUp}>
-							{t('signup')}
-						</Link>
+						<Link href={LinkEnum.SignUp}>{t('signup')}</Link>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
@@ -48,11 +54,11 @@ export default function UserMenu() {
 				<DropdownMenuLabel>{t('myaccount')}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
-					<Link href={'/profile'}>
-						{t('profile')}
+					<Link href={`/${link}`}>
+						{link === 'admin' ? 'Admin' : t('profile')}
 					</Link>
 				</DropdownMenuItem>
-				{session.status === 'authenticated' ? (
+				{status === 'authenticated' ? (
 					<DropdownMenuItem onClick={() => signOut()}>
 						{t('signout')}
 					</DropdownMenuItem>
