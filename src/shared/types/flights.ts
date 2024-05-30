@@ -1,7 +1,7 @@
 import { IComments } from './commentsTypes'
 import { IFaq, IWhyUs } from './discovery'
 import { ISpecialDealsDataType } from './specialDealsTypes'
-import { FlightData } from './topFlightsTypes'
+import {FlightData, IFlight} from './topFlightsTypes'
 
 export interface IFlightCity {
 	code: string
@@ -29,7 +29,7 @@ export interface ISearchFlight {
 	specialDeals: ISpecialDealsDataType[]
 	comments: IComments[]
 	faqs: IFaq[]
-	flights: FlightData[]
+	flights: IFlight[]
 	whyUS: IWhyUs[]
 }
 
